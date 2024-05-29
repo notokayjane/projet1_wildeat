@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color:#f2e8cc;
+    --secondary-color:#99bd05;
+    --third-color:#236130;
+    --fourth-color:#de3891;
+    --title-font: 'Poetsen One', sans-serif;
+    --subtitle-font:'subjectivity', sans-serif;
+    --main-font:'space mono', sans-serif;
+
+}
+
+body > h1{
+    font-family: var(--title-font);
+}
+
+body > h2{
+    font-family: var(--subtitle-font);
+}
+
+body > p{
+    font-family:var(--main-font);
+
+}
+
