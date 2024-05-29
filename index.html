@@ -12,16 +12,57 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    
                 
 </head>
 
 <body>
-    <h1>Ceci est un titre principal</h1>
-    <h2>Ceci est un titre secondaire</h2>
-    <p>Lorem ipsum dolor sit amet consectetur 
-        adipisicing elit. Ut, temporibus, mollitia error obcaecati, 
-        nihil animi facilis earum facere cum labore laborum quisquam debitis 
-        aliquam possimus architecto neque assumenda commodi reprehenderit!</p>
+    <header>
+        <nav>
+            <img class="logo" src="/Img-Projet/Spice_Odyssey_3.png" alt="Logo de Spice Odyssey">
+            <h1> Spice Odyssey</h1>
+            <div id="mySidenav" class="sidenav">
+              <a id="closeBtn" href="#" class="close">x</a>
+                <ul>
+                  <li><a href="#">A propos</a></li>
+                    <li><a href="#">Les villes</a></li>
+                        <ul class="sous">
+                        <li><a href="#">Paris</a></li>
+                        <li><a href="#">Lyon</a></li>
+                        <li><a href="#">Bordeaux</a></li>
+                        <li><a href="#">Montpellier</a></li>
+                    </ul></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <a href="#" id="openBtn">
+              <span class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </a>
+        </nav>
+        <div class="search">
+        <section class="filtres">
+            <h2> Filtres </h2>
+                <ul class="sous">
+                <li>Francais</li>
+                <li>Italien</li>
+                <li>Japonais</li>
+                <li>Thai</li>
+                <li>Coreen</li>
+                <li>Peruvien</li>
+                <li>Turc</li>
+            </ul>
+        </section>
+            <section class="research">
+            <label for="site-search">Search the site:</label>
+            <input type="search" id="site-search" name="q" />
+            
+            <button>Search</button>
+            </section>
+        </div>
+    </header>
+    <script src="/Users/davido/Desktop/Projet-1/spice_odyssey/script 15.46.31.js"></script>
 </body>
 </html>
