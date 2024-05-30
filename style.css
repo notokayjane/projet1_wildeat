@@ -12,19 +12,62 @@
     --title-font: 'Poetsen One', sans-serif;
     --subtitle-font:'subjectivity', sans-serif;
     --main-font:'space mono', sans-serif;
-
 }
 
-body > h1{
-    font-family: var(--title-font);
+body {
+    font-family: var(--main-font);
+    background-color: var(--main-color);
 }
 
-body > h2{
+body > main > MAP > iframe {
+    width: 100vw;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+.vignette-restaurant{
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 1rem 0.5rem;
+    border-radius: 16px;
+}
+
+.vignette-restaurant > img{
+    width: 40vw;
+    border-radius: 12px;
+}
+
+.restaurant-name{
     font-family: var(--subtitle-font);
+    color: var(--main-color);
+}
+.restaurant-description{
+    color: black;
+    font-weight: 500;
+    max-width: 25ch;
+    font-size: small;
+    /* max-height: 7ch;
+    text-overflow: ellipsis; */
+}
+.restaurant-note{
+    color: var(--main-color);
+}
+.restaurant-link{
+    color: black;
+    font-weight: 500;
 }
 
-body > p{
-    font-family:var(--main-font);
-
+footer{
+    background-color: var(--fourth-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.3rem;
+    color: var(--main-color);
+    font-size: small;
 }
-
