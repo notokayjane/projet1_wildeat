@@ -123,12 +123,10 @@ body > main > MAP > iframe {
     margin: 1rem 0.5rem;
     border-radius: 16px;
 }
-
 .vignette-restaurant > img{
     width: 40vw;
     border-radius: 12px;
 }
-
 .restaurant-name{
     font-family: var(--subtitle-font);
     color: var(--main-color);
@@ -138,11 +136,49 @@ body > main > MAP > iframe {
     font-weight: 500;
     max-width: 25ch;
     font-size: small;
-    /* max-height: 7ch;
-    text-overflow: ellipsis; */
+/* Limitation des cases de description et overflow */
+    --max-lines:4;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-lines);
+    background-color: var(--main-color);
+    border-radius: 8px;
 }
+.restaurant-description:has(+ .expand-button:checked){
+  --max-lines:20;
+}
+.expand-button{
+  appearance: none;
+  background-color: var(--fourth-color);
+  color: var(--main-color);
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  box-shadow: 0.1rem 0.1rem 2px var(--third-color);
+  transition: transform 100ms ease-in-out;
+}
+.expand-button:hover{
+  background-color: white;
+  color: #111;
+  transform: scale(1.1);
+}
+.expand-button::before{
+  content: "Afficher plus";
+}
+.expand-button:checked:before{
+  content: "Afficher moins";
+}
+/* Fin de la partie sur l'overflow */
+
 .restaurant-note{
-    color: var(--main-color);
+    color: black;
+}
+.checked {
+  color: orange;
 }
 .restaurant-link{
     color: black;
@@ -159,6 +195,5 @@ footer{
     gap: 0.3rem;
     color: var(--main-color);
     font-size: small;
-
 }
 
