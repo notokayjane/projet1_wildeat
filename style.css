@@ -5,7 +5,6 @@
 }
 
 :root{
-
   --main-color:#f2e8cc;
   --secondary-color:#99bd05;
   --third-color:#236130;
@@ -13,64 +12,14 @@
   --title-font: 'Poetsen One', sans-serif;
   --subtitle-font:'subjectivity', sans-serif;
   --main-font:'space mono', sans-serif;
-
-}
-body {
-    font-family: var(--main-font);
-    background-color: var(--main-color);
-} 
-
-
-body > main > MAP > iframe {
-    height: 250px;
-    width: 100vw;
-    margin: 0px;
-    border-radius: 16px;
 }
 
-.vignette-restaurant{
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    margin: 1rem 0.5rem;
-    border-radius: 16px;
-}
-
-.vignette-restaurant > img{
-    width: 40vw;
-    border-radius: 12px;
-}
-
-.restaurant-name{
-    font-family: var(--subtitle-font);
-    color: var(--main-color);
-}
-.restaurant-description{
-    color: black;
-    font-weight: 500;
-    max-width: 25ch;
-    font-size: small;
-    /* max-height: 7ch;
-    text-overflow: ellipsis; */
-}
-.restaurant-note{
-    color: var(--main-color);
-}
-.restaurant-link{
-    color: black;
-    font-weight: 500;
-}
 /*Header*/
-
-
 header {
   background-color: var(--secondary-color);
 }
 .logo {
 width: 6rem;
-
 }
 
 nav {
@@ -83,12 +32,10 @@ nav {
   background-size: cover;
 }
 
-
 .search {
   display : flex;
   justify-content : space-around;
   flex-direction : row;
-  
 }
 
 .sous {
@@ -153,7 +100,56 @@ nav {
 
 
 /*Fin du menu burger*/
+body {
+    font-family: var(--main-font);
+    background-color: var(--main-color);
+} 
 
+/* Carte interactive */
+body > main > MAP > iframe {
+    height: 250px;
+    width: 100vw;
+    margin: 0px;
+    border-radius: 16px;
+}
+
+/* Vignette du restaurant et son contenu */
+.vignette-restaurant{
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 1rem 0.5rem;
+    border-radius: 16px;
+}
+
+.vignette-restaurant > img{
+    width: 40vw;
+    border-radius: 12px;
+}
+
+.restaurant-name{
+    font-family: var(--subtitle-font);
+    color: var(--main-color);
+}
+.restaurant-description{
+    color: black;
+    font-weight: 500;
+    max-width: 25ch;
+    font-size: small;
+    /* max-height: 7ch;
+    text-overflow: ellipsis; */
+}
+.restaurant-note{
+    color: var(--main-color);
+}
+.restaurant-link{
+    color: black;
+    font-weight: 500;
+}
+
+/* Bas de page */
 footer{
     background-color: var(--fourth-color);
     display: flex;
