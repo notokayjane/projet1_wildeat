@@ -122,11 +122,45 @@ body > main > MAP > iframe {
     padding: 0.5rem;
     margin: 1rem 0.5rem;
     border-radius: 16px;
+    gap: 0.5rem;
+    height: auto;
 }
-.vignette-restaurant > img{
-    width: 40vw;
-    border-radius: 12px;
+/* Images et photos */
+.mySlides{
+  display: none;
+  width: 100%;
+  height: max-content;
 }
+.image-restaurant{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: ;
+}
+/* Boutons pour slider */
+.slide-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex 
+}
+
+.select-button{
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  cursor: pointer;
+  background-color:#ffffff;
+  color:#fff;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+}
+
+.select-button:hover{
+  background-color: var(--fourth-color);
+}
+
+/* Contenu et descriptions */
 .restaurant-name{
     font-family: var(--subtitle-font);
     color: var(--main-color);
@@ -136,7 +170,7 @@ body > main > MAP > iframe {
     font-weight: 500;
     max-width: 25ch;
     font-size: small;
-/* Limitation des cases de description et overflow */
+  /* Limitation des cases de description et overflow */
     --max-lines:4;
     display: -webkit-box;
     overflow: hidden;
@@ -144,6 +178,7 @@ body > main > MAP > iframe {
     -webkit-line-clamp: var(--max-lines);
     background-color: var(--main-color);
     border-radius: 8px;
+    min-width: 45vw;
 }
 .restaurant-description:has(+ .expand-button:checked){
   --max-lines:20;
@@ -172,14 +207,12 @@ body > main > MAP > iframe {
 .expand-button:checked:before{
   content: "Afficher moins";
 }
-/* Fin de la partie sur l'overflow */
+  /* Fin de la partie sur l'overflow */
 
 .restaurant-note{
     color: black;
 }
-.checked {
-  color: orange;
-}
+
 .restaurant-link{
     color: black;
     font-weight: 500;
