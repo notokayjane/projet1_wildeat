@@ -18,8 +18,9 @@
 header {
   background-color: var(--secondary-color);
 }
+
 .logo {
-width: 6rem;
+  width: 6rem;
 }
 
 nav {
@@ -41,6 +42,7 @@ nav {
 .sous {
   display: none;
 }
+
 /* Menu Burger*/
 /* Sidenav menu */
 .sidenav {
@@ -96,21 +98,22 @@ nav {
   background-color: black;
   margin: 6px 0;
 }
+
 /*Sous menu burger (Les villes)*/
 
 
 /*Fin du menu burger*/
 body {
-    font-family: var(--main-font);
-    background-color: var(--main-color);
-} 
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+}
 
 /* Carte interactive */
 body > main > MAP > iframe {
-    height: 250px;
-    width: 100vw;
-    margin: 0px;
-    border-radius: 16px;
+  height: 250px;
+  width: 100vw;
+  margin: 0px;
+  border-radius: 16px;
 }
 
 /* Vignette du restaurant et son contenu */
@@ -127,7 +130,9 @@ body > main > MAP > iframe {
 }
 /* Images et photos */
 .mySlides{
- /* display: ;*/
+
+/*  display: ;*/
+
   width: 100%;
   height: max-content;
 }
@@ -135,14 +140,16 @@ body > main > MAP > iframe {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /*height: ;*/
+
+ /* height: ;*/
+
 }
 /* Boutons pour slider */
 .slide-buttons{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
+main
 }
 
 .select-button{
@@ -162,10 +169,11 @@ body > main > MAP > iframe {
 
 /* Contenu et descriptions */
 .restaurant-name{
-    font-family: var(--subtitle-font);
-    color: var(--main-color);
+  font-family: var(--subtitle-font);
+  color: var(--main-color);
 }
 .restaurant-description{
+
     color: black;
     font-weight: 500;
     max-width: 25ch;
@@ -214,13 +222,12 @@ body > main > MAP > iframe {
 }
 
 .restaurant-link{
-    color: black;
-    font-weight: 500;
+  color: black;
+  font-weight: 500;
 }
 
 /* Bas de page */
 footer{
-    background-color: var(--fourth-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,8 +235,12 @@ footer{
     gap: 0.3rem;
     color: var(--main-color);
     font-size: small;
+    background-color: #F2E8CC;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23DE3891'/%3E%3Cstop offset='1' stop-color='%23F2E8CC'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23F2E8CC' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23F2E8CC' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
 }
 
+purple
 /*Page A propos*/
 .intro {
   display: flex;
@@ -280,4 +291,5 @@ h3 {
 }
 .reason {
   font-size: medium;
+
 }
