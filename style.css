@@ -18,8 +18,9 @@
 header {
   background-color: var(--secondary-color);
 }
+
 .logo {
-width: 6rem;
+  width: 6rem;
 }
 
 nav {
@@ -41,6 +42,7 @@ nav {
 .sous {
   display: none;
 }
+
 /* Menu Burger*/
 /* Sidenav menu */
 .sidenav {
@@ -96,21 +98,22 @@ nav {
   background-color: black;
   margin: 6px 0;
 }
+
 /*Sous menu burger (Les villes)*/
 
 
 /*Fin du menu burger*/
 body {
-    font-family: var(--main-font);
-    background-color: var(--main-color);
-} 
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+}
 
 /* Carte interactive */
 body > main > MAP > iframe {
-    height: 250px;
-    width: 100vw;
-    margin: 0px;
-    border-radius: 16px;
+  height: 250px;
+  width: 100vw;
+  margin: 0px;
+  border-radius: 16px;
 }
 
 /* Vignette du restaurant et son contenu */
@@ -161,10 +164,11 @@ body > main > MAP > iframe {
 
 /* Contenu et descriptions */
 .restaurant-name{
-    font-family: var(--subtitle-font);
-    color: var(--main-color);
+  font-family: var(--subtitle-font);
+  color: var(--main-color);
 }
 .restaurant-description{
+
     color: black;
     font-weight: 500;
     max-width: 25ch;
@@ -213,13 +217,13 @@ body > main > MAP > iframe {
 }
 
 .restaurant-link{
-    color: black;
-    font-weight: 500;
+  color: black;
+  font-weight: 500;
 }
 
 /* Bas de page */
 footer{
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
@@ -231,3 +235,5 @@ footer{
     background-attachment: fixed;
 }
 
+
+}
