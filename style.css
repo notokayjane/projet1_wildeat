@@ -127,7 +127,7 @@ body > main > MAP > iframe {
 }
 /* Images et photos */
 .mySlides{
-  display: none;
+  display: ;
   width: 100%;
   height: max-content;
 }
