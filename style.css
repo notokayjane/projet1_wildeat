@@ -130,7 +130,9 @@ body > main > MAP > iframe {
 }
 /* Images et photos */
 .mySlides{
+
 /*  display: ;*/
+
   width: 100%;
   height: max-content;
 }
@@ -138,24 +140,27 @@ body > main > MAP > iframe {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
  /* height: ;*/
+
 }
 /* Boutons pour slider */
 .slide-buttons{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+main
 }
 
 .select-button{
   height: 13px;
-  width: 13px;
-  padding: 0;
+  width : 13px;
+  padding : 0;
   cursor: pointer;
-  background-color:#ffffff;
-  color:#fff;
-  border-radius: 50%;
-  margin-top: 0.5rem;
+  background-color: #ffffff;
+  color : #fff;
+  border-radius : 50%;
+  margin-top : 0.5rem;
 }
 
 .select-button:hover{
@@ -235,5 +240,56 @@ footer{
     background-attachment: fixed;
 }
 
+purple
+/*Page A propos*/
+.intro {
+  display: flex;
+  justify-content: space-around;
+    align-items: center;
+}
+.infos {
+  text-align: center;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+}
+h3 {
+  font-family: var(--subtitle-font);
+    color: var(--main-color);
+}
+.wilders {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 16px;
+  gap: 0.5rem;
+  height: auto;
+  font-size: medium;
+}
+
+.information-wilders{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.Nous {
+  width: 15rem;
+}
+/*Contact*/
+.contact {
+  text-align: center;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+}
+.reason {
+  font-size: medium;
 
 }
