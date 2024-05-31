@@ -3,6 +3,7 @@ const restaurants = [
     restaurantName: "Les Epicuriens",
     city: "Montpellier",
     restaurantType: "Français",
+
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://www.les-epicuriens-restaurant-juvignac.fr/",
@@ -16,6 +17,7 @@ const restaurants = [
     restaurantName: "MIMA",
     city: "Lyon",
     restaurantType: "Italien",
+
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://www.mima-lyon.fr/",
@@ -29,6 +31,7 @@ const restaurants = [
     restaurantName: "Le McQueen",
     city: "Paris",
     restaurantType: "Japonais",
+
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://lemcqueen.fr/",
@@ -42,6 +45,7 @@ const restaurants = [
     restaurantName: "Le chalet Savoyard",
     city: "Paris",
     restaurantType: "Français",
+
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://www.chalet-savoyard.fr/",
@@ -55,6 +59,7 @@ const restaurants = [
     restaurantName: "Pidè Paris",
     city: "Paris",
     restaurantType: "Turc",
+
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€",   
     restaurantSite: "https://pide.paris/",
@@ -68,6 +73,7 @@ const restaurants = [
     restaurantName: "BIBIBAP",
     city: "Bordeaux",
     restaurantType: "Coréen",
+
     restaurantRating: "4 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://www.bibibap.fr/",
@@ -81,6 +87,7 @@ const restaurants = [
     restaurantName: "Mochicas Café",
     city: "Lyon",
     restaurantType: "Péruvien",
+
     restaurantRating: "4.9 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://mochicascafe.com/",
@@ -94,6 +101,7 @@ const restaurants = [
     restaurantName: "Royal Orchid",
     city: "Montpellier",
     restaurantType: "Thaïlandais",
+
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",   
     restaurantSite: "https://www.facebook.com/p/Royal-Orchid-100027943136673/",
@@ -107,6 +115,7 @@ const restaurants = [
     restaurantName: "Le Quatrième Mur",
     city: "Bordeaux",
     restaurantType: "Français",
+
     restaurantRating: "4.4 étoiles",
     restaurantPrice: "€€€€",   
     restaurantSite: "https://quatrieme-mur.com/",
@@ -161,6 +170,7 @@ function showDivs(n){
 }
 // Fin du slideshow
 
+
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
   return restaurants.filter(restaurant => {
@@ -196,7 +206,9 @@ function afficherRestaurants(restaurants) {
                               <p class="restaurant-description">${restaurant.restaurantDesc}</p>
                               <input type="checkbox" class="expand-button">
                               <div class="restaurant-note">Note: ${restaurant.restaurantRating}</div>
+
                               <div class="restaurant-price">Prix: ${restaurant.restaurantPrice}</div>
+
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
                           </div>
                           <div class="image-restaurant">
@@ -216,16 +228,39 @@ function afficherRestaurants(restaurants) {
   }
 }
 
+// Fonction pour filtrer les restaurants
+function filterRestaurants(restaurants, filtres) {
+  return restaurants.filter(restaurant => {
+    // On fait une const pour chaque type de filtre
+    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
+    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
+    const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
+    const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
+    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
+    return matchVille && matchTypeCuisine && matchNote;
+  });
+}
+// On sélectionne toutes les checkbox
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
 // Mise à jour des résultats
 function updateFilteredRestaurants() {
+  // Création de l'objet filtre
   const filtre = {};
     // On cherche les valeurs des cases cochées, nom et état coché/décoché
   checkboxes.forEach(checkbox => {
+    // Si une des checkbox est cochée alors 
       if (checkbox.checked) {
+        // on récupére le name associé
         const name = checkbox.name;
-        if (filtre[name]) {filtre[name].push(checkbox.value);
-        } else 
-        {filtre[name] = [checkbox.value];
+        // si le filtre contient déjà des noms de ville/type etc..., alors les nouvelles sont ajoutées à la suite (d'où le push)
+        // cela permet d'éviter de supprimer le contenu du tableau à chaque fois
+        if (filtre[name]) {
+          filtre[name].push(checkbox.value);
+        // sinon, on créé une nouvelle donnée avec la value lue sur la checkbox associée, c'est dans le cas où le tableau filtre est vide
+        } else {
+          filtre[name] = [checkbox.value];
+
         }}});
     // Filtre et maj de la liste
     const restaurantsFiltres = filterRestaurants(restaurants, filtre);
@@ -238,6 +273,4 @@ checkboxes.forEach(checkbox => {
 });
   
 afficherRestaurants(restaurants);
-  
-
 
