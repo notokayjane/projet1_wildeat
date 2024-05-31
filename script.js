@@ -152,22 +152,7 @@ function showDivs(n){
 }
 // Fin du slideshow
 
-// Fonction pour filtrer les restaurants
-function filterRestaurants(restaurants, filtres) {
-  return restaurants.filter(restaurant => {
-    // On fait une const pour chaque type de filtre
-    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
-    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
-    const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
-    const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
-    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
-    return matchVille && matchTypeCuisine && matchNote;
-  });
-}
 
-
-// On sélectionne toutes les checkbox
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 // On affiche les restaurants dans le container fait pour
 function afficherRestaurants(restaurants) {
@@ -204,17 +189,38 @@ function afficherRestaurants(restaurants) {
     container.appendChild(card);
   }
 }
+// Fonction pour filtrer les restaurants
+function filterRestaurants(restaurants, filtres) {
+  return restaurants.filter(restaurant => {
+    // On fait une const pour chaque type de filtre
+    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
+    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
+    const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
+    const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
+    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
+    return matchVille && matchTypeCuisine && matchNote;
+  });
+}
+// On sélectionne toutes les checkbox
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 // Mise à jour des résultats
 function updateFilteredRestaurants() {
+  // Création de l'objet filtre
   const filtre = {};
     // On cherche les valeurs des cases cochées, nom et état coché/décoché
   checkboxes.forEach(checkbox => {
+    // Si une des checkbox est cochée alors 
       if (checkbox.checked) {
+        // on récupére le name associé
         const name = checkbox.name;
-        if (filtre[name]) {filtre[name].push(checkbox.value);
-        } else 
-        {filtre[name] = [checkbox.value];
+        // si le filtre contient déjà des noms de ville/type etc..., alors les nouvelles sont ajoutées à la suite (d'où le push)
+        // cela permet d'éviter de supprimer le contenu du tableau à chaque fois
+        if (filtre[name]) {
+          filtre[name].push(checkbox.value);
+        // sinon, on créé une nouvelle donnée avec la value lue sur la checkbox associée, c'est dans le cas où le tableau filtre est vide
+        } else {
+          filtre[name] = [checkbox.value];
         }}});
     // Filtre et maj de la liste
     const restaurantsFiltres = filterRestaurants(restaurants, filtre);
