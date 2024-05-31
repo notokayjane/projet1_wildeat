@@ -18,8 +18,9 @@
 header {
   background-color: var(--secondary-color);
 }
+
 .logo {
-width: 6rem;
+  width: 6rem;
 }
 
 nav {
@@ -41,6 +42,7 @@ nav {
 .sous {
   display: none;
 }
+
 /* Menu Burger*/
 /* Sidenav menu */
 .sidenav {
@@ -96,69 +98,141 @@ nav {
   background-color: black;
   margin: 6px 0;
 }
+
 /*Sous menu burger (Les villes)*/
 
 
 /*Fin du menu burger*/
 body {
-    font-family: var(--main-font);
-    background-color: var(--main-color);
-} 
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+}
 
 /* Carte interactive */
 body > main > MAP > iframe {
-    height: 250px;
-    width: 100vw;
-    margin: 0px;
-    border-radius: 16px;
+  height: 250px;
+  width: 100vw;
+  margin: 0px;
+  border-radius: 16px;
 }
 
 /* Vignette du restaurant et son contenu */
 .vignette-restaurant{
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    margin: 1rem 0.5rem;
-    border-radius: 16px;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 16px;
+    gap: 0.5rem;
+    height: auto;
+}
+/* Images et photos */
+.mySlides{
+  display: ;
+  width: 100%;
+  height: max-content;
+}
+.image-restaurant{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* Boutons pour slider */
+.slide-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.vignette-restaurant > img{
-    width: 40vw;
-    border-radius: 12px;
+.select-button{
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  cursor: pointer;
+  background-color:#ffffff;
+  color:#fff;
+  border-radius: 50%;
+  margin-top: 0.5rem;
 }
 
+.select-button:hover{
+  background-color: var(--fourth-color);
+}
+
+/* Contenu et descriptions */
 .restaurant-name{
-    font-family: var(--subtitle-font);
-    color: var(--main-color);
+  font-family: var(--subtitle-font);
+  color: var(--main-color);
 }
 .restaurant-description{
-    color: black;
-    font-weight: 500;
-    max-width: 25ch;
-    font-size: small;
-    /* max-height: 7ch;
-    text-overflow: ellipsis; */
+  color: black;
+  font-weight: 500;
+  max-width: 25ch;
+  font-size: small;
+  /* Limitation des cases de description et overflow */
+    --max-lines:4;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--main-color);
+  border-radius: 8px;
+    min-width: 45vw;
 }
+.restaurant-description:has(+ .expand-button:checked){
+  --max-lines:20;
+}
+.expand-button{
+  appearance: none;
+  background-color: var(--fourth-color);
+  color: var(--main-color);
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  box-shadow: 0.1rem 0.1rem 2px var(--third-color);
+  transition: transform 100ms ease-in-out;
+}
+.expand-button:hover{
+  background-color: white;
+  color: #111;
+  transform: scale(1.1);
+  animation-delay: 300ms;
+
+}
+.expand-button::before{
+  content: "Afficher plus";
+}
+.expand-button:checked:before{
+  content: "Afficher moins";
+}
+  /* Fin de la partie sur l'overflow */
+
 .restaurant-note{
-    color: var(--main-color);
+  color: black;
 }
+.checked {
+  color: orange;
+}
+
 .restaurant-link{
-    color: black;
-    font-weight: 500;
+  color: black;
+  font-weight: 500;
 }
 
 /* Bas de page */
 footer{
-    background-color: var(--fourth-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    gap: 0.3rem;
-    color: var(--main-color);
-    font-size: small;
+  background-color: var(--fourth-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.3rem;
+  color: var(--main-color);
+  font-size: small;
 
 }
-
