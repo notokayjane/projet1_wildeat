@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/subjectivity" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -45,15 +46,32 @@
         <div class="search">
         <section class="filtres">
             <h2> Filtres </h2>
-                <ul class="sous">
-                <li>Francais</li>
-                <li>Italien</li>
-                <li>Japonais</li>
-                <li>Thai</li>
-                <li>Coreen</li>
-                <li>Peruvien</li>
-                <li>Turc</li>
-            </ul>
+            <div>
+                <h3>Ville</h3>
+                <label><input type="checkbox" name="ville" value="Montpellier"> Montpellier</label>
+                <label><input type="checkbox" name="ville" value="Lyon"> Lyon</label>
+                <label><input type="checkbox" name="ville" value="Paris"> Paris</label>
+                <label><input type="checkbox" name="ville" value="Bordeaux"> Bordeaux</label>
+              </div>
+              
+              <div>
+                <h3>Type de cuisine</h3>
+                <label><input type="checkbox" name="typeCuisine" value="Français"> Français</label>
+                <label><input type="checkbox" name="typeCuisine" value="Italien"> Italien</label>
+                <label><input type="checkbox" name="typeCuisine" value="Japonais"> Japonais</label>
+                <label><input type="checkbox" name="typeCuisine" value="Turc"> Turc</label>
+                <label><input type="checkbox" name="typeCuisine" value="Coréen"> Coréen</label>
+                <label><input type="checkbox" name="typeCuisine" value="Péruvien"> Péruvien</label>
+                <label><input type="checkbox" name="typeCuisine" value="Thaïlandais"> Thaïlandais</label>
+              </div>
+              
+              <div>
+                <h3>Note</h3>
+                <label><input type="checkbox" name="note" value="4 étoiles"> 4 étoiles</label>
+                <label><input type="checkbox" name="note" value="5 étoiles"> 5 étoiles</label>
+                <label><input type="checkbox" name="note" value="x étoiles"> x étoiles</label>
+              </div>
+              
         </section>
             <section class="research">
             <label for="site-search">Search the site:</label>
@@ -66,24 +84,36 @@
 </head>
 <main>
     <MAP>
-    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-5.603027343750001%2C47.032694598521374%2C7.800292968750001%2C52.09300763963822&amp;layer=mapnik"></iframe>
-    </MAP>
+        <iframe width="100%" height="300px" frameborder="0" allowfullscreen allow="geolocation" src="//umap.openstreetmap.fr/fr/map/spice-odyssey-map_1076545?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=false&datalayersControl=null&onLoadPanel=none&captionBar=false&captionMenus=false&datalayers=5344be32-3031-465e-acd3-84d3159706da&fullscreenControl=null&captionControl=null&editinosmControl=null&locateControl=true"></iframe></MAP>
         <article>
             <ul>
                 <li class="vignette-restaurant">
-                <div class="information-restaurant">
-                      <h2 class="restaurant-name">Nom restaurant</h2>
-                      <p class="restaurant-description">description restaurant</p>
-                      <div class="restaurant-note">Note</div>
-                      <div class="restaurant-link">lien site</div>
-                </div>
-                 <img src="pexels-photo-1279330.webp" alt="photo du plat">
+                  <div class="information-restaurant">
+                        <h2 class="restaurant-name">Nom restaurant</h2>
+                        <p class="restaurant-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                          Eum aliquid perferendis quaerat architecto suscipit incidunt reprehenderit aut. 
+                          Cupiditate nobis nesciunt maxime, hic ab commodi, praesentium, a voluptas dignissimos magni voluptatibus!</p>
+                        <input type="checkbox" class="expand-button">
+                        <div class="restaurant-note">Overall rating</div>
+                        <div class="restaurant-link">lien site</div>
+                  </div>
+                  <div class="image-restaurant">                
+                      <img src="images/epicuriens/Group 1_20231002110116.png" class="mySlides" alt="photo restaurant">
+                      <img src="images/epicuriens/Frame 18_20230912170422.png.webp" class="mySlides" alt="photo plat 1">
+                      <img src="images/epicuriens/Frame 19_20230912170424.png.webp" class="mySlides" alt="photo plat 2">
+                      <img src="images/epicuriens/Frame 23_20230912170427.png.webp" class="mySlides" alt="photo plat 3">
+                      <div class="slide-buttons">
+                        <div class="left-arrow"></div>
+                        <span class="select-button" onclick="currentDiv(1)"></span>
+                        <span class="select-button" onclick="currentDiv(2)"></span>
+                        <span class="select-button" onclick="currentDiv(3)"></span>
+                        <div class="right-arrow"></div>
+                      </div>
+                  </div>
                 </li>
-
+            </ul>
         </article>
-        <section>
-
-        </section>
+        <div id="restaurant-container"></div>
     </main>
 <footer>
         <p>© 2024 Wild Code School</p>
