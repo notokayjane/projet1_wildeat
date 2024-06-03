@@ -5,7 +5,7 @@ const restaurants = [
     restaurantType: "Français",
 
     restaurantRating: "4.7 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://www.les-epicuriens-restaurant-juvignac.fr/",
     restaurantDesc: "Les Épicuriens à Juvignac est plus qu'un restaurant : c'est une destination gourmande. Brasserie, restaurant, et caviste, vous découvrirez une cuisine fusion unique. Centre Commercial Les Portes du Soleil, Entrée 2, 34990 Juvignac",
     restaurantPic: "images/epicuriens/Group 1_20231002110116.png",
@@ -19,7 +19,7 @@ const restaurants = [
     restaurantType: "Italien",
 
     restaurantRating: "4.6 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://www.mima-lyon.fr/",
     restaurantDesc: "MI.MA, à l'origine [MI]lano [MA]rittima, est une ville italienne en Emilia Romagna, où la famille se retrouve. Cuisine italienne, ambiance festive, et sel de Cervia. Une histoire de famille et d'amour pour une cuisine généreuse, conviviale et authentique. 124 Rue de Sèze, 69006 Lyon",
     restaurantPic: "images/mima/2024-03-17.jpg",
@@ -33,7 +33,7 @@ const restaurants = [
     restaurantType: "Japonais",
 
     restaurantRating: "4.6 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://lemcqueen.fr/",
     restaurantDesc: "Au McQueen, café & bar à cocktails japonais à l’Opéra, dégustez ramen, donburi, gyozas, desserts, thés, vins naturels italiens, sakés, et cocktails maison. Ambiance musicale rock par Kaoru, qui se trouve être le barman !  16 Rue Molière, 75001 Paris",
     restaurantPic: "images/mcqueen/façade.jpeg",
@@ -47,7 +47,7 @@ const restaurants = [
     restaurantType: "Français",
 
     restaurantRating: "4.3 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://www.chalet-savoyard.fr/",
     restaurantDesc: "En plein cœur de Paris, dans le 11ème, ce restaurant chaleureux attire les amoureux de gastronomie savoyarde authentique avec des produits du terroir. Spécialités copieuses, créations maison, accueil convivial. 58 Rue de Charonne, 75011 Paris",
     restaurantPic: "images/chalet-savoyard/visu-accueil-5.jpg",
@@ -61,7 +61,7 @@ const restaurants = [
     restaurantType: "Turc",
 
     restaurantRating: "4.7 étoiles",
-    restaurantPrice: "€",   
+    restaurantPrice: "€",
     restaurantSite: "https://pide.paris/",
     restaurantDesc: "Pidè Paris propose une version turque de la pizza, le pide, avec des ingrédients frais et authentiques. Le menu inclut pides, mezzés et desserts traditionnels, le tout dans une ambiance conviviale et chaleureuse. 48 bis Rue du Faubourg Saint-Denis, 75010 Paris",
     restaurantPic: "images/pide-paris/VID_20230503_121843_00_001_2023-06-07_12-47-44_capture d'_cran.jpg",
@@ -75,7 +75,7 @@ const restaurants = [
     restaurantType: "Coréen",
 
     restaurantRating: "4 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://www.bibibap.fr/",
     restaurantDesc: "Découvrez le meilleur de la streetfood coréenne autour de plats traditionnels comme le bibimbap et de tapas originales à partager sans modération !",
     restaurantPic: "images/bibibap/20200626_023108.jpg",
@@ -89,7 +89,7 @@ const restaurants = [
     restaurantType: "Péruvien",
 
     restaurantRating: "4.9 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://mochicascafe.com/",
     restaurantDesc: "Le restaurant Mochicas propose une cuisine péruvienne traditionnelle et fusionnée. Le menu comprend le ceviche classique, le lomo saltado, les choritos a la chalaca, les empanadas et la causa limeña.",
     restaurantPic: "images/mochicas/2021-09-22.jpg",
@@ -103,7 +103,7 @@ const restaurants = [
     restaurantType: "Thaïlandais",
 
     restaurantRating: "4.3 étoiles",
-    restaurantPrice: "€€€",   
+    restaurantPrice: "€€€",
     restaurantSite: "https://www.facebook.com/p/Royal-Orchid-100027943136673/",
     restaurantDesc: "Le Royal Orchid à Montpellier propose une cuisine thaïlandaise authentique et raffinée. La carte variée comprend des plats populaires tels que le pad thaï, les currys thaï, les brochettes satay, ainsi que des spécialités moins connues comme le poisson à la sauce aigre-douce ou le bœuf loc lac.",
     restaurantPic: "images/royal orchid/19884429_2286227774936348_6281957339865542418_n.jpg",
@@ -117,7 +117,7 @@ const restaurants = [
     restaurantType: "Français",
 
     restaurantRating: "4.4 étoiles",
-    restaurantPrice: "€€€€",   
+    restaurantPrice: "€€€€",
     restaurantSite: "https://quatrieme-mur.com/",
     restaurantDesc: "Au théâtre, le quatrième mur est celui, invisible, qui sépare le public de la scène. Un nom tout choisi pour cette table installée dans les ors du Grand théâtre ! Un produit de qualité, une cuisson précise, une garniture et un jus : Philippe Etchebest va à l'essentiel et nous régale en toute simplicité. Installée sur une galerie latérale du grand théâtre, la terrasse est très agréable",
     restaurantPic: "images/quatrieme-mur/la-brasserie-le-quatrieme (1).jpg",
@@ -147,29 +147,30 @@ function closeNav() {
 // Slideshow et boutons associés
 var slideIndex = 1;
 showDivs(slideIndex);
-function plusDivs(n){
+function plusDivs(n) {
   showDivs(slideIndex += n);
 }
-function currentDiv(n){
+function currentDiv(n) {
   showDivs(slideIndex = n);
 }
-function showDivs(n){
+function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("select-button");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++){
+  if (n > x.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = x.length }
+  for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++){
+  for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" w3-white", "");
   }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-white";
+  x[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " w3-white";
 }
 // Fin du slideshow
 
+// Fonction pour la barre de recherce.
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -240,37 +241,47 @@ function filterRestaurants(restaurants, filtres) {
     return matchVille && matchTypeCuisine && matchNote;
   });
 }
-// On sélectionne toutes les checkbox
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 // Mise à jour des résultats
 function updateFilteredRestaurants() {
   // Création de l'objet filtre
   const filtre = {};
-    // On cherche les valeurs des cases cochées, nom et état coché/décoché
+  // On cherche les valeurs des cases cochées, nom et état coché/décoché
   checkboxes.forEach(checkbox => {
     // Si une des checkbox est cochée alors 
-      if (checkbox.checked) {
-        // on récupére le name associé
-        const name = checkbox.name;
-        // si le filtre contient déjà des noms de ville/type etc..., alors les nouvelles sont ajoutées à la suite (d'où le push)
-        // cela permet d'éviter de supprimer le contenu du tableau à chaque fois
-        if (filtre[name]) {
-          filtre[name].push(checkbox.value);
+    if (checkbox.checked) {
+      // on récupére le name associé
+      const name = checkbox.name;
+      // si le filtre contient déjà des noms de ville/type etc..., alors les nouvelles sont ajoutées à la suite (d'où le push)
+      // cela permet d'éviter de supprimer le contenu du tableau à chaque fois
+      if (filtre[name]) {
+        filtre[name].push(checkbox.value);
         // sinon, on créé une nouvelle donnée avec la value lue sur la checkbox associée, c'est dans le cas où le tableau filtre est vide
-        } else {
-          filtre[name] = [checkbox.value];
+      } else {
+        filtre[name] = [checkbox.value];
 
-        }}});
-    // Filtre et maj de la liste
-    const restaurantsFiltres = filterRestaurants(restaurants, filtre);
-    afficherRestaurants(restaurantsFiltres);
+      }
+    }
+  });
+  // Filtre et maj de la liste
+  let restaurantsFiltres = filterRestaurants(restaurants, filtre);
+  if (searchInput.value != "") {
+    const research = searchInput.value.toLowerCase();
+    restaurantsFiltres = restaurantsFiltres.filter((restaurant) => {
+      return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research);
+    });
+    console.log(restaurantsFiltres)
   }
+  afficherRestaurants(restaurantsFiltres);
+}
 
-  // Update sur case cochée
+// Update sur case cochée
 checkboxes.forEach(checkbox => {
   checkbox.addEventListener('change', updateFilteredRestaurants);
 });
-  
-afficherRestaurants(restaurants);
 
+// barre de recherche
+const searchInput = document.querySelector("#site-search");
+searchInput.addEventListener("input", updateFilteredRestaurants)
+
+afficherRestaurants(restaurants);
