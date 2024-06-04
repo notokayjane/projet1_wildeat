@@ -229,18 +229,18 @@ function afficherRestaurants(restaurants) {
   }
 }
 
-// Fonction pour filtrer les restaurants
-function filterRestaurants(restaurants, filtres) {
-  return restaurants.filter(restaurant => {
-    // On fait une const pour chaque type de filtre
-    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
-    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
-    const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
-    const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
-    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
-    return matchVille && matchTypeCuisine && matchNote;
-  });
-}
+// // Fonction pour filtrer les restaurants
+// function filterRestaurants(restaurants, filtres) {
+//   return restaurants.filter(restaurant => {
+//     // On fait une const pour chaque type de filtre
+//     // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
+//     // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
+//     const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
+//     const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
+//     const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
+//     return matchVille && matchTypeCuisine && matchNote;
+//   });
+// }
 
 // Mise à jour des résultats
 function updateFilteredRestaurants() {
@@ -285,3 +285,48 @@ const searchInput = document.querySelector("#site-search");
 searchInput.addEventListener("input", updateFilteredRestaurants)
 
 afficherRestaurants(restaurants);
+
+console.log(restaurants)
+
+// // Carte interactive
+// import Map from './node_modules/ol/Map.js';
+// import View from './node_modules/ol/View.js';
+// import TileLayer from './node_modules/ol/layer/Tile.js';
+// import OSM from './node_modules/ol/source/OSM.js';
+
+// // initialisation de la carte
+// const map = new Map({
+//   target: 'map',
+//   layers: [
+//     new TileLayer({
+//       source: new OSM()
+//     }),
+//   ],
+//   view: new View({
+//     center: proj.fromLonLat([1.888334, 46.603354]),
+//     zoom: 6,
+//   })
+// });
+// // Les villes et leurs coordonnées
+// const locations = {
+//   Paris: [2.3522, 48.8566],
+//   Lyon: [4.8357, 45.7640],
+//   Bordeaux: [-0.5792, 44.8378],
+//   Montpellier: [3.8767, 43.6119]
+// }
+// document.addEventListener("", function(){
+
+  // //Zoom sur la ville filtrée
+  // function zoomOnSelectedCities(city) {
+    
+  //   array.forEach(filtre[ville] => {
+      
+  //   });
+  //   let coords = locations[city]
+  //   if (coords){
+  //     map.getView().setCenter(ol.proj.fromLonLat(coords));
+  //     map.getView().setZoom(12);
+  //   }
+  // }
+  //
+// });
