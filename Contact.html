@@ -17,98 +17,102 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<header>
-    <nav>
-        <img class="logo" src="Spice_Odyssey_3.png" alt="Logo de Spice Odyssey">
-        <h1> Spice Odyssey</h1>
-        <div id="mySidenav" class="sidenav">
-            <a id="closeBtn" href="#" class="close">x</a>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="APropos.html">A propos</a></li>
-            </ul>
+
+<body>
+    <header>
+        <nav>
+            <img class="logo" src="Spice_Odyssey_3.png" alt="Logo de Spice Odyssey">
+            <h1> Spice Odyssey</h1>
+            <div id="mySidenav" class="sidenav">
+                <a id="closeBtn" href="#" class="close">x</a>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="APropos.html">A propos</a></li>
+                </ul>
+            </div>
+            <a href="#" id="openBtn">
+                <span class="burger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </a>
+        </nav>
+        <div class="intro">
+            <h2>Formulaire de contact</h2>
         </div>
-        <a href="#" id="openBtn">
-            <span class="burger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-        </a>
-    </nav>
-    <div class="intro">
-        <h2>Formulaire de contact</h2>
-    </div>
-</header>
-<body>   
+    </header>
+
     <main>
-    <div class="contact">
-        <p>Vous souhaitez entrer en contact avec nous ?
-            <br>
-             Pour nous donner vos impressions sur le site, sur les restaurants sités ou encore noter ses restaurants?
-             <br> N'hésitez pas à nous  écrire nous vous répondrons sous les meilleurs delais</p>
+        <div class="contact">
+            <p>Vous souhaitez entrer en contact avec nous ?
+                <br>
+                Pour nous donner vos impressions sur le site, sur les restaurants sités ou encore noter ses restaurants?
+                <br> N'hésitez pas à nous écrire nous vous répondrons sous les meilleurs delais
+            </p>
 
-        <form>
+            <form>
 
-            <label>Quel est votre prénom ? <br><input type="text" /></label>
-
-            <br>
-
-            <label>Quel est votre nom ?<br> <input type="text" /></label>
-
-            <br>
-
-            <label>Quel est votre email ?<br> <input type="email" required></label>
-
-            <br>
-
-            <label>Quelle est votre date de naissance ?<br> <input type="date"></label>
-
-            <br>
-
-            <label for="contact-reason">Quelle est la raison de votre contact ?</label>
-
-
-            <select class="reason" name="reason" id="contact-reason">
-
-                <option value="">--Choisissez une option--</option>
-
-                <option value="informations-site">Donner mes impressions sur le site</option>
-
-                <option value="information-restaurant">Je souhaite plus d'informations sur les restaurants</option>
-
-                <option value="note">Noter les restaurants</option>
-
-            </select>
-
-            <br>
-
-            <label>Ecrivez votre message:
+                <label>Quel est votre prénom ? <br><input type="text"></label>
 
                 <br>
 
-                <textarea id="message" name="message" rows="5" cols="33" maxlength="500" wrap>
+                <label>Quel est votre nom ?<br> <input type="text"></label>
+
+                <br>
+
+                <label>Quel est votre email ?<br> <input type="email" required></label>
+
+                <br>
+
+                <label>Quelle est votre date de naissance ?<br> <input type="date"></label>
+
+                <br>
+
+                <label for="contact-reason">Quelle est la raison de votre contact ?</label>
+
+
+                <select class="reason" name="reason" id="contact-reason">
+
+                    <option value="">--Choisissez une option--</option>
+
+                    <option value="informations-site">Donner mes impressions sur le site</option>
+
+                    <option value="information-restaurant">Je souhaite plus d'informations sur les restaurants</option>
+
+                    <option value="note">Noter les restaurants</option>
+
+                </select>
+
+                <br>
+
+                <label>Ecrivez votre message:
+
+                    <br>
+
+                    <textarea id="message" name="message" rows="5" cols="33" maxlength="500">
 
 
 
                 </textarea>
 
-            </label>
+                </label>
 
-            <br>
+                <br>
 
-            <input type="submit" value="Envoyer le formulaire">
+                <input type="submit" value="Envoyer le formulaire">
 
-        </form>
+            </form>
 
+
+        </div>
     </main>
-    </div>
-    </main>
-     <footer>
-    <p>© 2024 Wild Code School</p>
-    <p>Made with ❤️ & ☕ by DaCoDe</p>
-    <p>Contact <strong>dacode@gmail.com</strong></p>
-</footer>
-<script src="script.js"></script>
+    <footer>
+        <p>© 2024 Wild Code School</p>
+        <p>Made with ❤️ & ☕ by DaCoDe</p>
+        <p>Contact <strong>dacode@gmail.com</strong></p>
+    </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>

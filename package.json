@@ -1,0 +1,15 @@
+{
+  "name": "spice_odyssey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "validate": "html-validator",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "w3c-html-validator": "^1.8.1"
+  }
+}
