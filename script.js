@@ -1,3 +1,4 @@
+/*Variable des restaurants*/
 const restaurants = [
   {
     restaurantName: "Les Epicuriens",
@@ -126,7 +127,7 @@ const restaurants = [
     dishPic3: "images/quatrieme-mur/la-brasserie-le-quatrieme (4).jpg",
   },
 ]
-
+/* Bouton Burger*/
 const sidenav = document.getElementById("mySidenav");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
@@ -143,6 +144,7 @@ function openNav() {
 function closeNav() {
   sidenav.classList.remove("active");
 }
+/*Fin du bouton Burger*/
 
 // Slideshow et boutons associés
 var slideIndex = 1;
@@ -286,6 +288,7 @@ searchInput.addEventListener("input", updateFilteredRestaurants)
 
 afficherRestaurants(restaurants);
 
+/*Bouton formulaire*/
 // Bouton clear (décoche les filtres)
 function clearAllFilters() {
   for (const checkbox of checkboxes) {
@@ -299,4 +302,5 @@ clearButton.addEventListener('click', updateFilteredRestaurants);
 
 
 
+ main
 
