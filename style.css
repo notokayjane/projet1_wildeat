@@ -149,18 +149,18 @@ body > main > MAP > iframe {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-main
+
 }
 
 .select-button{
   height: 13px;
-  width : 13px;
-  padding : 0;
+  width: 13px;
+  padding: 0;
   cursor: pointer;
   background-color: #ffffff;
-  color : #fff;
-  border-radius : 50%;
-  margin-top : 0.5rem;
+  color: #fff;
+  border-radius: 50%;
+  margin-top: 0.5rem;
 }
 
 .select-button:hover{
@@ -281,15 +281,27 @@ h3 {
 .Nous {
   width: 15rem;
 }
-/*Contact*/
+/*Page Contact*/
 .contact {
   text-align: center;
   display: flex;
     flex-direction: column;
     align-items: center;
     font-size: larger;
+  
+}
+#message {
+  font: var(--main-font);
 }
 .reason {
-  font-size: medium;
-
+  font-size: medium
 }
+.buttonFormulaire {
+  font: var(--main-font);
+}
+.buttonFormulaire:hover {
+  font: var(--main-font);
+  width: 500px;
+  transition: width 1s ease-in;
+background-color: #99bd05;}
+  

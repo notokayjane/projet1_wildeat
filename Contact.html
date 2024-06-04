@@ -47,17 +47,18 @@
         <div class="contact">
             <p>Vous souhaitez entrer en contact avec nous ?
                 <br>
-                Pour nous donner vos impressions sur le site, sur les restaurants sités ou encore noter ses restaurants?
-                <br> N'hésitez pas à nous écrire nous vous répondrons sous les meilleurs delais
+                Pour nous donner vos impressions sur le site, sur les restaurants sités ou encore noter ces restaurants,
+                <br> n'hésitez pas à nous écrire nous vous répondrons sous les meilleurs délais.
+                <br>Votre participation nous aidera à améliorer notre site et le rendre plus complet.
             </p>
 
             <form>
 
-                <label>Quel est votre prénom ? <br><input type="text"></label>
+                <label>Quel est votre prénom ? <br><input type="text" required></label>
 
                 <br>
 
-                <label>Quel est votre nom ?<br> <input type="text"></label>
+                <label>Quel est votre nom ?<br> <input type="text" required></label>
 
                 <br>
 
@@ -65,11 +66,11 @@
 
                 <br>
 
-                <label>Quelle est votre date de naissance ?<br> <input type="date"></label>
+                <label>Quelle est votre date de naissance ?<br> <input type="date" required></label>
 
                 <br>
 
-                <label for="contact-reason">Quelle est la raison de votre contact ?</label>
+                <label for="contact-reason">Quelle est la raison de votre contact ? </label>
 
 
                 <select class="reason" name="reason" id="contact-reason">
@@ -100,12 +101,11 @@
 
                 <br>
 
-                <input type="submit" value="Envoyer le formulaire">
+            <input class="buttonFormulaire" type="button" value="Envoyer le formulaire">
 
             </form>
-
-
         </div>
+ 
     </main>
     <footer>
         <p>© 2024 Wild Code School</p>
