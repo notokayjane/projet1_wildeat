@@ -285,3 +285,18 @@ const searchInput = document.querySelector("#site-search");
 searchInput.addEventListener("input", updateFilteredRestaurants)
 
 afficherRestaurants(restaurants);
+
+// Bouton clear (décoche les filtres)
+function clearAllFilters() {
+  for (const checkbox of checkboxes) {
+    checkbox.checked = false;
+  }
+}  
+
+const clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', clearAllFilters);
+clearButton.addEventListener('click', updateFilteredRestaurants);
+
+
+
+
