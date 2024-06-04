@@ -2,17 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Spice Odyssey</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/subjectivity" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil | Spice Odyssey</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/subjectivity" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -83,49 +85,51 @@
         </div>
     </header>
 
-</head>
-<main>
-    <MAP>
-        <iframe width="100%" height="300px" frameborder="0" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/fr/map/spice-odyssey-map_1076545?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=false&datalayersControl=null&onLoadPanel=none&captionBar=false&captionMenus=false&datalayers=5344be32-3031-465e-acd3-84d3159706da&fullscreenControl=null&captionControl=null&editinosmControl=null&locateControl=true"></iframe></MAP>
-        <article>
-            <ul>
-                <li class="vignette-restaurant">
-                  <div class="information-restaurant">
-                        <h2 class="restaurant-name">Nom restaurant</h2>
-                        <p class="restaurant-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                          Eum aliquid perferendis quaerat architecto suscipit incidunt reprehenderit aut. 
-                          Cupiditate nobis nesciunt maxime, hic ab commodi, praesentium, a voluptas dignissimos magni voluptatibus!</p>
-                        <input type="checkbox" class="expand-button">
-                        <div class="restaurant-note">Overall rating</div>
 
-                        <div class="restaurant-price">Prix:</div>
+  <main>
+    <MAP name="carte">
+      <iframe
+        src="https://umap.openstreetmap.fr/fr/map/spice-odyssey-map_1076545?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=false&datalayersControl=null&onLoadPanel=none&captionBar=false&captionMenus=false&datalayers=5344be32-3031-465e-acd3-84d3159706da&fullscreenControl=null&captionControl=null&editinosmControl=null&locateControl=true"></iframe></MAP>
+    <article>
+      <ul>
+        <li class="vignette-restaurant">
+          <div class="information-restaurant">
+            <h2 class="restaurant-name">Nom restaurant</h2>
+            <p class="restaurant-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Eum aliquid perferendis quaerat architecto suscipit incidunt reprehenderit aut.
+              Cupiditate nobis nesciunt maxime, hic ab commodi, praesentium, a voluptas dignissimos magni voluptatibus!
+            </p>
+            <input type="checkbox" class="expand-button">
+            <div class="restaurant-note">Overall rating</div>
 
-                        <div class="restaurant-link">lien site</div>
-                  </div>
-                  <div class="image-restaurant">                
-                      <img src="images/epicuriens/Group 1_20231002110116.png" class="mySlides" alt="photo restaurant">
-                      <img src="images/epicuriens/Frame 18_20230912170422.png.webp" class="mySlides" alt="photo plat 1">
-                      <img src="images/epicuriens/Frame 19_20230912170424.png.webp" class="mySlides" alt="photo plat 2">
-                      <img src="images/epicuriens/Frame 23_20230912170427.png.webp" class="mySlides" alt="photo plat 3">
-                      <div class="slide-buttons">
-                        <div class="left-arrow"></div>
-                        <span class="select-button" onclick="currentDiv(1)"></span>
-                        <span class="select-button" onclick="currentDiv(2)"></span>
-                        <span class="select-button" onclick="currentDiv(3)"></span>
-                        <div class="right-arrow"></div>
-                      </div>
-                  </div>
-                </li>
-            </ul>
-        </article>
-        <div id="restaurant-container"></div>
-    </main>
-<footer>
-        <p>© 2024 Wild Code School</p>
-        <p>Made with ❤️ & ☕ by DaCoDe</p>
-        <p>Contact <strong>dacode@gmail.com</strong></p>
-    </footer>
-        <script src="script.js"></script>
+            <div class="restaurant-price">Prix:</div>
+
+            <div class="restaurant-link">lien site</div>
+          </div>
+          <div class="image-restaurant">
+            <img src="images/epicuriens/Group1_20231002110116.png" class="mySlides" alt="photo restaurant">
+            <img src="images/epicuriens/Frame18_20230912170422.png.webp" class="mySlides" alt="photo plat 1">
+            <img src="images/epicuriens/Frame19_20230912170424.png.webp" class="mySlides" alt="photo plat 2">
+            <img src="images/epicuriens/Frame23_20230912170427.png.webp" class="mySlides" alt="photo plat 3">
+            <div class="slide-buttons">
+              <div class="left-arrow"></div>
+              <span class="select-button" onclick="currentDiv(1)"></span>
+              <span class="select-button" onclick="currentDiv(2)"></span>
+              <span class="select-button" onclick="currentDiv(3)"></span>
+              <div class="right-arrow"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+    <div id="restaurant-container"></div>
+  </main>
+  <footer>
+    <p>© 2024 Wild Code School</p>
+    <p>Made with ❤️ & ☕ by DaCoDe</p>
+    <p>Contact <strong>dacode@gmail.com</strong></p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 
 </html>
