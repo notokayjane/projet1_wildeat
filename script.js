@@ -143,33 +143,40 @@ function closeNav() {
   sidenav.classList.remove("active");
 }
 
-// Slideshow et boutons associés
-let slideIndex = 1;
-showDivs(slideIndex);
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-function showDivs(n) {
-  let i;
-  let x = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("select-button");
-  if (n > x.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = x.length }
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " w3-white";
-}
-// Fin du slideshow
 
-// Fonction pour la barre de recherche.
+// Slideshow et boutons associés
+document.addEventListener('DOMContentLoaded', function() {
+  const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
+
+  restaurantVignettes.forEach(vignette => {
+    const slides = vignette.querySelectorAll('.mySlides');
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Ajouter les boutons
+    vignette.innerHTML += `
+      <div class="slide-buttons">
+        <button class="prev" onclick="plusSlides(-1)">Prev</button>
+        <button class="next" onclick="plusSlides(1)">Next</button>
+      </div>
+    `;
+
+    // Fonctions pour les boutons
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  });
+});
+
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -213,13 +220,6 @@ function afficherRestaurants(restaurants) {
                               <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
                               <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
                               <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
-                              <div class="slide-buttons">
-                                <div class="left-arrow"></div>
-                                <span class="select-button" onclick="currentDiv(1)"></span>
-                                <span class="select-button" onclick="currentDiv(2)"></span>
-                                <span class="select-button" onclick="currentDiv(3)"></span>
-                                <div class="right-arrow"></div>
-                              </div>
                           </div>`;
     container.appendChild(card);
   }
