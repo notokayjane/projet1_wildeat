@@ -15,14 +15,14 @@
     href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="./lib/ol/ol.css">
 </head>
 
 <body>
   <header>
     <nav>
       <img class="logo" src="Spice_Odyssey_3.png" alt="Logo de Spice Odyssey">
-      <h1> Spice Odyssey</h1>
+      <h1>Spice Odyssey</h1>
       <div id="mySidenav" class="sidenav">
         <a id="closeBtn" href="#" class="close">x</a>
         <ul>
@@ -69,12 +69,11 @@
 
         <div>
           <h3>Prix</h3>
-          <label><input type="checkbox" name="Price" value="4 étoiles"> €</label>
-          <label><input type="checkbox" name="Price" value="5 étoiles"> €€</label>
-          <label><input type="checkbox" name="Price" value="x étoiles"> €€€</label>
-          <label><input type="checkbox" name="Price" value="4 étoiles"> €€€€</label>
+          <label><input type="checkbox" name="Price" value="€"> €</label>
+          <label><input type="checkbox" name="Price" value="€€"> €€</label>
+          <label><input type="checkbox" name="Price" value="€€€"> €€€</label>
+          <label><input type="checkbox" name="Price" value="€€€€"> €€€€</label>
         </div>
-
 
       </section>
       <div class="research">
@@ -85,13 +84,14 @@
     </div>
   </header>
 
-
   <main>
     <div id="map" class="map"></div>
+    <script src="./lib/ol/dist/ol.js"></script>
     <!-- <MAP name="carte">
       <iframe id="map"
         src="https://umap.openstreetmap.fr/fr/map/spice-odyssey-map_1076545?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=false&datalayersControl=null&onLoadPanel=none&captionBar=false&captionMenus=false&datalayers=5344be32-3031-465e-acd3-84d3159706da&fullscreenControl=null&captionControl=null&editinosmControl=null&locateControl=true"></iframe></MAP> -->
-    <article>
+        <div id="restaurant-container"></div>
+        <article>
       <ul>
         <li class="vignette-restaurant">
           <div class="information-restaurant">
@@ -102,16 +102,14 @@
             </p>
             <input type="checkbox" class="expand-button">
             <div class="restaurant-note">Overall rating</div>
-
             <div class="restaurant-price">Prix:</div>
-
             <div class="restaurant-link">lien site</div>
           </div>
           <div class="image-restaurant">
-            <img src="images/epicuriens/Group1_20231002110116.png" class="mySlides" alt="photo restaurant">
-            <img src="images/epicuriens/Frame18_20230912170422.png.webp" class="mySlides" alt="photo plat 1">
-            <img src="images/epicuriens/Frame19_20230912170424.png.webp" class="mySlides" alt="photo plat 2">
-            <img src="images/epicuriens/Frame23_20230912170427.png.webp" class="mySlides" alt="photo plat 3">
+            <img src="images/epicuriens/Group1_20231002110116.webp" class="mySlides" alt="photo restaurant">
+            <img src="images/epicuriens/Frame18_20230912170422.webp" class="mySlides" alt="photo plat 1">
+            <img src="images/epicuriens/Frame19_20230912170424.webp" class="mySlides" alt="photo plat 2">
+            <img src="images/epicuriens/Frame23_20230912170427.webp" class="mySlides" alt="photo plat 3">
             <div class="slide-buttons">
               <div class="left-arrow"></div>
               <span class="select-button" onclick="currentDiv(1)"></span>
@@ -123,14 +121,13 @@
         </li>
       </ul>
     </article>
-    <div id="restaurant-container"></div>
+
   </main>
   <footer>
     <p>© 2024 Wild Code School</p>
     <p>Made with ❤️ & ☕ by DaCoDe</p>
     <p>Contact <strong>dacode@gmail.com</strong></p>
   </footer>
-  <script src="script.js" type="module"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
