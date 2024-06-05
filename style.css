@@ -240,7 +240,7 @@ footer{
     background-attachment: fixed;
 }
 
-purple
+
 /*Page A propos*/
 .intro {
   display: flex;
@@ -276,6 +276,7 @@ h3 {
   justify-content: center;
   flex-direction: column;
   text-align: justify;
+  align-items: center;
 }
 
 .Nous {

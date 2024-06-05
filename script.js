@@ -302,5 +302,4 @@ clearButton.addEventListener('click', updateFilteredRestaurants);
 
 
 
- main
 
