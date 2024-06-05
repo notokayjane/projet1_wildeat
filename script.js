@@ -1,4 +1,3 @@
-/*Variable des restaurants*/
 const restaurants = [
   {
     restaurantName: "Les Epicuriens",
@@ -127,7 +126,7 @@ const restaurants = [
     dishPic3: "images/quatrieme-mur/la-brasserie-le-quatrieme (4).jpg",
   },
 ]
-/* Bouton Burger*/
+
 const sidenav = document.getElementById("mySidenav");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
@@ -144,7 +143,6 @@ function openNav() {
 function closeNav() {
   sidenav.classList.remove("active");
 }
-/*Fin du bouton Burger*/
 
 // Slideshow et boutons associés
 var slideIndex = 1;
@@ -183,7 +181,7 @@ function filterRestaurants(restaurants, filtres) {
     const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
     const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
     const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
-    const matchPrice = !filtres.Price || filtres.Price.includes(restaurant.restaurantPrice);
+    const matchPrice = !filtres.price || filtres.price.includes(restaurant.restaurantPrice);
     return matchVille && matchTypeCuisine && matchNote && matchPrice;
   });
 }
@@ -231,19 +229,6 @@ function afficherRestaurants(restaurants) {
   }
 }
 
-// Fonction pour filtrer les restaurants
-function filterRestaurants(restaurants, filtres) {
-  return restaurants.filter(restaurant => {
-    // On fait une const pour chaque type de filtre
-    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
-    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
-    const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
-    const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
-    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
-    return matchVille && matchTypeCuisine && matchNote;
-  });
-}
-
 // Mise à jour des résultats
 function updateFilteredRestaurants() {
   // Création de l'objet filtre
@@ -261,7 +246,6 @@ function updateFilteredRestaurants() {
         // sinon, on créé une nouvelle donnée avec la value lue sur la checkbox associée, c'est dans le cas où le tableau filtre est vide
       } else {
         filtre[name] = [checkbox.value];
-
       }
     }
   });
@@ -270,7 +254,7 @@ function updateFilteredRestaurants() {
   if (searchInput.value != "") {
     const research = searchInput.value.toLowerCase();
     restaurantsFiltres = restaurantsFiltres.filter((restaurant) => {
-      return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research);
+      return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research) || restaurant.restaurantPrice.includes(research);
     });
     console.log(restaurantsFiltres)
   }
@@ -288,7 +272,6 @@ searchInput.addEventListener("input", updateFilteredRestaurants)
 
 afficherRestaurants(restaurants);
 
-/*Bouton formulaire*/
 // Bouton clear (décoche les filtres)
 function clearAllFilters() {
   for (const checkbox of checkboxes) {
@@ -299,7 +282,3 @@ function clearAllFilters() {
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearAllFilters);
 clearButton.addEventListener('click', updateFilteredRestaurants);
-
-
-
-
