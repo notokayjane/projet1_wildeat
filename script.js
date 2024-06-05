@@ -1,4 +1,5 @@
 /*Variable des restaurants*/
+console.log("coucou")
 const restaurants = [
   {
     restaurantName: "Les Epicuriens",
@@ -150,7 +151,7 @@ function closeNav() {
 var slideIndex = 1;
 showDivs(slideIndex);
 function plusDivs(n) {
-  showDivs(slideIndex += n);
+showDivs(slideIndex += n);
 }
 function currentDiv(n) {
   showDivs(slideIndex = n);
@@ -170,7 +171,7 @@ function showDivs(n) {
   x[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " w3-white";
 }
-// Fin du slideshow
+ //Fin du slideshow
 
 // Fonction pour la barre de recherce.
 
@@ -195,7 +196,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 // On affiche les restaurants dans le container fait pour
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
-  // reset du container, bug si non présent
+  //reset du container, bug si non présent
   container.innerHTML = '';
   // boucle for qui :
   // créé une div nommé card en html, y ajoute la class vignette-restaurant, et écrit le code avec innerHTML dans le HTML.
@@ -288,5 +289,4 @@ searchInput.addEventListener("input", updateFilteredRestaurants)
 
 afficherRestaurants(restaurants);
 
-/*Bouton formulaire*/
 
