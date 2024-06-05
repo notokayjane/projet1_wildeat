@@ -289,4 +289,22 @@ searchInput.addEventListener("input", updateFilteredRestaurants)
 
 afficherRestaurants(restaurants);
 
+<<<<<<< HEAD
+=======
+/*Bouton formulaire*/
+// Bouton clear (décoche les filtres)
+function clearAllFilters() {
+  for (const checkbox of checkboxes) {
+    checkbox.checked = false;
+  }
+}  
+
+const clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', clearAllFilters);
+clearButton.addEventListener('click', updateFilteredRestaurants);
+
+
+
+ main
+>>>>>>> 5b2c446432c3e76f5711badb7e0a93f5c6268a93
 
