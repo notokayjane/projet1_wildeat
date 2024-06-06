@@ -38,51 +38,43 @@
       </a>
     </nav>
     <div class="search">
-      <section class="filtres">
-        <h2> Filtres </h2>
+      <button type="button" id="clearButton">Clear</button>
+      <button type="button" id="filter-button">Filtres</button>
+      <section class="filtres" id="filtres">
+        <h2>Filtres</h2>
         <div>
           <h3>Ville</h3>
           <div id="ville">
-          <label><input type="checkbox" name="ville" value="Montpellier"> Montpellier</label>
-          <label><input type="checkbox" name="ville" value="Lyon"> Lyon</label>
-          <label><input type="checkbox" name="ville" value="Paris"> Paris</label>
-          <label><input type="checkbox" name="ville" value="Bordeaux"> Bordeaux</label>
+            <label><input type="checkbox" name="ville" value="Montpellier"> Montpellier</label>
+            <label><input type="checkbox" name="ville" value="Lyon"> Lyon</label>
+            <label><input type="checkbox" name="ville" value="Paris"> Paris</label>
+            <label><input type="checkbox" name="ville" value="Bordeaux"> Bordeaux</label>
+          </div>
         </div>
-    </div>
-    <div>
-      <h3>Type de cuisine</h3>
-      <div id="type">
-        <label><input type="checkbox" name="typeCuisine" value="Français"> Français</label>
-        <label><input type="checkbox" name="typeCuisine" value="Italien"> Italien</label>
-        <label><input type="checkbox" name="typeCuisine" value="Japonais"> Japonais</label>
-        <label><input type="checkbox" name="typeCuisine" value="Turc"> Turc</label>
-        <label><input type="checkbox" name="typeCuisine" value="Coréen"> Coréen</label>
-        <label><input type="checkbox" name="typeCuisine" value="Péruvien"> Péruvien</label>
-        <label><input type="checkbox" name="typeCuisine" value="Thaïlandais"> Thaïlandais</label>
-      </div>
-     </div>
-    <div>
-      <h3>Note</h3>
-      <div id="note">
-        <label><input type="checkbox" name="note" value="4 étoiles"> 4 étoiles</label>
-        <label><input type="checkbox" name="note" value="5 étoiles"> 5 étoiles</label>
-        <label><input type="checkbox" name="note" value="x étoiles"> x étoiles</label>
-      </div>
-    </div>
+        <div>
+          <h3>Type de cuisine</h3>
+          <div id="type">
+            <label><input type="checkbox" name="typeCuisine" value="Français"> Français</label>
+            <label><input type="checkbox" name="typeCuisine" value="Italien"> Italien</label>
+            <label><input type="checkbox" name="typeCuisine" value="Japonais"> Japonais</label>
+            <label><input type="checkbox" name="typeCuisine" value="Turc"> Turc</label>
+            <label><input type="checkbox" name="typeCuisine" value="Coréen"> Coréen</label>
+            <label><input type="checkbox" name="typeCuisine" value="Péruvien"> Péruvien</label>
+            <label><input type="checkbox" name="typeCuisine" value="Thaïlandais"> Thaïlandais</label>
+          </div>
+        </div>
+        <div>
+          <h3>Prix</h3>
+          <div id="prix">
+            <label><input type="checkbox" name="price" value="€"> €</label>
+            <label><input type="checkbox" name="price" value="€€"> €€</label>
+            <label><input type="checkbox" name="price" value="€€€"> €€€</label>
+            <label><input type="checkbox" name="price" value="€€€€"> €€€€</label>
+          </div>
+        </div>
 
-    <div>
-      <h3>Prix</h3>
-      <div id="prix">
-        <label><input type="checkbox" name="price" value="€"> €</label>
-        <label><input type="checkbox" name="price" value="€€"> €€</label>
-        <label><input type="checkbox" name="price" value="€€€"> €€€</label>
-        <label><input type="checkbox" name="price" value="€€€€"> €€€€</label>
-      </div>
+      </section>
     </div>
-    <button id="openFiltresBtn">Open Filtres</button>
-    <button id="closeFiltresBtn">Close Filtres</button>
-    <button type="bouton" id="clearButton">clear</button>
-    </section>
     <div class="group">
       <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
         <g>

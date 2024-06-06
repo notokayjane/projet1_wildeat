@@ -125,38 +125,36 @@ const restaurants = [
   },
 ]
 
-document.addEventListener('DOMContentLoaded', function () {
-// Bouton du menu burger
-const sidenav = document.getElementById("mySidenav");
-const openNavBtn = document.getElementById("openBtn");
-const closeNavBtn = document.getElementById("closeBtn");
+  // Bouton du menu burger
+  const sidenav = document.getElementById("mySidenav");
+  const openNavBtn = document.getElementById("openBtn");
+  const closeNavBtn = document.getElementById("closeBtn");
 
-openNavBtn.onclick = openNav;
-closeNavBtn.onclick = closeNav;
+  if (openNavBtn && closeNavBtn && sidenav) {
+    openNavBtn.onclick = openNav;
+    closeNavBtn.onclick = closeNav;
 
-function openNav() {
-  sidenav.classList.add("active");
-}
+    function openNav() {
+      sidenav.classList.add("active");
+    }
 
-function closeNav() {
-  sidenav.classList.remove("active");
-}
+    function closeNav() {
+      sidenav.classList.remove("active");
+    }
+  }
 
-/* filters */
-const filters = document.getElementById("filtres");
-const openFiltresBtn = document.getElementById("openFiltresBtn");
-const closeFiltresBtn = document.getElementById("closeFiltresBtn");
+  // Filtres
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButton = document.getElementById('filter-button');
+  const filtersSection = document.getElementById('filtres');
 
-openFiltresBtn.onclick = openFiltres;
-closeFiltresBtn.onclick = closeFiltres;
-
-function openFiltres() {
-  filters.classList.add("active");
-}
-
-function closeFiltres() {
-  filters.classList.remove("active");
-}
+  filterButton.addEventListener('click', function() {
+    if (filtersSection.style.display === 'none' || filtersSection.style.display === '') {
+      filtersSection.style.display = 'block';
+    } else {
+      filtersSection.style.display = 'none';
+    }
+  });
 });
 
 // Slideshow et boutons associés
@@ -233,9 +231,9 @@ function afficherRestaurants(restaurants) {
                           </div>
                           <div class="image-restaurant">
                               <img src="${restaurant.restaurantPic}" class="mySlides" alt="photo restaurant">
-                              <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
-                              <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
-                              <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
+                              // <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
+                              // <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
+                              // <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
                           </div>`;
     container.appendChild(card);
   }
@@ -286,7 +284,11 @@ function updateFilteredRestaurants() {
   } else {
     z = 12;
   }
+  if (locationsFiltrees.length === 4){
+    updateMapView([2.2137, 46.2276], 5.5);
+  } else { 
   updateMapView([longmoy, latmoy], z);
+  };
 }
 
 // Update sur case cochée

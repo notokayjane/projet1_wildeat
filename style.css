@@ -32,22 +32,13 @@ nav {
   background-attachment: fixed;
   background-size: cover;
   justify-content: space-between;
+  padding: 0 1rem 0 0;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   right: 0;
   z-index: 2;
-}
-
-nav>search {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-.sous {
-  display: none;
 }
 
 /*début search button*/
@@ -241,82 +232,26 @@ input:hover {
 }
 /*Fin du menu burger*/
 
-/*début de la partie filtres*/
-.filtres:has(+ .expand-button:checked) {
-  --max-lines: 20;
-}
-
-.filtres {
-  color: black;
-  font-weight: 500;
-  max-width: 25ch;
-  font-size: small;
-  /* Limitation des cases de description et overflow */
-  --max-lines: 0;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--max-lines);
-  background-color: var(--fourth-color);
-  border-radius: 8px;
-  min-width: 45vw;
-}
-
-#ville {
+/* Filtres */
+#filtres {
   display: none;
 }
-
-#type {
-  display: none;
+#filtres .active {
+  display: block;
 }
 
-#note {
-  display: none;
-}
-
-#prix {
-  display: none;
-}
-
-/* Active class */
-.filtres .active {
-  right: 0;
-}
-
-/* Close btn */
-.filtres .close {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
-
-.expand-button {
-  appearance: none;
-  background-color: var(--fourth-color);
-  color: var(--main-color);
-  border: 1px solid black;
-  padding: 0.5em;
-  border-radius: 0.5em;
+button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
   cursor: pointer;
-  margin-top: 0.5rem;
-  margin-left: 3rem;
-  box-shadow: 0.1rem 0.1rem 2px var(--third-color);
-  transition: transform 100ms ease-in-out;
+  transition: background-color 0.3s;
 }
 
-.expand-button:hover {
-  background-color: white;
-  color: #111;
-  transform: scale(1.1);
-}
-
-.expand-button::before {
-  content: "Afficher plus";
-}
-
-.expand-button:checked:before {
-  content: "Afficher moins";
+button:hover {
+  background-color: #0056b3;
 }
 
 /* Fin de la partie sur les filtres*/
