@@ -273,7 +273,7 @@ input:hover {
 }
 
 /* Active class */
-.filtres.active {
+.filtres .active {
   right: 0;
 }
 
