@@ -47,8 +47,8 @@
         <div class="contact">
             <p>Vous souhaitez entrer en contact avec nous ?
                 <br>
-                Pour nous donner vos impressions sur le site, sur les restaurants sités ou encore noter ces restaurants,
-                <br> n'hésitez pas à nous écrire nous vous répondrons sous les meilleurs délais.
+                Pour nous donner vos impressions sur le site, sur les restaurants sités ou pour les noter,
+                <br> n'hésitez pas à nous écrire, nous vous répondrons sous les meilleurs délais.
                 <br>Votre participation nous aidera à améliorer notre site et le rendre plus complet.
             </p>
 
@@ -73,7 +73,7 @@
                 <label for="contact-reason">Quelle est la raison de votre contact ? </label>
 
 
-                <select class="reason" name="reason" id="contact-reason">
+                <select class="reason" name="reason" id="contact-reason" required>
 
                     <option value="">--Choisissez une option--</option>
 
@@ -101,7 +101,10 @@
 
                 <br>
 
+
+            <input type="submit" id="submitButton" value="Envoyer le formulaire">
             <input class="buttonFormulaire" type="submit" value="Envoyer le formulaire">
+
 
             </form>
         </div>
@@ -113,6 +116,7 @@
         <p>Contact <strong>dacode@gmail.com</strong></p>
     </footer>
     <script src="script.js"></script>
+    <script src="formulaire.js"></script>
 </body>
 
 </html>

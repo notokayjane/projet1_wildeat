@@ -1,3 +1,4 @@
+
 const locations = [
   {id: "Paris", longitude:2.3522, latitude:48.8566},
   {id: "Lyon", longitude:4.8357, latitude:45.7640},
@@ -144,6 +145,7 @@ function closeNav() {
 }
 
 // Slideshow et boutons associés
+
 document.addEventListener('DOMContentLoaded', function() {
   const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
   let slideIndex = 1;
@@ -151,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function plusSlides(n) {
     showSlides(slideIndex += n);
+
   }
   function showSlides(n){
     let i;
@@ -162,6 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     s[slideIndex-1].style.display = "block";
   }
+
+ //Fin du slideshow
 
   restaurantVignettes.forEach(vignette => {
     const slides = vignette.querySelectorAll('.mySlides');
@@ -212,7 +217,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 // On affiche les restaurants dans le container fait pour
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
-  // reset du container, bug si non présent
+  //reset du container, bug si non présent
   container.innerHTML = '';
   // boucle for qui :
   // créé une div nommé card en html, y ajoute la class vignette-restaurant, et écrit le code avec innerHTML dans le HTML.
@@ -305,6 +310,7 @@ searchInput.addEventListener("input", updateFilteredRestaurants);
 
 afficherRestaurants(restaurants);
 
+
 // // Carte interactive
 // Les villes et leurs coordonnées
 // initialisation de la carte
@@ -333,10 +339,10 @@ function clearAllFilters() {
   }
 }
 
+
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearAllFilters);
 clearButton.addEventListener('click', updateFilteredRestaurants);
-
 
 /* filtres */
 const filtres = document.getElementById("filtres");
