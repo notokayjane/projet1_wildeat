@@ -311,6 +311,8 @@ searchInput.addEventListener("input", updateFilteredRestaurants);
 afficherRestaurants(restaurants);
 
 
+
+
 // // Carte interactive
 // Les villes et leurs coordonnées
 // initialisation de la carte
@@ -356,3 +358,4 @@ function openNav() {
 function closeNav() {
   filtres.classList.remove("active");
 }
+
