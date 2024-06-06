@@ -1,8 +1,8 @@
 const locations = [
-  { id: "Paris", longitude: 2.3522, latitude: 48.8566 },
-  { id: "Lyon", longitude: 4.8357, latitude: 45.7640 },
-  { id: "Bordeaux", longitude: -0.5792, latitude: 44.8378 },
-  { id: "Montpellier", longitude: 3.8767, latitude: 43.6119 },
+  {id: "Paris", longitude:2.3522, latitude:48.8566},
+  {id: "Lyon", longitude:4.8357, latitude:45.7640},
+  {id: "Bordeaux", longitude:-0.5792, latitude:44.8378},
+  {id: "Montpellier", longitude:3.8767, latitude:43.6119},
 ]
 
 const restaurants = [
@@ -142,29 +142,59 @@ function openNav() {
 function closeNav() {
   sidenav.classList.remove("active");
 }
+/* filtres */
+const filtres = document.getElementById("filtres");
+// openBtn.onclick = openBtn("openBtn");
+// closeBtn.onclick = closeBtn("closeBtn");
 
+function openNav() {
+  filtres.classList.add("active");
+}
+
+function closeNav() {
+  filtres.classList.remove("active");
+}
 
 // Slideshow et boutons associés
-document.addEventListener('DOMContentLoaded', function () {
+
+document.addEventListener('DOMContentLoaded', function() {
   const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+
+  }
+  function showSlides(n){
+    let i;
+    let s = document.getElementsByClassName("mySlides");
+    if (n > s.length) {slideIndex = 1};
+    if (n < 1) {slideIndex = s.length};
+    for (i = 0; i < s.length; i++){
+      s[i].style.display = "none";
+    }
+    s[slideIndex-1].style.display = "block";
+  }
+
+ //Fin du slideshow
 
   restaurantVignettes.forEach(vignette => {
     const slides = vignette.querySelectorAll('.mySlides');
     let slideIndex = 1;
     showSlides(slideIndex);
 
-    // Ajouter les boutons
     vignette.innerHTML += `
       <div class="slide-buttons">
         <button class="prev" onclick="plusSlides(-1)">Prev</button>
         <button class="next" onclick="plusSlides(1)">Next</button>
       </div>
     `;
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
 
-    // Fonctions pour les boutons
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+    prevButton.addEventListener('click', () => plusSlides(-1));
+    nextButton.addEventListener('click', () => plusSlides(1));
 
     function showSlides(n) {
       if (n > slides.length) { slideIndex = 1 }
@@ -176,7 +206,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -198,7 +227,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 // On affiche les restaurants dans le container fait pour
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
-  // reset du container, bug si non présent
+  //reset du container, bug si non présent
   container.innerHTML = '';
   // boucle for qui :
   // créé une div nommé card en html, y ajoute la class vignette-restaurant, et écrit le code avec innerHTML dans le HTML.
@@ -250,7 +279,7 @@ function updateFilteredRestaurants() {
   if (searchInput.value != "") {
     const research = searchInput.value.toLowerCase();
     restaurantsFiltres = restaurantsFiltres.filter((restaurant) => {
-      return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research);
+      return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research) || restaurant.restaurantPrice.includes(research);
     });
   }
   afficherRestaurants(restaurantsFiltres);
@@ -292,6 +321,7 @@ searchInput.addEventListener("input", updateFilteredRestaurants);
 afficherRestaurants(restaurants);
 
 // Initialisation de la carte
+
 let map = new ol.Map({
   target: 'map',
   layers: [
@@ -417,3 +447,20 @@ addRestaurant('Bordeaux', 'Le Quatrième Mur', [-0.5749, 44.8413]);
 addCity('Montpellier', [3.8767, 43.6119]);
 addRestaurant('Montpellier', 'Les Epicuriens', [3.8278, 43.6138]);
 addRestaurant('Montpellier', 'Royal Orchid', [3.8781, 43.6079]);
+
+// Fonction pour la mise à jour de la carte en fonction d'un lieu
+function updateMapView(newLocation, zoomLevel){
+  const newCenter = ol.proj.fromLonLat(newLocation);
+  map.getView().setCenter(newCenter);
+  map.getView().setZoom(zoomLevel);
+}
+
+// Bouton clear (décoche les filtres)
+function clearAllFilters() {
+  for (const checkbox of checkboxes) {
+    checkbox.checked = false;
+  }
+}
+const clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', clearAllFilters);
+clearButton.addEventListener('click', updateFilteredRestaurants);
