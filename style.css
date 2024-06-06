@@ -56,6 +56,7 @@ nav {
   background-color: #f3f3f4;
   color: #0d0c22;
   transition: .3s ease;
+  
 }
 
 .input::placeholder {
@@ -83,13 +84,14 @@ input:hover {
   display: flex;
   line-height: 28px;
   align-items: center;
-  max-width: 190px;
+  max-width: 50vw;
 }
 
 .search {
   margin: 0.8rem;
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 }
 
 .search-buttons{
@@ -100,7 +102,7 @@ input:hover {
   padding: 0.5rem 1rem;
   margin: 0 0.5rem;
   background-color: var(--secondary-color);
-  color: var(--fourth-color);
+  color: black;
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -210,6 +212,7 @@ body {
   font-family: var(--subtitle-font);
   color: #0c3eff;
   padding: 0.5rem;
+  margin-top: 0.5rem;
   justify-content: center;
 }
 
