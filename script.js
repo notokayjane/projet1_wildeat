@@ -143,28 +143,42 @@ function closeNav() {
   sidenav.classList.remove("active");
 }
 
-
 // Slideshow et boutons associés
 document.addEventListener('DOMContentLoaded', function() {
   const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  function showSlides(n){
+    let i;
+    let s = document.getElementsByClassName("mySlides");
+    if (n > s.length) {slideIndex = 1};
+    if (n < 1) {slideIndex = s.length};
+    for (i = 0; i < s.length; i++){
+      s[i].style.display = "none";
+    }
+    s[slideIndex-1].style.display = "block";
+  }
 
   restaurantVignettes.forEach(vignette => {
     const slides = vignette.querySelectorAll('.mySlides');
     let slideIndex = 1;
     showSlides(slideIndex);
 
-    // Ajouter les boutons
     vignette.innerHTML += `
       <div class="slide-buttons">
         <button class="prev" onclick="plusSlides(-1)">Prev</button>
         <button class="next" onclick="plusSlides(1)">Next</button>
       </div>
     `;
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
 
-    // Fonctions pour les boutons
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+    prevButton.addEventListener('click', () => plusSlides(-1));
+    nextButton.addEventListener('click', () => plusSlides(1));
 
     function showSlides(n) {
       if (n > slides.length) { slideIndex = 1 }

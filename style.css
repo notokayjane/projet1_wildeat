@@ -165,13 +165,13 @@ body {
 }
 
 .prev, .next {
-  background-color: var(--fourth-color); /* Couleur de fond */
-  border: none; /* Pas de bordure */
-  color: var(--main-color); /* Couleur du texte */
-  padding: 8px 16px; /* Espacement interne */
-  font-size: 1rem; /* Taille de la police */
-  cursor: pointer; /* Curseur en forme de main */
-  margin: 0 5px; /* Marge entre les boutons */
+  background-color: var(--fourth-color);
+  border: none; 
+  color: var(--main-color);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 5px;
 }
 
 
