@@ -5,8 +5,12 @@ function confirmSubmit(event) {
     // Si l'utilisateur clique sur "Annuler", empêcher la soumission du formulaire
     if (!isConfirmed) {
         event.preventDefault();
+        
+    } else {
+        const form = document.querySelector('.form');
+        form.reset();
     }
   }
   
-  const button = document.getElementById('submitButton');
-  button.addEventListener("click",confirmSubmit)
+  const button = document.querySelector('.fancy');
+  button.addEventListener("click",() => confirmSubmit());
