@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
-:root{
-  --main-color:#ffffff;
-  --secondary-color:#ffd332;
-  --third-color:#009c53;
-  --fourth-color:#f15622;
+:root {
+  --main-color: #ffffff;
+  --secondary-color: #ffd332;
+  --third-color: #009c53;
+  --fourth-color: #f15622;
   --title-font: 'Poetsen One', sans-serif;
   --subtitle-font: 'subjectivity', sans-serif;
   --main-font: 'space mono', sans-serif;
@@ -91,6 +91,7 @@ input:hover {
   width: 1rem;
   height: 1rem;
 }
+
 /*fin search button*/
 
 /* Barres des réseaux sociaux */
@@ -180,6 +181,7 @@ input:hover {
   background: #e4405f;
   color: #fff;
 }
+
 /*Fin du menu burger filtre*/
 
 /* Menu Burger*/
@@ -236,9 +238,10 @@ input:hover {
   display: block;
   width: 35px;
   height: 5px;
-  background-color: black;
+  background-color: var(--secondary-color);
   margin: 6px 0;
 }
+
 /*Fin du menu burger*/
 
 /*début de la partie filtres*/
@@ -247,7 +250,7 @@ input:hover {
 }
 
 .filtres {
-  color: black;
+  color: var(--secondary-color);
   font-weight: 500;
   max-width: 25ch;
   font-size: small;
@@ -332,26 +335,27 @@ body {
   width: 100%;
   height: 45vh;
 }
-.map-container{
+
+.map-container {
   padding: 1rem 1rem;
   margin: 0 auto;
   width: 100vw;
   transition: width 0.5s ease-in-out;
 }
 
-@media screen and (width >= 768px) {
-  .map-container{
+@media screen and (width >=768px) {
+  .map-container {
     width: 70vw;
   }
 }
 
 /* Vignette du restaurant et son contenu */
 /* Vignette de démonstration vide */
-.demo{
+.demo {
   display: none;
 }
 
-.vignette-restaurant{
+.vignette-restaurant {
 
   background-color: var(--secondary-color);
   display: flex;
@@ -365,15 +369,15 @@ body {
   flex-direction: column-reverse;
 }
 
-@media screen and (width >= 768px) {
-  .vignette-restaurant{
+@media screen and (width >=768px) {
+  .vignette-restaurant {
     width: 70vw;
     margin: 1rem auto;
   }
 }
 
 /* Images et photos */
-.mySlides{
+.mySlides {
   width: 100%;
   height: max-content;
 }
@@ -386,12 +390,14 @@ body {
 
 /* Boutons pour slider */
 .slide-buttons {
-  text-align: center; /* Centrer les boutons */
+  text-align: center;
+  /* Centrer les boutons */
 }
 
-.prev, .next {
+.prev,
+.next {
   background-color: var(--fourth-color);
-  border: none; 
+  border: none;
   color: var(--main-color);
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -436,7 +442,7 @@ body {
   border-radius: 8px;
   padding: 2rem 2rem 2rem 2rem;
   width: 90%;
-  height: 200px;  
+  height: 200px;
 }
 
 .restaurant-description:has(+ .expand-button:checked) {
@@ -474,9 +480,9 @@ body {
 /* Fin de la partie sur l'overflow */
 .restaurant-note {
   color: black;
- float: left;
- display: flex;
- justify-content: space-between;
+  float: left;
+  display: flex;
+  justify-content: space-between;
 }
 
 .restaurant-price {
@@ -492,6 +498,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 /* Bas de page */
 
 footer {
@@ -514,6 +521,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
 }
 
 .infos {
@@ -522,32 +530,63 @@ footer {
   flex-direction: column;
   align-items: center;
   font-size: larger;
+
+}
+
+h2 {
+  margin-top: -10%;
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+}
+
+.team {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
+  align-items: center;
+  font-size: 13px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
 }
 
 h3 {
   font-family: var(--subtitle-font);
-  color: var(--main-color);
+  color: var(--fourth-color);
+  font-size: 25px;
 }
 
 .wilders {
   background-color: var(--secondary-color);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0.5rem;
   margin: 1rem 0.5rem;
   border-radius: 16px;
   gap: 0.5rem;
   height: auto;
-  font-size: medium;
+  width: 50% font-size: medium;
+  flex-direction: column-reverse;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .information-wilders {
+  background-color: white;
+  color: black;
+  width: 90vw;
+  max-height: 500px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  font-size: 16px;
+  padding: 1rem;
+}
+
+.card-img {
+  width: 400%;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: justify;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
 }
 
 .Nous {
@@ -563,6 +602,23 @@ h3 {
   font-size: larger;
 }
 
+h2 {
+  margin-top: -10%;
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+}
+
+.important {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
+  align-items: center;
+  font-size: 12px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
+}
+
+
 #message {
   font: var(--main-font);
 }
@@ -574,9 +630,9 @@ h3 {
 #submitButton {
   font: var(--main-font);
   margin: 1rem
-  }
+}
 
-  #submitButton:hover {
+#submitButton:hover {
   font: var(--main-font);
   width: 500px;
   transition: width 1s ease-in;
