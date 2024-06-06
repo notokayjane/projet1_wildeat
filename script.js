@@ -1,23 +1,29 @@
+
+const locations = [
+  {id: "Paris", longitude:2.3522, latitude:48.8566},
+  {id: "Lyon", longitude:4.8357, latitude:45.7640},
+  {id: "Bordeaux", longitude:-0.5792, latitude:44.8378},
+  {id: "Montpellier", longitude:3.8767, latitude:43.6119},
+]
+
 const restaurants = [
   {
     restaurantName: "Les Epicuriens",
     city: "Montpellier",
     restaurantType: "Français",
-
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.les-epicuriens-restaurant-juvignac.fr/",
     restaurantDesc: "Les Épicuriens à Juvignac est plus qu'un restaurant : c'est une destination gourmande. Brasserie, restaurant, et caviste, vous découvrirez une cuisine fusion unique. Centre Commercial Les Portes du Soleil, Entrée 2, 34990 Juvignac",
-    restaurantPic: "images/epicuriens/Group 1_20231002110116.png",
-    dishPic1: "images/epicuriens/Frame 18_20230912170422.png.webp",
-    dishPic2: "images/epicuriens/Frame 19_20230912170424.png.webp",
-    dishPic3: "images/epicuriens/Frame 24_20230912172505.png.webp",
+    restaurantPic: "images/epicuriens/Group1_20231002110116.webp",
+    dishPic1: "images/epicuriens/Frame18_20230912170422.webp",
+    dishPic2: "images/epicuriens/Frame19_20230912170424.webp",
+    dishPic3: "images/epicuriens/Frame24_20230912172505.webp",
   },
   {
     restaurantName: "MIMA",
     city: "Lyon",
     restaurantType: "Italien",
-
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.mima-lyon.fr/",
@@ -31,7 +37,6 @@ const restaurants = [
     restaurantName: "Le McQueen",
     city: "Paris",
     restaurantType: "Japonais",
-
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://lemcqueen.fr/",
@@ -45,7 +50,6 @@ const restaurants = [
     restaurantName: "Le chalet Savoyard",
     city: "Paris",
     restaurantType: "Français",
-
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.chalet-savoyard.fr/",
@@ -59,7 +63,6 @@ const restaurants = [
     restaurantName: "Pidè Paris",
     city: "Paris",
     restaurantType: "Turc",
-
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€",
     restaurantSite: "https://pide.paris/",
@@ -73,7 +76,6 @@ const restaurants = [
     restaurantName: "BIBIBAP",
     city: "Bordeaux",
     restaurantType: "Coréen",
-
     restaurantRating: "4 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.bibibap.fr/",
@@ -87,7 +89,6 @@ const restaurants = [
     restaurantName: "Mochicas Café",
     city: "Lyon",
     restaurantType: "Péruvien",
-
     restaurantRating: "4.9 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://mochicascafe.com/",
@@ -101,7 +102,6 @@ const restaurants = [
     restaurantName: "Royal Orchid",
     city: "Montpellier",
     restaurantType: "Thaïlandais",
-
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.facebook.com/p/Royal-Orchid-100027943136673/",
@@ -115,7 +115,6 @@ const restaurants = [
     restaurantName: "Le Quatrième Mur",
     city: "Bordeaux",
     restaurantType: "Français",
-
     restaurantRating: "4.4 étoiles",
     restaurantPrice: "€€€€",
     restaurantSite: "https://quatrieme-mur.com/",
@@ -126,6 +125,7 @@ const restaurants = [
     dishPic3: "images/quatrieme-mur/la-brasserie-le-quatrieme (4).jpg",
   },
 ]
+// Bouton du menu burger
 
 const sidenav = document.getElementById("mySidenav");
 const openBtn = document.getElementById("openBtn");
@@ -143,34 +143,71 @@ function openNav() {
 function closeNav() {
   sidenav.classList.remove("active");
 }
+/* filtres */
+const filtres = document.getElementById("filtres");
+// openBtn.onclick = openBtn("openBtn");
+// closeBtn.onclick = closeBtn("closeBtn");
+
+function openNav() {
+  filtres.classList.add("active");
+}
+
+function closeNav() {
+  filtres.classList.remove("active");
+}
 
 // Slideshow et boutons associés
-var slideIndex = 1;
-showDivs(slideIndex);
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("select-button");
-  if (n > x.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = x.length }
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " w3-white";
-}
-// Fin du slideshow
 
-// Fonction pour la barre de recherce.
+document.addEventListener('DOMContentLoaded', function() {
+  const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+
+  }
+  function showSlides(n){
+    let i;
+    let s = document.getElementsByClassName("mySlides");
+    if (n > s.length) {slideIndex = 1};
+    if (n < 1) {slideIndex = s.length};
+    for (i = 0; i < s.length; i++){
+      s[i].style.display = "none";
+    }
+    s[slideIndex-1].style.display = "block";
+  }
+
+ //Fin du slideshow
+
+  restaurantVignettes.forEach(vignette => {
+    const slides = vignette.querySelectorAll('.mySlides');
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    vignette.innerHTML += `
+      <div class="slide-buttons">
+        <button class="prev" onclick="plusSlides(-1)">Prev</button>
+        <button class="next" onclick="plusSlides(1)">Next</button>
+      </div>
+    `;
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    prevButton.addEventListener('click', () => plusSlides(-1));
+    nextButton.addEventListener('click', () => plusSlides(1));
+
+    function showSlides(n) {
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  });
+});
+
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -180,12 +217,11 @@ function filterRestaurants(restaurants, filtres) {
     // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
     const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
     const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
-    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
-    const matchPrice = !filtres.price || filtres.price.includes(restaurant.restaurantPrice);
+    const matchNote = !filtres.note || filtres.note.includes(restaurant.restaurantRating);
+    const matchPrice = !filtres.Price || filtres.Price.includes(restaurant.restaurantPrice);
     return matchVille && matchTypeCuisine && matchNote && matchPrice;
   });
 }
-
 
 // On sélectionne toutes les checkbox
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -193,7 +229,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 // On affiche les restaurants dans le container fait pour
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
-  // reset du container, bug si non présent
+  //reset du container, bug si non présent
   container.innerHTML = '';
   // boucle for qui :
   // créé une div nommé card en html, y ajoute la class vignette-restaurant, et écrit le code avec innerHTML dans le HTML.
@@ -207,9 +243,7 @@ function afficherRestaurants(restaurants) {
                               <p class="restaurant-description">${restaurant.restaurantDesc}</p>
                               <input type="checkbox" class="expand-button">
                               <div class="restaurant-note">Note: ${restaurant.restaurantRating}</div>
-
                               <div class="restaurant-price">Prix: ${restaurant.restaurantPrice}</div>
-
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
                           </div>
                           <div class="image-restaurant">
@@ -217,13 +251,6 @@ function afficherRestaurants(restaurants) {
                               <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
                               <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
                               <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
-                              <div class="slide-buttons">
-                                <div class="left-arrow"></div>
-                                <span class="select-button" onclick="currentDiv(1)"></span>
-                                <span class="select-button" onclick="currentDiv(2)"></span>
-                                <span class="select-button" onclick="currentDiv(3)"></span>
-                                <div class="right-arrow"></div>
-                              </div>
                           </div>`;
     container.appendChild(card);
   }
@@ -256,9 +283,32 @@ function updateFilteredRestaurants() {
     restaurantsFiltres = restaurantsFiltres.filter((restaurant) => {
       return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research) || restaurant.restaurantPrice.includes(research);
     });
-    console.log(restaurantsFiltres)
   }
   afficherRestaurants(restaurantsFiltres);
+
+  // On filtre les coordonnées des villes sélectionnées
+  const villesFiltrees = [...new Set(restaurantsFiltres.map(id => id.city))];
+  const locationsFiltrees = locations.filter(location => 
+    villesFiltrees.includes(location.id));
+  // On calcule la latitude et la longitude moyennes
+  function latitudeMoyenne(locationsFiltrees){
+    return locationsFiltrees.latitude;
+  }
+  function longitudeMoyenne(locationsFiltrees){
+    return locationsFiltrees.longitude;
+  }
+  function sum (prev,next){
+    return (prev+next)/2;
+  }
+  // On les somme
+  let latmoy = locationsFiltrees.map(latitudeMoyenne).reduce(sum);
+  let longmoy = locationsFiltrees.map(longitudeMoyenne).reduce(sum);
+  if (locationsFiltrees.length > 1) {
+    z = 6.5;
+  } else {
+    z = 12;
+  }
+  updateMapView([longmoy,latmoy], z);
 }
 
 // Update sur case cochée
@@ -268,21 +318,38 @@ checkboxes.forEach(checkbox => {
 
 // barre de recherche
 const searchInput = document.querySelector("#site-search");
-searchInput.addEventListener("input", updateFilteredRestaurants)
+searchInput.addEventListener("input", updateFilteredRestaurants);
 
 afficherRestaurants(restaurants);
+
+// // Carte interactive
+// Les villes et leurs coordonnées
+// initialisation de la carte
+let map = new ol.Map({
+  target: 'map',
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],  
+  view: new ol.View({
+    center: ol.proj.fromLonLat([2.2137,46.2276]),
+    zoom: 5,})
+  });
+// Fonction pour la mise à jour de la carte en fonction d'un lieu
+function updateMapView(newLocation, zoomLevel){
+  const newCenter = ol.proj.fromLonLat(newLocation);
+  map.getView().setCenter(newCenter);
+  map.getView().setZoom(zoomLevel);
+}
 
 // Bouton clear (décoche les filtres)
 function clearAllFilters() {
   for (const checkbox of checkboxes) {
     checkbox.checked = false;
   }
-}  
-
+}
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearAllFilters);
 clearButton.addEventListener('click', updateFilteredRestaurants);
-
-
-
 
