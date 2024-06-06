@@ -571,12 +571,12 @@ h3 {
   font-size: medium
 }
 
-.buttonFormulaire {
+#submitButton {
   font: var(--main-font);
   margin: 1rem
   }
 
-.buttonFormulaire:hover {
+  #submitButton:hover {
   font: var(--main-font);
   width: 500px;
   transition: width 1s ease-in;
