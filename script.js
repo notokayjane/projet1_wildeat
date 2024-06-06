@@ -1,4 +1,3 @@
-
 const locations = [
   {id: "Paris", longitude:2.3522, latitude:48.8566},
   {id: "Lyon", longitude:4.8357, latitude:45.7640},
@@ -208,7 +207,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
   return restaurants.filter(restaurant => {
@@ -288,17 +286,17 @@ function updateFilteredRestaurants() {
 
   // On filtre les coordonnées des villes sélectionnées
   const villesFiltrees = [...new Set(restaurantsFiltres.map(id => id.city))];
-  const locationsFiltrees = locations.filter(location => 
+  const locationsFiltrees = locations.filter(location =>
     villesFiltrees.includes(location.id));
   // On calcule la latitude et la longitude moyennes
-  function latitudeMoyenne(locationsFiltrees){
+  function latitudeMoyenne(locationsFiltrees) {
     return locationsFiltrees.latitude;
   }
-  function longitudeMoyenne(locationsFiltrees){
+  function longitudeMoyenne(locationsFiltrees) {
     return locationsFiltrees.longitude;
   }
-  function sum (prev,next){
-    return (prev+next)/2;
+  function sum(prev, next) {
+    return (prev + next) / 2;
   }
   // On les somme
   let latmoy = locationsFiltrees.map(latitudeMoyenne).reduce(sum);
@@ -308,7 +306,7 @@ function updateFilteredRestaurants() {
   } else {
     z = 12;
   }
-  updateMapView([longmoy,latmoy], z);
+  updateMapView([longmoy, latmoy], z);
 }
 
 // Update sur case cochée
@@ -322,20 +320,134 @@ searchInput.addEventListener("input", updateFilteredRestaurants);
 
 afficherRestaurants(restaurants);
 
-// // Carte interactive
-// Les villes et leurs coordonnées
-// initialisation de la carte
+// Initialisation de la carte
+
 let map = new ol.Map({
   target: 'map',
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
     })
-  ],  
+  ],
   view: new ol.View({
-    center: ol.proj.fromLonLat([2.2137,46.2276]),
-    zoom: 5,})
+    center: ol.proj.fromLonLat([2.2137, 46.2276]), // Coordonnées de la France
+    zoom: 5,
+  })
+});
+
+// Fonction pour créer un style de marqueur
+function createMarkerStyle(text) {
+  return new ol.style.Style({
+    image: new ol.style.Icon({
+      anchor: [0.5, 1],
+      src: 'https://openlayers.org/en/latest/examples/data/icon.png' // URL de l'icône du marqueur
+    }),
+    text: new ol.style.Text({
+      text: text,
+      offsetY: -25,
+      font: '12px Calibri,sans-serif',
+      fill: new ol.style.Fill({
+        color: '#000'
+      }),
+      stroke: new ol.style.Stroke({
+        color: '#fff',
+        width: 3
+      })
+    })
   });
+}
+
+// Objets pour stocker les couches et les sources des villes et des restaurants
+const citySource = new ol.source.Vector();
+const restaurantSources = new Map();
+
+const cityLayer = new ol.layer.Vector({
+  source: citySource
+});
+
+const restaurantLayers = new Map();
+
+// Ajouter la couche des villes à la carte
+map.addLayer(cityLayer);
+
+// Fonction pour ajouter une ville
+function addCity(name, coords) {
+  const cityMarker = new ol.Feature({
+    geometry: new ol.geom.Point(ol.proj.fromLonLat(coords)),
+    name: name
+  });
+  cityMarker.setStyle(createMarkerStyle(name));
+  citySource.addFeature(cityMarker);
+
+  const restaurantSource = new ol.source.Vector();
+  restaurantSources.set(name, restaurantSource);
+
+  const restaurantLayer = new ol.layer.Vector({
+    source: restaurantSource,
+    visible: false // Masqué par défaut
+  });
+  restaurantLayers.set(name, restaurantLayer);
+  map.addLayer(restaurantLayer);
+}
+
+// Fonction pour ajouter un restaurant à une ville
+function addRestaurant(cityName, restaurantName, coords) {
+  const restaurantSource = restaurantSources.get(cityName);
+  if (restaurantSource) {
+    const restaurantMarker = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat(coords)),
+      name: restaurantName
+    });
+    restaurantMarker.setStyle(createMarkerStyle(restaurantName));
+    restaurantSource.addFeature(restaurantMarker);
+  }
+}
+
+// Fonction pour mettre à jour les couches en fonction du zoom
+function updateLayers() {
+  const zoom = map.getView().getZoom();
+  citySource.getFeatures().forEach(cityMarker => {
+    const cityName = cityMarker.get('name');
+    const restaurantLayer = restaurantLayers.get(cityName);
+    if (zoom >= 10) {
+      cityLayer.setVisible(false);
+      restaurantLayer.setVisible(true);
+    } else {
+      cityLayer.setVisible(true);
+      restaurantLayer.setVisible(false);
+    }
+  });
+}
+// Fonction pour la mise à jour de la carte en fonction d'un lieu
+function updateMapView(newLocation, zoomLevel) {
+  const newCenter = ol.proj.fromLonLat(newLocation);
+  map.getView().setCenter(newCenter);
+  map.getView().setZoom(zoomLevel);
+}
+// Ajouter un écouteur pour les changements de résolution (zoom)
+map.getView().on('change:resolution', updateLayers);
+
+// Appel initial pour définir les couches en fonction du zoom initial
+updateLayers();
+
+// Exemple d'ajout de villes et de restaurants
+addCity('Paris', [2.3522, 48.8566]);
+addRestaurant('Paris', 'Le McQueen', [2.3397, 48.8670]);
+addRestaurant('Paris', 'Le Chalet Savoyard', [2.3825, 48.8515]);
+addRestaurant('Paris', 'Pidè Paris', [2.3508, 48.8506]);
+
+addCity('Lyon', [4.8357, 45.7640]);
+addRestaurant('Lyon', 'Mima', [4.8312, 45.7634]);
+addRestaurant('Lyon', 'Mochicas Café', [4.8285, 45.7613]);
+
+addCity('Bordeaux', [-0.5792, 44.8378]);
+addRestaurant('Bordeaux', 'BIBIBAP', [-0.5792, 44.8378]);
+addRestaurant('Bordeaux', 'Le Quatrième Mur', [-0.5749, 44.8413]);
+
+addCity('Montpellier', [3.8767, 43.6119]);
+addRestaurant('Montpellier', 'Les Epicuriens', [3.8278, 43.6138]);
+addRestaurant('Montpellier', 'Royal Orchid', [3.8781, 43.6079]);
+
 // Fonction pour la mise à jour de la carte en fonction d'un lieu
 function updateMapView(newLocation, zoomLevel){
   const newCenter = ol.proj.fromLonLat(newLocation);
@@ -352,4 +464,3 @@ function clearAllFilters() {
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearAllFilters);
 clearButton.addEventListener('click', updateFilteredRestaurants);
-

@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 :root{
   --main-color:#f2e8cc;
   --secondary-color:#99bd05;
@@ -44,9 +45,7 @@ nav>search {
   display: none;
 }
 
-
 /*début search button*/
-
 .group {
   display: flex;
   line-height: 28px;
@@ -176,9 +175,7 @@ input:hover {
   background: #e4405f;
   color: #fff;
 }
-
 /*Fin du menu burger filtre*/
-
 
 /* Menu Burger*/
 /* Sidenav menu */
@@ -289,7 +286,6 @@ input:hover {
   font-size: 36px;
 }
 
-
 .expand-button {
   appearance: none;
   background-color: var(--fourth-color);
@@ -363,7 +359,6 @@ body {
   flex-direction: column-reverse;
 }
 
-
 @media screen and (width >= 768px) {
   .vignette-restaurant{
     width: 70vw;
@@ -398,7 +393,6 @@ body {
   margin: 0 5px;
 }
 
-
 .select-button {
   height: 13px;
   width: 13px;
@@ -423,7 +417,6 @@ body {
 }
 
 .restaurant-description {
-
   color: var(--secondary-color);
   font-weight: 500;
   font-size: small;
