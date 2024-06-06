@@ -14,7 +14,7 @@ const restaurants = [
     restaurantPrice: "€€€",
     restaurantSite: "https://www.les-epicuriens-restaurant-juvignac.fr/",
     restaurantDesc: "Les Épicuriens à Juvignac est plus qu'un restaurant : c'est une destination gourmande. Brasserie, restaurant, et caviste, vous découvrirez une cuisine fusion unique. Centre Commercial Les Portes du Soleil, Entrée 2, 34990 Juvignac",
-    restaurantPic: "images/epicuriens/Group1_20231002110116.webp",
+    restaurantPic: "images/epicuriens/Frame75_20231002112236.png",
     dishPic1: "images/epicuriens/Frame18_20230912170422.webp",
     dishPic2: "images/epicuriens/Frame19_20230912170424.webp",
     dishPic3: "images/epicuriens/Frame24_20230912172505.webp",
@@ -157,49 +157,49 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Slideshow et boutons associés
-document.addEventListener('DOMContentLoaded', function() {
-  const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
-  let slideIndex = 1;
-  showSlides(slideIndex);
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  function showSlides(n){
-    let i;
-    let s = document.getElementsByClassName("mySlides");
-    if (n > s.length) {slideIndex = 1};
-    if (n < 1) {slideIndex = s.length};
-    for (i = 0; i < s.length; i++){
-      s[i].style.display = "none";
-    }
-    s[slideIndex-1].style.display = "block";
-  }
-  restaurantVignettes.forEach(vignette => {
-    const slides = vignette.querySelectorAll('.mySlides');
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    vignette.innerHTML += `
-      <div class="slide-buttons">
-        <button class="prev" onclick="plusSlides(-1)">Prev</button>
-        <button class="next" onclick="plusSlides(1)">Next</button>
-      </div>
-    `;
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    prevButton.addEventListener('click', () => plusSlides(-1));
-    nextButton.addEventListener('click', () => plusSlides(1));
-    function showSlides(n) {
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
-    }
-  });
-});
- //Fin du slideshow
+// // Slideshow et boutons associés
+// document.addEventListener('DOMContentLoaded', function() {
+//   const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
+//   let slideIndex = 1;
+//   showSlides(slideIndex);
+//   function plusSlides(n) {
+//     showSlides(slideIndex += n);
+//   }
+//   function showSlides(n){
+//     let i;
+//     let s = document.getElementsByClassName("mySlides");
+//     if (n > s.length) {slideIndex = 1};
+//     if (n < 1) {slideIndex = s.length};
+//     for (i = 0; i < s.length; i++){
+//       s[i].style.display = "none";
+//     }
+//     s[slideIndex-1].style.display = "block";
+//   }
+//   restaurantVignettes.forEach(vignette => {
+//     const slides = vignette.querySelectorAll('.mySlides');
+//     let slideIndex = 1;
+//     showSlides(slideIndex);
+//     vignette.innerHTML += `
+//       <div class="slide-buttons">
+//         <button class="prev" onclick="plusSlides(-1)">Prev</button>
+//         <button class="next" onclick="plusSlides(1)">Next</button>
+//       </div>
+//     `;
+//     const prevButton = document.querySelector('.prev');
+//     const nextButton = document.querySelector('.next');
+//     prevButton.addEventListener('click', () => plusSlides(-1));
+//     nextButton.addEventListener('click', () => plusSlides(1));
+//     function showSlides(n) {
+//       if (n > slides.length) { slideIndex = 1 }
+//       if (n < 1) { slideIndex = slides.length }
+//       for (let i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//       }
+//       slides[slideIndex - 1].style.display = "block";
+//     }
+//   });
+// });
+//  //Fin du slideshow
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -231,9 +231,6 @@ function afficherRestaurants(restaurants) {
                           </div>
                           <div class="image-restaurant">
                               <img src="${restaurant.restaurantPic}" class="mySlides" alt="photo restaurant">
-                              // <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
-                              // <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
-                              // <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
                           </div>`;
     container.appendChild(card);
   }

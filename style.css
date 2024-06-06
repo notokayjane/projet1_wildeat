@@ -17,8 +17,12 @@
 /*Header*/
 header {
   background-color: var(--fourth-color);
-  padding: 2rem;
+  padding: 2rem 0 2rem 0;
   border-radius: 0 0 40px 40px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -41,20 +45,11 @@ nav {
   z-index: 2;
 }
 
-/*début search button*/
-.group {
-  display: flex;
-  line-height: 28px;
-  align-items: center;
-  max-width: 190px;
-}
-
 .input {
   width: 100%;
-  height: 40px;
-  line-height: 28px;
+  height: 2rem;
+  line-height: 1.8rem;
   padding: 0 1rem;
-  padding-left: 2.5rem;
   border: 2px solid transparent;
   border-radius: 8px;
   outline: none;
@@ -82,7 +77,237 @@ input:hover {
   width: 1rem;
   height: 1rem;
 }
-/*fin search button*/
+
+/* Menu Burger*/
+/* Sidenav menu */
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -10000px;
+  background-color: var(--secondary-color);
+  padding-top: 60px;
+  transition: right 0.5s ease;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Sidenav menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--third-color);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Active class */
+.sidenav.active {
+  right: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+/*Fin du menu burger*/
+
+/*début search button*/
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  max-width: 190px;
+}
+
+.search {
+  margin: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-buttons{
+  margin: 0 auto;
+}
+
+.search-buttons > button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: var(--secondary-color);
+  color: var(--fourth-color);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 0.5rem;
+}
+
+.search-buttons > button:hover {
+  background-color: var(--third-color);
+}
+
+/* Filtres */
+#filtres {
+  display: none;
+
+}
+#filtres .active {
+  display: block;
+}
+
+
+
+/* Fin de la partie sur les filtres*/
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+  padding-top: 72px;
+}
+
+/* Carte */
+#map {
+  width: 100%;
+  height: 45vh;
+}
+.map-container{
+  padding: 1rem 1rem;
+  margin: 0 auto;
+  width: 100vw;
+  transition: width 0.5s ease-in-out;
+}
+
+@media screen and (width >= 768px) {
+  .map-container{
+    width: 70vw;
+  }
+}
+
+/* Vignette du restaurant et son contenu */
+/* Vignette de démonstration vide */
+.demo{
+  display: none;
+}
+
+.vignette-restaurant{
+
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 16px;
+  gap: 0.5rem;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+@media screen and (width >= 768px) {
+  .vignette-restaurant{
+    width: 70vw;
+    margin: 1rem auto;
+  }
+}
+
+/* Images et photos */
+.mySlides{
+  width: 100%;
+  height: max-content;
+}
+
+.image-restaurant {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Contenu et descriptions */
+.restaurant-name {
+  font-family: var(--subtitle-font);
+  color: #0c3eff;
+  padding: 1.5rem;
+  justify-content: center;
+}
+
+.restaurant-description {
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: small;
+  /* Limitation des cases de description et overflow */
+  --max-lines: 4;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--third-color);
+  border-radius: 8px;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 90%;
+  height: 200px;  
+}
+
+/* Fin de la partie sur l'overflow */
+.restaurant-note {
+  color: black;
+ float: left;
+ display: flex;
+ justify-content: space-between;
+}
+
+.restaurant-price {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-link {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+/* Bas de page */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.3rem;
+  color: var(--main-color);
+  font-size: small;
+  background-color: var(--fourth-color);
+  background-attachment: fixed;
+  padding: 2rem;
+  border-radius: 40px 40px 0 0;
+}
 
 /* Barres des réseaux sociaux */
 .wrapper {
@@ -171,278 +396,6 @@ input:hover {
   background: #e4405f;
   color: #fff;
 }
-/*Fin du menu burger filtre*/
-
-/* Menu Burger*/
-/* Sidenav menu */
-.sidenav {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: -10000px;
-  background-color: var(--secondary-color);
-  padding-top: 60px;
-  transition: right 0.5s ease;
-  text-align: center;
-  opacity: 0.9;
-}
-
-/* Sidenav menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: var(--third-color);
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #111;
-}
-
-.sidenav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Active class */
-.sidenav.active {
-  right: 0;
-}
-
-/* Close btn */
-.sidenav .close {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
-
-/* Icône burger */
-.burger-icon span {
-  display: block;
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px 0;
-}
-/*Fin du menu burger*/
-
-/* Filtres */
-#filtres {
-  display: none;
-}
-#filtres .active {
-  display: block;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px 5px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Fin de la partie sur les filtres*/
-
-body {
-  font-family: var(--main-font);
-  background-color: var(--main-color);
-  padding-top: 72px;
-}
-
-/* Carte */
-#map {
-  width: 100%;
-  height: 45vh;
-}
-.map-container{
-  padding: 1rem 1rem;
-  margin: 0 auto;
-  width: 100vw;
-  transition: width 0.5s ease-in-out;
-}
-
-@media screen and (width >= 768px) {
-  .map-container{
-    width: 70vw;
-  }
-}
-
-/* Vignette du restaurant et son contenu */
-/* Vignette de démonstration vide */
-.demo{
-  display: none;
-}
-
-.vignette-restaurant{
-
-  background-color: var(--secondary-color);
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  margin: 1rem 0.5rem;
-  border-radius: 16px;
-  gap: 0.5rem;
-  height: auto;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
-}
-
-@media screen and (width >= 768px) {
-  .vignette-restaurant{
-    width: 70vw;
-    margin: 1rem auto;
-  }
-}
-
-/* Images et photos */
-.mySlides{
-  width: 100%;
-  height: max-content;
-}
-
-.image-restaurant {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Boutons pour slider */
-.slide-buttons {
-  text-align: center; /* Centrer les boutons */
-}
-
-.prev, .next {
-  background-color: var(--fourth-color);
-  border: none; 
-  color: var(--main-color);
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 0 5px;
-}
-
-.select-button {
-  height: 13px;
-  width: 13px;
-  padding: 0;
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #fff;
-  border-radius: 50%;
-  margin-top: 0.5rem;
-}
-
-.select-button:hover {
-  background-color: var(--fourth-color);
-}
-
-/* Contenu et descriptions */
-.restaurant-name {
-  font-family: var(--subtitle-font);
-  color: #0c3eff;
-  padding: 1.5rem;
-  justify-content: center;
-}
-
-.restaurant-description {
-  color: var(--secondary-color);
-  font-weight: 500;
-  font-size: small;
-  /* Limitation des cases de description et overflow */
-  --max-lines: 4;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--max-lines);
-  background-color: var(--third-color);
-  border-radius: 8px;
-  padding: 2rem 2rem 2rem 2rem;
-  width: 90%;
-  height: 200px;  
-}
-
-.restaurant-description:has(+ .expand-button:checked) {
-  --max-lines: 20;
-}
-
-.expand-button {
-  appearance: none;
-  background-color: var(--fourth-color);
-  color: var(--main-color);
-  border: 1px solid var(--main-color);
-  padding: 0.5em;
-  border-radius: 0.5em;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  margin-left: 3rem;
-  box-shadow: 0.1rem 0.1rem 2px var(--fourth-color);
-  transition: transform 100ms ease-in-out;
-}
-
-.expand-button:hover {
-  background-color: white;
-  color: #111;
-  transform: scale(1.1);
-}
-
-.expand-button::before {
-  content: "Afficher plus";
-}
-
-.expand-button:checked:before {
-  content: "Afficher moins";
-}
-
-/* Fin de la partie sur l'overflow */
-.restaurant-note {
-  color: black;
- float: left;
- display: flex;
- justify-content: space-between;
-}
-
-.restaurant-price {
-  color: black;
-  float: left;
-  display: flex;
-  justify-content: space-between;
-}
-
-.restaurant-link {
-  color: black;
-  float: left;
-  display: flex;
-  justify-content: space-between;
-}
-/* Bas de page */
-
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  gap: 0.3rem;
-  color: var(--main-color);
-  font-size: small;
-  background-color: var(--fourth-color);
-  background-attachment: fixed;
-  padding: 2rem;
-  border-radius: 40px 40px 0 0;
-}
-
 
 /*Page A propos*/
 .intro {
