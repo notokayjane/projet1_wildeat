@@ -9,6 +9,7 @@ const restaurants = [
   {
     restaurantName: "Les Epicuriens",
     city: "Montpellier",
+    coords : [3.8278, 43.6138],
     restaurantType: "Français",
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€€€",
@@ -22,6 +23,7 @@ const restaurants = [
   {
     restaurantName: "MIMA",
     city: "Lyon",
+    coords: [4.8312, 45.7634],
     restaurantType: "Italien",
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",
@@ -35,6 +37,7 @@ const restaurants = [
   {
     restaurantName: "Le McQueen",
     city: "Paris",
+    coords: [2.3397, 48.8670],
     restaurantType: "Japonais",
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",
@@ -48,6 +51,7 @@ const restaurants = [
   {
     restaurantName: "Le chalet Savoyard",
     city: "Paris",
+    coords:[2.3825, 48.8515],
     restaurantType: "Français",
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
@@ -61,6 +65,7 @@ const restaurants = [
   {
     restaurantName: "Pidè Paris",
     city: "Paris",
+    coords: [2.3508, 48.8506],
     restaurantType: "Turc",
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€",
@@ -74,6 +79,7 @@ const restaurants = [
   {
     restaurantName: "BIBIBAP",
     city: "Bordeaux",
+    coords:[-0.5792, 44.8378],
     restaurantType: "Coréen",
     restaurantRating: "4 étoiles",
     restaurantPrice: "€€€",
@@ -87,6 +93,7 @@ const restaurants = [
   {
     restaurantName: "Mochicas Café",
     city: "Lyon",
+    coords:[4.8285, 45.7613],
     restaurantType: "Péruvien",
     restaurantRating: "4.9 étoiles",
     restaurantPrice: "€€€",
@@ -100,6 +107,7 @@ const restaurants = [
   {
     restaurantName: "Royal Orchid",
     city: "Montpellier",
+    coords:[3.8781, 43.6079],
     restaurantType: "Thaïlandais",
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
@@ -113,6 +121,7 @@ const restaurants = [
   {
     restaurantName: "Le Quatrième Mur",
     city: "Bordeaux",
+    coords: [-0.5749, 44.8413],
     restaurantType: "Français",
     restaurantRating: "4.4 étoiles",
     restaurantPrice: "€€€€",
@@ -236,6 +245,12 @@ function updateFilteredRestaurants() {
       return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research) || restaurant.restaurantPrice.includes(research);
     });
   }
+  for (const restaurant of restaurants) {
+    hideRestaurant(restaurant.city, restaurant.restaurantName)
+  }
+  for (const restaurant of restaurantsFiltres) {
+    showRestaurant(restaurant.city, restaurant.restaurantName)
+  }
   afficherRestaurants(restaurantsFiltres);
 
   // On filtre les coordonnées des villes sélectionnées
@@ -355,8 +370,23 @@ function addRestaurant(cityName, restaurantName, coords) {
       geometry: new ol.geom.Point(ol.proj.fromLonLat(coords)),
       name: restaurantName
     });
+    restaurantMarker.setId(restaurantName);
     restaurantMarker.setStyle(createMarkerStyle(restaurantName));
     restaurantSource.addFeature(restaurantMarker);
+  }
+}
+function hideRestaurant (cityName, restaurantName) {
+  const restaurantSource = restaurantSources.get(cityName);
+  if (restaurantSource) {
+    const restaurantMarker = restaurantSource.getFeatureById(restaurantName)
+    restaurantMarker.setStyle(null)
+  }
+}
+function showRestaurant (cityName, restaurantName) {
+  const restaurantSource = restaurantSources.get(cityName);
+  if (restaurantSource) {
+    const restaurantMarker = restaurantSource.getFeatureById(restaurantName)
+    restaurantMarker.setStyle(createMarkerStyle(restaurantName));
   }
 }
 
@@ -384,26 +414,16 @@ function updateMapView(newLocation, zoomLevel) {
 // Ajouter un écouteur pour les changements de résolution (zoom)
 map.getView().on('change:resolution', updateLayers);
 
-// Appel initial pour définir les couches en fonction du zoom initial
-updateLayers();
-
 // Exemple d'ajout de villes et de restaurants
-addCity('Paris', [2.3522, 48.8566]);
-addRestaurant('Paris', 'Le McQueen', [2.3397, 48.8670]);
-addRestaurant('Paris', 'Le Chalet Savoyard', [2.3825, 48.8515]);
-addRestaurant('Paris', 'Pidè Paris', [2.3508, 48.8506]);
+for (const location of locations) {
+  addCity(location.id, [location.longitude, location.latitude]);
+}
 
-addCity('Lyon', [4.8357, 45.7640]);
-addRestaurant('Lyon', 'Mima', [4.8312, 45.7634]);
-addRestaurant('Lyon', 'Mochicas Café', [4.8285, 45.7613]);
+for (const restaurant of restaurants) {
+  const {city,restaurantName, coords } = restaurant;
+  addRestaurant(city,restaurantName,coords);
+}
 
-addCity('Bordeaux', [-0.5792, 44.8378]);
-addRestaurant('Bordeaux', 'BIBIBAP', [-0.5792, 44.8378]);
-addRestaurant('Bordeaux', 'Le Quatrième Mur', [-0.5749, 44.8413]);
-
-addCity('Montpellier', [3.8767, 43.6119]);
-addRestaurant('Montpellier', 'Les Epicuriens', [3.8278, 43.6138]);
-addRestaurant('Montpellier', 'Royal Orchid', [3.8781, 43.6079]);
 
 // Fonction pour la mise à jour de la carte en fonction d'un lieu
 function updateMapView(newLocation, zoomLevel){
