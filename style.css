@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
-:root{
-  --main-color:#ffffff;
-  --secondary-color:#ffd332;
-  --third-color:#009c53;
-  --fourth-color:#f15622;
+:root {
+  --main-color: #ffffff;
+  --secondary-color: #ffd332;
+  --third-color: #009c53;
+  --fourth-color: #f15622;
   --title-font: 'Poetsen One', sans-serif;
   --subtitle-font: 'subjectivity', sans-serif;
   --main-font: 'space mono', sans-serif;
@@ -194,6 +194,7 @@ body {
 #map {
   width: 100%;
   height: 45vh;
+  border-radius: 1rem;
 }
 .map-container{
   padding: 1rem 1rem;
@@ -215,7 +216,6 @@ body {
 }
 
 .vignette-restaurant{
-
   background-color: var(--secondary-color);
   display: flex;
   align-items: center;
@@ -238,60 +238,65 @@ body {
 /* Images et photos */
 .mySlides{
   width: 100%;
-  height: max-content;
+  height: 30vh;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgb(97, 97, 97);
+  object-fit: cover;
+  animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  from {opacity: 0.6;}
+  to {opacity: 1;}
 }
 
 .image-restaurant {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 1rem;
 }
 
 /* Contenu et descriptions */
+.information-restaurant{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
 .restaurant-name {
   font-family: var(--subtitle-font);
   color: #0c3eff;
-  padding: 1.5rem;
+  padding: 0.5rem;
   justify-content: center;
 }
 
 .restaurant-description {
   color: var(--secondary-color);
   font-weight: 500;
-  font-size: small;
-  /* Limitation des cases de description et overflow */
-  --max-lines: 4;
-  display: -webkit-box;
-  overflow: hidden;
+  font-size: 1rem;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--max-lines);
   background-color: var(--third-color);
   border-radius: 8px;
-  padding: 2rem 2rem 2rem 2rem;
-  width: 90%;
-  height: 200px;  
+  margin-top: 0.5rem;
+  padding: 1rem;
+  width: 90vw;
+  height: auto;
+  box-shadow: 5px 5px 10px rgb(76, 67, 3);
 }
 
 /* Fin de la partie sur l'overflow */
 .restaurant-note {
   color: black;
- float: left;
- display: flex;
- justify-content: space-between;
 }
 
 .restaurant-price {
   color: black;
-  float: left;
-  display: flex;
-  justify-content: space-between;
 }
 
 .restaurant-link {
   color: black;
-  float: left;
-  display: flex;
-  justify-content: space-between;
 }
 /* Bas de page */
 
@@ -397,11 +402,346 @@ footer {
   color: #fff;
 }
 
+/*Fin du menu burger filtre*/
+
+/* Menu Burger*/
+/* Sidenav menu */
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -10000px;
+  background-color: var(--secondary-color);
+  padding-top: 60px;
+  transition: right 0.5s ease;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Sidenav menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--third-color);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Active class */
+.sidenav.active {
+  right: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: var(--secondary-color);
+  margin: 6px 0;
+}
+
+/*Fin du menu burger*/
+
+/*début de la partie filtres*/
+.filtres:has(+ .expand-button:checked) {
+  --max-lines: 20;
+}
+
+.filtres {
+  color: var(--secondary-color);
+  font-weight: 500;
+  max-width: 25ch;
+  font-size: small;
+  /* Limitation des cases de description et overflow */
+  --max-lines: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--fourth-color);
+  border-radius: 8px;
+  min-width: 45vw;
+}
+
+#ville {
+  display: none;
+}
+
+#type {
+  display: none;
+}
+
+#note {
+  display: none;
+}
+
+#prix {
+  display: none;
+}
+
+/* Active class */
+.filtres .active {
+  right: 0;
+}
+
+/* Close btn */
+.filtres .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.expand-button {
+  appearance: none;
+  background-color: var(--fourth-color);
+  color: var(--main-color);
+  border: 1px solid black;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  box-shadow: 0.1rem 0.1rem 2px var(--third-color);
+  transition: transform 100ms ease-in-out;
+}
+
+.expand-button:hover {
+  background-color: white;
+  color: #111;
+  transform: scale(1.1);
+}
+
+.expand-button::before {
+  content: "Afficher plus";
+}
+
+.expand-button:checked:before {
+  content: "Afficher moins";
+}
+
+/* Fin de la partie sur les filtres*/
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+  padding-top: 72px;
+}
+
+/* Carte */
+#map {
+  width: 100%;
+  height: 45vh;
+}
+
+.map-container {
+  padding: 1rem 1rem;
+  margin: 0 auto;
+  width: 100vw;
+  transition: width 0.5s ease-in-out;
+}
+
+@media screen and (width >=768px) {
+  .map-container {
+    width: 70vw;
+  }
+}
+
+/* Vignette du restaurant et son contenu */
+/* Vignette de démonstration vide */
+.demo {
+  display: none;
+}
+
+.vignette-restaurant {
+
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 16px;
+  gap: 0.5rem;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+@media screen and (width >=768px) {
+  .vignette-restaurant {
+    width: 70vw;
+    margin: 1rem auto;
+  }
+}
+
+/* Images et photos */
+.mySlides {
+  width: 100%;
+  height: max-content;
+}
+
+.image-restaurant {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Boutons pour slider */
+.slide-buttons {
+  text-align: center;
+  /* Centrer les boutons */
+}
+
+.prev,
+.next {
+  background-color: var(--fourth-color);
+  border: none;
+  color: var(--main-color);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.select-button {
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #fff;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+}
+
+.select-button:hover {
+  background-color: var(--fourth-color);
+}
+
+/* Contenu et descriptions */
+.restaurant-name {
+  font-family: var(--subtitle-font);
+  color: #0c3eff;
+  padding: 1.5rem;
+  justify-content: center;
+}
+
+.restaurant-description {
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: small;
+  /* Limitation des cases de description et overflow */
+  --max-lines: 4;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--third-color);
+  border-radius: 8px;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 90%;
+  height: 200px;
+}
+
+.restaurant-description:has(+ .expand-button:checked) {
+  --max-lines: 20;
+}
+
+.expand-button {
+  appearance: none;
+  background-color: var(--fourth-color);
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  box-shadow: 0.1rem 0.1rem 2px var(--fourth-color);
+  transition: transform 100ms ease-in-out;
+}
+
+.expand-button:hover {
+  background-color: white;
+  color: #111;
+  transform: scale(1.1);
+}
+
+.expand-button::before {
+  content: "Afficher plus";
+}
+
+.expand-button:checked:before {
+  content: "Afficher moins";
+}
+
+/* Fin de la partie sur l'overflow */
+.restaurant-note {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-price {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-link {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Bas de page */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.3rem;
+  color: var(--main-color);
+  font-size: small;
+  background-color: var(--fourth-color);
+  background-attachment: fixed;
+  padding: 2rem;
+  border-radius: 40px 40px 0 0;
+}
+
+
 /*Page A propos*/
 .intro {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
 }
 
 .infos {
@@ -410,32 +750,64 @@ footer {
   flex-direction: column;
   align-items: center;
   font-size: larger;
+
+}
+
+h2 {
+  margin-top: -10%;
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+}
+
+.team {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
+  align-items: center;
+  font-size: 13px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
 }
 
 h3 {
   font-family: var(--subtitle-font);
-  color: var(--main-color);
+  color: var(--fourth-color);
+  font-size: 25px;
 }
 
 .wilders {
   background-color: var(--secondary-color);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0.5rem;
   margin: 1rem 0.5rem;
   border-radius: 16px;
   gap: 0.5rem;
   height: auto;
-  font-size: medium;
+  width: 50%;
+font-size: medium;
+  flex-direction: column-reverse;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .information-wilders {
+  background-color: white;
+  color: black;
+  width: 90vw;
+  max-height: 500px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  font-size: 16px;
+  padding: 1rem;
+}
+
+.card-img {
+  width: 400%;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: justify;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
 }
 
 .Nous {
@@ -508,6 +880,23 @@ h3 {
   color: var(--fourth-color);
 }
 
+h2 {
+  margin-top: -10%;
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+}
+
+.important {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
+  align-items: center;
+  font-size: 12px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
+}
+
+
 .input01 {
   width: 100%;
   padding: 10px 10px 20px 10px;
@@ -515,6 +904,23 @@ h3 {
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 5px;
 }
+
+h2 {
+  margin-top: -10%;
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+}
+
+.important {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
+  align-items: center;
+  font-size: 12px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
+}
+
 
 .form label .input01 + span {
   position: absolute;
@@ -650,9 +1056,9 @@ h3 {
 /* #submitButton {
   font: var(--main-font);
   margin: 1rem
-  }
+}
 
-  #submitButton:hover {
+#submitButton:hover {
   font: var(--main-font);
   width: 500px;
   transition: width 1s ease-in;
