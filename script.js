@@ -143,6 +143,18 @@ function openNav() {
 function closeNav() {
   sidenav.classList.remove("active");
 }
+/* filtres */
+const filtres = document.getElementById("filtres");
+// openBtn.onclick = openBtn("openBtn");
+// closeBtn.onclick = closeBtn("closeBtn");
+
+function openNav() {
+  filtres.classList.add("active");
+}
+
+function closeNav() {
+  filtres.classList.remove("active");
+}
 
 // Slideshow et boutons associés
 
@@ -310,7 +322,6 @@ searchInput.addEventListener("input", updateFilteredRestaurants);
 
 afficherRestaurants(restaurants);
 
-
 // // Carte interactive
 // Les villes et leurs coordonnées
 // initialisation de la carte
@@ -338,21 +349,7 @@ function clearAllFilters() {
     checkbox.checked = false;
   }
 }
-
-
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearAllFilters);
 clearButton.addEventListener('click', updateFilteredRestaurants);
 
-/* filtres */
-const filtres = document.getElementById("filtres");
-openBtn.onclick = openBtn("openBtn");
-closeBtn.onclick = closeBtn("closeBtn");
-
-function openNav() {
-  filtres.classList.add("active");
-}
-
-function closeNav() {
-  filtres.classList.remove("active");
-}
