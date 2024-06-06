@@ -124,54 +124,48 @@ const restaurants = [
     dishPic3: "images/quatrieme-mur/la-brasserie-le-quatrieme (4).jpg",
   },
 ]
+
+document.addEventListener('DOMContentLoaded', function () {
 // Bouton du menu burger
-
 const sidenav = document.getElementById("mySidenav");
-const openBtn = document.getElementById("openBtn");
-const closeBtn = document.getElementById("closeBtn");
+const openNavBtn = document.getElementById("openBtn");
+const closeNavBtn = document.getElementById("closeBtn");
 
-openBtn.onclick = openNav;
-closeBtn.onclick = closeNav;
+openNavBtn.onclick = openNav;
+closeNavBtn.onclick = closeNav;
 
-/* Set the width of the side navigation to 250px */
 function openNav() {
   sidenav.classList.add("active");
 }
 
-/* Set the width of the side navigation to 0 */
 function closeNav() {
   sidenav.classList.remove("active");
 }
 
+/* filters */
+const filters = document.getElementById("filtres");
+const openFiltresBtn = document.getElementById("openFiltresBtn");
+const closeFiltresBtn = document.getElementById("closeFiltresBtn");
 
-/* filtres */
-// const filtres = document.getElementById("filtres");
+openFiltresBtn.onclick = openFiltres;
+closeFiltresBtn.onclick = closeFiltres;
 
-// openBtn.onclick = openBtn("openBtn");
-// closeBtn.onclick = closeBtn("closeBtn");
+function openFiltres() {
+  filters.classList.add("active");
+}
 
-// // openBtn.onclick = openBtn("openBtn");
-// // closeBtn.onclick = closeBtn("closeBtn");
-
-
-// function openNav() {
-//   filtres.classList.add("active");
-// }
-
-// function closeNav() {
-//   filtres.classList.remove("active");
-// }
+function closeFiltres() {
+  filters.classList.remove("active");
+}
+});
 
 // Slideshow et boutons associés
-
 document.addEventListener('DOMContentLoaded', function() {
   const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
   let slideIndex = 1;
   showSlides(slideIndex);
-
   function plusSlides(n) {
     showSlides(slideIndex += n);
-
   }
   function showSlides(n){
     let i;
@@ -183,14 +177,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     s[slideIndex-1].style.display = "block";
   }
-
- //Fin du slideshow
-
   restaurantVignettes.forEach(vignette => {
     const slides = vignette.querySelectorAll('.mySlides');
     let slideIndex = 1;
     showSlides(slideIndex);
-
     vignette.innerHTML += `
       <div class="slide-buttons">
         <button class="prev" onclick="plusSlides(-1)">Prev</button>
@@ -199,10 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
-
     prevButton.addEventListener('click', () => plusSlides(-1));
     nextButton.addEventListener('click', () => plusSlides(1));
-
     function showSlides(n) {
       if (n > slides.length) { slideIndex = 1 }
       if (n < 1) { slideIndex = slides.length }
@@ -213,13 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+ //Fin du slideshow
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
   return restaurants.filter(restaurant => {
-    // On fait une const pour chaque type de filtre
-    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
-    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
     const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
     const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
     const matchNote = !filtres.note || filtres.note.includes(restaurant.restaurantRating);
@@ -234,19 +220,13 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 // On affiche les restaurants dans le container fait pour
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
-  //reset du container, bug si non présent
   container.innerHTML = '';
-  // boucle for qui :
-  // créé une div nommé card en html, y ajoute la class vignette-restaurant, et écrit le code avec innerHTML dans le HTML.
-  // le code HTML est ici copié du HTML d'origine, en remplaçant les éléments exemples par les variables associées et issues
-  // de restaurant : restaurant.xxx
   for (const restaurant of restaurants) {
     const card = document.createElement('div');
     card.classList.add('vignette-restaurant');
     card.innerHTML = `<div class="information-restaurant">
                               <h2 class="restaurant-name">${restaurant.restaurantName}</h2>
                               <p class="restaurant-description">${restaurant.restaurantDesc}</p>
-                              <input type="checkbox" class="expand-button">
                               <div class="restaurant-note">Note: ${restaurant.restaurantRating}</div>
                               <div class="restaurant-price">Prix: ${restaurant.restaurantPrice}</div>
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
@@ -263,19 +243,12 @@ function afficherRestaurants(restaurants) {
 
 // Mise à jour des résultats
 function updateFilteredRestaurants() {
-  // Création de l'objet filtre
   const filtre = {};
-  // On cherche les valeurs des cases cochées, nom et état coché/décoché
   checkboxes.forEach(checkbox => {
-    // Si une des checkbox est cochée alors 
     if (checkbox.checked) {
-      // on récupére le name associé
       const name = checkbox.name;
-      // si le filtre contient déjà des noms de ville/type etc..., alors les nouvelles sont ajoutées à la suite (d'où le push)
-      // cela permet d'éviter de supprimer le contenu du tableau à chaque fois
       if (filtre[name]) {
         filtre[name].push(checkbox.value);
-        // sinon, on créé une nouvelle donnée avec la value lue sur la checkbox associée, c'est dans le cas où le tableau filtre est vide
       } else {
         filtre[name] = [checkbox.value];
       }
@@ -328,7 +301,6 @@ searchInput.addEventListener("input", updateFilteredRestaurants);
 afficherRestaurants(restaurants);
 
 // Initialisation de la carte
-
 let map = new ol.Map({
   target: 'map',
   layers: [
