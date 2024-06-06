@@ -1,17 +1,17 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root{
-  --main-color:#f2e8cc;
-  --secondary-color:#99bd05;
-  --third-color:#236130;
-  --fourth-color:#de3891;
+:root {
+  --main-color: #ffffff;
+  --secondary-color: #ffd332;
+  --third-color: #009c53;
+  --fourth-color: #f15622;
   --title-font: 'Poetsen One', sans-serif;
-  --subtitle-font:'subjectivity', sans-serif;
-  --main-font:'space mono', sans-serif;
+  --subtitle-font: 'subjectivity', sans-serif;
+  --main-font: 'space mono', sans-serif;
 }
 
 /*Header*/
@@ -27,94 +27,79 @@ header {
 
 nav {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  background-color: #DE3891;
+  background-color: #f15622;
   background-attachment: fixed;
   background-size: cover;
+  justify-content: space-between;
 }
 
-nav >search {
-  display : flex;
-  justify-content : space-around;
-  flex-direction : row;
+nav>search {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .sous {
   display: none;
 }
 
-/* Menu Burger*/
-/* Sidenav menu */
-.sidenav {
-  /*height: 100%;*/
-  width: 10rem;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: -250px;
-  background-color: #e8e8e8;
-  padding-top: 60px;
-  transition: right 0.5s ease;
+
+/*début search button*/
+
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  max-width: 190px;
 }
 
-/* Sidenav menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.input {
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: .3s ease;
 }
 
-.sidenav a:hover {
-  color: #111;
+.input::placeholder {
+  color: #9e9ea7;
 }
 
-.sidenav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: rgba(234, 76, 137, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
 }
 
-/* Active class */
-.sidenav.active {
-  right: 0;
-}
-
-/* Close btn */
-.sidenav .close {
+.icon {
   position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
 }
 
-/* Icône burger */
-.burger-icon span {
-  display: block;
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px 0;
-}
-
-/*Sous menu burger (Les villes)*/
 
 
-/*Fin du menu burger*/
-body {
-  font-family: var(--main-font);
-  background-color: var(--main-color);
-}
+/*fin search button*/
 
-/*réseaux sociaux*/
+/* début réseaux sociaux
+
 .wrapper {
   display: inline-flex;
   list-style: none;
   height: 120px;
   width: 100%;
+  padding-top: 40px;
   font-family: "Poppins", sans-serif;
   justify-content: center;
 }
@@ -124,8 +109,8 @@ body {
   background: #fff;
   border-radius: 50%;
   margin: 10px;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   font-size: 18px;
   display: flex;
   justify-content: center;
@@ -194,96 +179,123 @@ body {
   background: #e4405f;
   color: #fff;
 }
-/*fin réseaux sociaux*/
+fin réseaux sociaux */
 
-/* Carte interactive */
-body > main > MAP > iframe {
-  height: 250px;
-  width: 100vw;
-  background-color: whitesmoke;
-  padding: 0.5rem;
-  margin: 1rem 0.5rem;
-  border-radius: 16px;
-  gap: 0.5rem;
-  height: auto;
+
+/*Fin du menu burger filtre*/
+
+
+/* Menu Burger*/
+/* Sidenav menu */
+.sidenav {
+  /*height: 100%;*/
+  width: 10rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -250px;
+  background-color: #e8e8e8;
+  padding-top: 60px;
+  transition: right 0.5s ease;
 }
 
-/* Vignette du restaurant et son contenu */
-.vignette-restaurant{
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    margin: 1rem 0.5rem;
-    border-radius: 16px;
-    gap: 0.5rem;
-    height: auto;
-}
-/* Images et photos */
-.mySlides{
-
-/*  display: ;*/
-
-  width: 100%;
-  height: max-content;
-}
-.image-restaurant{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
- /* height: ;*/
-
-}
-/* Boutons pour slider */
-.slide-buttons{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
+/* Sidenav menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-.select-button{
-  height: 13px;
-  width: 13px;
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav ul {
+  list-style-type: none;
   padding: 0;
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #fff;
-  border-radius: 50%;
-  margin-top: 0.5rem;
+  margin: 0;
 }
 
-.select-button:hover{
-  background-color: var(--fourth-color);
+/* Active class */
+.sidenav.active {
+  right: 0;
 }
 
-/* Contenu et descriptions */
-.restaurant-name{
-  font-family: var(--subtitle-font);
-  color: var(--main-color);
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
 }
-.restaurant-description{
 
-    color: black;
-    font-weight: 500;
-    max-width: 25ch;
-    font-size: small;
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+/*Fin du menu burger*/
+
+/*début de la partie filtres*/
+
+.filtres:has(+ .expand-button:checked) {
+  --max-lines: 20;
+}
+
+.filtres {
+  color: black;
+  font-weight: 500;
+  max-width: 25ch;
+  font-size: small;
   /* Limitation des cases de description et overflow */
-    --max-lines:4;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: var(--max-lines);
-    background-color: var(--main-color);
-    border-radius: 8px;
-    min-width: 45vw;
+  --max-lines: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--fourth-color);
+  border-radius: 8px;
+  min-width: 45vw;
 }
-.restaurant-description:has(+ .expand-button:checked){
-  --max-lines:20;
+
+#ville {
+  display: none;
 }
-.expand-button{
+
+#type {
+  display: none;
+}
+
+#note {
+  display: none;
+}
+
+#prix {
+  display: none;
+}
+
+/* Active class */
+.filtres.active {
+  right: 0;
+}
+
+/* Close btn */
+.filtres .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+
+.expand-button {
   appearance: none;
   background-color: var(--fourth-color);
   color: var(--main-color);
@@ -296,41 +308,186 @@ body > main > MAP > iframe {
   box-shadow: 0.1rem 0.1rem 2px var(--third-color);
   transition: transform 100ms ease-in-out;
 }
-.expand-button:hover{
+
+.expand-button:hover {
   background-color: white;
   color: #111;
   transform: scale(1.1);
 }
-.expand-button::before{
+
+.expand-button::before {
   content: "Afficher plus";
 }
-.expand-button:checked:before{
+
+.expand-button:checked:before {
   content: "Afficher moins";
 }
-  /* Fin de la partie sur l'overflow */
 
-.restaurant-note{
-    color: black;
+/* Fin de la partie sur les filtres*/
+
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--main-color);
 }
 
-.restaurant-link{
-  color: black;
+/* Carte interactive */
+body>main>MAP>iframe {
+  height: 250px;
+  width: 100vw;
+  margin: 0px;
+  border-radius: 16px;
+}
+
+/* Vignette du restaurant et son contenu */
+.vignette-restaurant {
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 16px;
+  gap: 0.5rem;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+/* Images et photos */
+.mySlides {
+
+  /*  display: ;*/
+
+  width: 50%;
+  height: max-content;
+}
+
+.image-restaurant {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* height: ;*/
+
+}
+
+/* Boutons pour slider */
+.slide-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.select-button {
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #fff;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+}
+
+.select-button:hover {
+  background-color: var(--fourth-color);
+}
+
+/* Contenu et descriptions */
+.restaurant-name {
+  font-family: var(--subtitle-font);
+  color: #0c3eff;
+  padding: 1.5rem;
+  justify-content: center;
+}
+
+.restaurant-description {
+
+  color: var(--secondary-color);
   font-weight: 500;
+  font-size: small;
+  /* Limitation des cases de description et overflow */
+  --max-lines: 4;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--third-color);
+  border-radius: 8px;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 90%;
+  height: 200px;  
+}
+
+.restaurant-description:has(+ .expand-button:checked) {
+  --max-lines: 20;
+}
+
+.expand-button {
+  appearance: none;
+  background-color: var(--fourth-color);
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  box-shadow: 0.1rem 0.1rem 2px var(--fourth-color);
+  transition: transform 100ms ease-in-out;
+}
+
+.expand-button:hover {
+  background-color: white;
+  color: #111;
+  transform: scale(1.1);
+}
+
+.expand-button::before {
+  content: "Afficher plus";
+}
+
+.expand-button:checked:before {
+  content: "Afficher moins";
+}
+
+/* Fin de la partie sur l'overflow */
+
+.restaurant-note {
+  color: black;
+ float: left;
+ display: flex;
+ justify-content: space-between;
+}
+
+.restaurant-price {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-link {
+  color: black;
+  float: left;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Bas de page */
-footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    gap: 0.3rem;
-    color: var(--main-color);
-    font-size: small;
-    background-color: var(--fourth-color);
-    background-attachment: fixed;
-    padding: 2rem;
-    border-radius: 40px 40px 0 0;
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.3rem;
+  color: var(--main-color);
+  font-size: small;
+  background-color: var(--fourth-color);
+  background-attachment: fixed;
+  padding: 2rem;
+  border-radius: 40px 40px 0 0;
 }
 
 
@@ -338,19 +495,22 @@ footer{
 .intro {
   display: flex;
   justify-content: space-around;
-    align-items: center;
+  align-items: center;
 }
+
 .infos {
   text-align: center;
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: larger;
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
 }
+
 h3 {
   font-family: var(--subtitle-font);
-    color: var(--main-color);
+  color: var(--main-color);
 }
+
 .wilders {
   background-color: var(--secondary-color);
   display: flex;
@@ -364,7 +524,7 @@ h3 {
   font-size: medium;
 }
 
-.information-wilders{
+.information-wilders {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -375,27 +535,38 @@ h3 {
 .Nous {
   width: 15rem;
 }
+
 /*Page Contact*/
 .contact {
   text-align: center;
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: larger;
-  
+  flex-direction: column;
+  align-items: center;
+  font-size: larger;
+
 }
+
 #message {
   font: var(--main-font);
 }
+
 .reason {
   font-size: medium
 }
+
 .buttonFormulaire {
   font: var(--main-font);
 }
+
 .buttonFormulaire:hover {
   font: var(--main-font);
   width: 500px;
   transition: width 1s ease-in;
-background-color: #99bd05;}
-  
+  background-color: #99bd05;
+}
+
+@media screen and (min-width: 80rem) {
+  .container {
+    margin: 1em 2em;
+  }
+}
