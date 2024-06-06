@@ -157,48 +157,21 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// // Slideshow et boutons associés
-// document.addEventListener('DOMContentLoaded', function() {
-//   const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
-//   let slideIndex = 1;
-//   showSlides(slideIndex);
-//   function plusSlides(n) {
-//     showSlides(slideIndex += n);
-//   }
-//   function showSlides(n){
-//     let i;
-//     let s = document.getElementsByClassName("mySlides");
-//     if (n > s.length) {slideIndex = 1};
-//     if (n < 1) {slideIndex = s.length};
-//     for (i = 0; i < s.length; i++){
-//       s[i].style.display = "none";
-//     }
-//     s[slideIndex-1].style.display = "block";
-//   }
-//   restaurantVignettes.forEach(vignette => {
-//     const slides = vignette.querySelectorAll('.mySlides');
-//     let slideIndex = 1;
-//     showSlides(slideIndex);
-//     vignette.innerHTML += `
-//       <div class="slide-buttons">
-//         <button class="prev" onclick="plusSlides(-1)">Prev</button>
-//         <button class="next" onclick="plusSlides(1)">Next</button>
-//       </div>
-//     `;
-//     const prevButton = document.querySelector('.prev');
-//     const nextButton = document.querySelector('.next');
-//     prevButton.addEventListener('click', () => plusSlides(-1));
-//     nextButton.addEventListener('click', () => plusSlides(1));
-//     function showSlides(n) {
-//       if (n > slides.length) { slideIndex = 1 }
-//       if (n < 1) { slideIndex = slides.length }
-//       for (let i = 0; i < slides.length; i++) {
-//         slides[i].style.display = "none";
-//       }
-//       slides[slideIndex - 1].style.display = "block";
-//     }
-//   });
-// });
+// // Slideshow
+function createCarousel(j){
+  let slideIndex = 0
+  const slides = document.getElementsByClassName(`mySlides ${j}`)
+  function carousel(){
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // = 2sec
+  }
+  carousel();
+}
 //  //Fin du slideshow
 
 // Fonction pour filtrer les restaurants
@@ -219,6 +192,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
   container.innerHTML = '';
+  let index = 1;
   for (const restaurant of restaurants) {
     const card = document.createElement('div');
     card.classList.add('vignette-restaurant');
@@ -230,9 +204,14 @@ function afficherRestaurants(restaurants) {
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
                           </div>
                           <div class="image-restaurant">
-                              <img src="${restaurant.restaurantPic}" class="mySlides" alt="photo restaurant">
+                              <img src="${restaurant.restaurantPic}" class="mySlides ${index}" alt="photo restaurant">
+                              <img src="${restaurant.dishPic1}" class="mySlides ${index}" alt="photo d'un plat">
+                              <img src="${restaurant.dishPic2}" class="mySlides ${index}" alt="photo d'un plat">
+                              <img src="${restaurant.dishPic3}" class="mySlides ${index}" alt="photo d'un plat">
                           </div>`;
     container.appendChild(card);
+    createCarousel(index);
+    index++;
   }
 }
 
