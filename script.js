@@ -144,17 +144,17 @@ function closeNav() {
   sidenav.classList.remove("active");
 }
 /* filtres */
-const filtres = document.getElementById("filtres");
+// const filtres = document.getElementById("filtres");
 // openBtn.onclick = openBtn("openBtn");
 // closeBtn.onclick = closeBtn("closeBtn");
 
-function openNav() {
-  filtres.classList.add("active");
-}
+// function openNav() {
+//   filtres.classList.add("active");
+// }
 
-function closeNav() {
-  filtres.classList.remove("active");
-}
+// function closeNav() {
+//   filtres.classList.remove("active");
+// }
 
 // Slideshow et boutons associés
 
