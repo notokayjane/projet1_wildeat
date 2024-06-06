@@ -5,10 +5,10 @@
 }
 
 :root{
-  --main-color:#f2e8cc;
-  --secondary-color:#99bd05;
-  --third-color:#236130;
-  --fourth-color:#de3891;
+  --main-color:#ffffff;
+  --secondary-color:#ffd332;
+  --third-color:#009c53;
+  --fourth-color:#f15622;
   --title-font: 'Poetsen One', sans-serif;
   --subtitle-font: 'subjectivity', sans-serif;
   --main-font: 'space mono', sans-serif;
@@ -50,9 +50,7 @@ nav>search {
   display: none;
 }
 
-
 /*début search button*/
-
 .group {
   display: flex;
   line-height: 28px;
@@ -182,9 +180,7 @@ input:hover {
   background: #e4405f;
   color: #fff;
 }
-
 /*Fin du menu burger filtre*/
-
 
 /* Menu Burger*/
 /* Sidenav menu */
@@ -295,7 +291,6 @@ input:hover {
   font-size: 36px;
 }
 
-
 .expand-button {
   appearance: none;
   background-color: var(--fourth-color);
@@ -370,7 +365,6 @@ body {
   flex-direction: column-reverse;
 }
 
-
 @media screen and (width >= 768px) {
   .vignette-restaurant{
     width: 70vw;
@@ -405,7 +399,6 @@ body {
   margin: 0 5px;
 }
 
-
 .select-button {
   height: 13px;
   width: 13px;
@@ -430,7 +423,6 @@ body {
 }
 
 .restaurant-description {
-
   color: var(--secondary-color);
   font-weight: 500;
   font-size: small;
