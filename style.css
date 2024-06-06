@@ -180,8 +180,9 @@ input:hover {
   display: block;
 }
 
-
-
+.filtres > h2 {
+  color: white;
+}
 /* Fin de la partie sur les filtres*/
 
 body {
@@ -420,6 +421,7 @@ footer {
 h3 {
   font-family: var(--subtitle-font);
   color: var(--main-color);
+  padding: 0.4rem 0 0.2rem 0;
 }
 
 .wilders {
