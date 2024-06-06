@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="./lib/ol/ol.css">
 </head>
 
 <body>
@@ -140,14 +140,15 @@
     </div>
   </header>
 
-
   <main>
-    <div id="map" class="map"></div>
+    <div class="map-container"><div id="map" ></div></div>
+    <script src="./lib/ol/dist/ol.js"></script>
     <!-- <MAP name="carte">
       <iframe id="map"
         src="https://umap.openstreetmap.fr/fr/map/spice-odyssey-map_1076545?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=false&datalayersControl=null&onLoadPanel=none&captionBar=false&captionMenus=false&datalayers=5344be32-3031-465e-acd3-84d3159706da&fullscreenControl=null&captionControl=null&editinosmControl=null&locateControl=true"></iframe></MAP> -->
-    <article>
-      <ul>
+        <div id="restaurant-container"></div>
+    <article class="demo">
+      <ul class="vignettes">
         <li class="vignette-restaurant">
           <div class="information-restaurant">
             <h2 class="restaurant-name">Nom restaurant</h2>
@@ -176,14 +177,13 @@
         </li>
       </ul>
     </article>
-    <div id="restaurant-container"></div>
+
   </main>
   <footer>
     <p>© 2024 Wild Code School</p>
     <p>Made with ❤️ & ☕ by DaCoDe</p>
     <p>Contact <strong>dacode@gmail.com</strong></p>
   </footer>
-  <script src="script.js" type="module"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>

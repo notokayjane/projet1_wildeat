@@ -331,16 +331,32 @@ body {
   background-color: var(--main-color);
 }
 
-/* Carte interactive */
-body>main>MAP>iframe {
-  height: 250px;
+/* Carte */
+#map {
+  width: 100%;
+  height: 45vh;
+}
+.map-container{
+  padding: 1rem 1rem;
+  margin: 0 auto;
   width: 100vw;
-  margin: 0px;
-  border-radius: 16px;
+  transition: width 0.5s ease-in-out;
+}
+
+@media screen and (width >= 768px) {
+  .map-container{
+    width: 70vw;
+  }
 }
 
 /* Vignette du restaurant et son contenu */
-.vignette-restaurant {
+/* Vignette de démonstration vide */
+.demo{
+  display: none;
+}
+
+.vignette-restaurant{
+
   background-color: var(--secondary-color);
   display: flex;
   align-items: center;
@@ -353,12 +369,17 @@ body>main>MAP>iframe {
   flex-direction: column-reverse;
 }
 
+
+@media screen and (width >= 768px) {
+  .vignette-restaurant{
+    width: 70vw;
+    margin: 1rem auto;
+  }
+}
+
 /* Images et photos */
-.mySlides {
-
-  /*  display: ;*/
-
-  width: 50%;
+.mySlides{
+  width: 100%;
   height: max-content;
 }
 
@@ -366,17 +387,23 @@ body>main>MAP>iframe {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  /* height: ;*/
-
 }
 
 /* Boutons pour slider */
 .slide-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  text-align: center; /* Centrer les boutons */
 }
+
+.prev, .next {
+  background-color: var(--fourth-color);
+  border: none; 
+  color: var(--main-color);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
 
 .select-button {
   height: 13px;
