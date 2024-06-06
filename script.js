@@ -14,7 +14,7 @@ const restaurants = [
     restaurantPrice: "€€€",
     restaurantSite: "https://www.les-epicuriens-restaurant-juvignac.fr/",
     restaurantDesc: "Les Épicuriens à Juvignac est plus qu'un restaurant : c'est une destination gourmande. Brasserie, restaurant, et caviste, vous découvrirez une cuisine fusion unique. Centre Commercial Les Portes du Soleil, Entrée 2, 34990 Juvignac",
-    restaurantPic: "images/epicuriens/Group1_20231002110116.webp",
+    restaurantPic: "images/epicuriens/Frame75_20231002112236.png",
     dishPic1: "images/epicuriens/Frame18_20230912170422.webp",
     dishPic2: "images/epicuriens/Frame19_20230912170424.webp",
     dishPic3: "images/epicuriens/Frame24_20230912172505.webp",
@@ -125,83 +125,54 @@ const restaurants = [
   },
 ]
 
-document.addEventListener('DOMContentLoaded', function () {
-// Bouton du menu burger
-const sidenav = document.getElementById("mySidenav");
-const openNavBtn = document.getElementById("openBtn");
-const closeNavBtn = document.getElementById("closeBtn");
+  // Bouton du menu burger
+  const sidenav = document.getElementById("mySidenav");
+  const openNavBtn = document.getElementById("openBtn");
+  const closeNavBtn = document.getElementById("closeBtn");
 
-openNavBtn.onclick = openNav;
-closeNavBtn.onclick = closeNav;
+  if (openNavBtn && closeNavBtn && sidenav) {
+    openNavBtn.onclick = openNav;
+    closeNavBtn.onclick = closeNav;
 
-function openNav() {
-  sidenav.classList.add("active");
-}
-
-function closeNav() {
-  sidenav.classList.remove("active");
-}
-
-/* filters */
-const filters = document.getElementById("filtres");
-const openFiltresBtn = document.getElementById("openFiltresBtn");
-const closeFiltresBtn = document.getElementById("closeFiltresBtn");
-
-openFiltresBtn.onclick = openFiltres;
-closeFiltresBtn.onclick = closeFiltres;
-
-function openFiltres() {
-  filters.classList.add("active");
-}
-
-function closeFiltres() {
-  filters.classList.remove("active");
-}
-});
-
-// Slideshow et boutons associés
-document.addEventListener('DOMContentLoaded', function() {
-  const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
-  let slideIndex = 1;
-  showSlides(slideIndex);
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  function showSlides(n){
-    let i;
-    let s = document.getElementsByClassName("mySlides");
-    if (n > s.length) {slideIndex = 1};
-    if (n < 1) {slideIndex = s.length};
-    for (i = 0; i < s.length; i++){
-      s[i].style.display = "none";
+    function openNav() {
+      sidenav.classList.add("active");
     }
-    s[slideIndex-1].style.display = "block";
+
+    function closeNav() {
+      sidenav.classList.remove("active");
+    }
   }
-  restaurantVignettes.forEach(vignette => {
-    const slides = vignette.querySelectorAll('.mySlides');
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    vignette.innerHTML += `
-      <div class="slide-buttons">
-        <button class="prev" onclick="plusSlides(-1)">Prev</button>
-        <button class="next" onclick="plusSlides(1)">Next</button>
-      </div>
-    `;
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    prevButton.addEventListener('click', () => plusSlides(-1));
-    nextButton.addEventListener('click', () => plusSlides(1));
-    function showSlides(n) {
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
+
+  // Filtres
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButton = document.getElementById('filter-button');
+  const filtersSection = document.getElementById('filtres');
+
+  filterButton.addEventListener('click', function() {
+    if (filtersSection.style.display === 'none' || filtersSection.style.display === '') {
+      filtersSection.style.display = 'block';
+    } else {
+      filtersSection.style.display = 'none';
     }
   });
 });
- //Fin du slideshow
+
+// // Slideshow
+function createCarousel(j){
+  let slideIndex = 0
+  const slides = document.getElementsByClassName(`mySlides ${j}`)
+  function carousel(){
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // = 2sec
+  }
+  carousel();
+}
+//  //Fin du slideshow
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -221,23 +192,26 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 function afficherRestaurants(restaurants) {
   const container = document.getElementById('restaurant-container');
   container.innerHTML = '';
+  let index = 1;
   for (const restaurant of restaurants) {
     const card = document.createElement('div');
     card.classList.add('vignette-restaurant');
     card.innerHTML = `<div class="information-restaurant">
                               <h2 class="restaurant-name">${restaurant.restaurantName}</h2>
-                              <p class="restaurant-description">${restaurant.restaurantDesc}</p>
                               <div class="restaurant-note">Note: ${restaurant.restaurantRating}</div>
                               <div class="restaurant-price">Prix: ${restaurant.restaurantPrice}</div>
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
-                          </div>
+                              <p class="restaurant-description">${restaurant.restaurantDesc}</p>
+                              </div>
                           <div class="image-restaurant">
-                              <img src="${restaurant.restaurantPic}" class="mySlides" alt="photo restaurant">
-                              <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
-                              <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
-                              <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
+                              <img src="${restaurant.restaurantPic}" class="mySlides ${index}" alt="photo restaurant">
+                              <img src="${restaurant.dishPic1}" class="mySlides ${index}" alt="photo d'un plat">
+                              <img src="${restaurant.dishPic2}" class="mySlides ${index}" alt="photo d'un plat">
+                              <img src="${restaurant.dishPic3}" class="mySlides ${index}" alt="photo d'un plat">
                           </div>`;
     container.appendChild(card);
+    createCarousel(index);
+    index++;
   }
 }
 
@@ -286,7 +260,11 @@ function updateFilteredRestaurants() {
   } else {
     z = 12;
   }
+  if (locationsFiltrees.length === 4){
+    updateMapView([2.2137, 46.2276], 5.5);
+  } else { 
   updateMapView([longmoy, latmoy], z);
+  };
 }
 
 // Update sur case cochée

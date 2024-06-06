@@ -17,8 +17,12 @@
 /*Header*/
 header {
   background-color: var(--fourth-color);
-  padding: 2rem;
+  padding: 2rem 0 2rem 0;
   border-radius: 0 0 40px 40px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -32,6 +36,7 @@ nav {
   background-attachment: fixed;
   background-size: cover;
   justify-content: space-between;
+  padding: 0 1rem 0 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -40,30 +45,11 @@ nav {
   z-index: 2;
 }
 
-nav>search {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-.sous {
-  display: none;
-}
-
-/*début search button*/
-.group {
-  display: flex;
-  line-height: 28px;
-  align-items: center;
-  max-width: 190px;
-}
-
 .input {
   width: 100%;
-  height: 40px;
-  line-height: 28px;
+  height: 2rem;
+  line-height: 1.8rem;
   padding: 0 1rem;
-  padding-left: 2.5rem;
   border: 2px solid transparent;
   border-radius: 8px;
   outline: none;
@@ -92,7 +78,241 @@ input:hover {
   height: 1rem;
 }
 
-/*fin search button*/
+/* Menu Burger*/
+/* Sidenav menu */
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -10000px;
+  background-color: var(--secondary-color);
+  padding-top: 60px;
+  transition: right 0.5s ease;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Sidenav menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--third-color);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Active class */
+.sidenav.active {
+  right: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+/*Fin du menu burger*/
+
+/*début search button*/
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  max-width: 190px;
+}
+
+.search {
+  margin: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-buttons{
+  margin: 0 auto;
+}
+
+.search-buttons > button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: var(--secondary-color);
+  color: var(--fourth-color);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 0.5rem;
+}
+
+.search-buttons > button:hover {
+  background-color: var(--third-color);
+}
+
+/* Filtres */
+#filtres {
+  display: none;
+
+}
+#filtres .active {
+  display: block;
+}
+
+
+
+/* Fin de la partie sur les filtres*/
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--main-color);
+  padding-top: 72px;
+}
+
+/* Carte */
+#map {
+  width: 100%;
+  height: 45vh;
+  border-radius: 1rem;
+}
+.map-container{
+  padding: 1rem 1rem;
+  margin: 0 auto;
+  width: 100vw;
+  transition: width 0.5s ease-in-out;
+}
+
+@media screen and (width >= 768px) {
+  .map-container{
+    width: 70vw;
+  }
+}
+
+/* Vignette du restaurant et son contenu */
+/* Vignette de démonstration vide */
+.demo{
+  display: none;
+}
+
+.vignette-restaurant{
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border-radius: 16px;
+  gap: 0.5rem;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+@media screen and (width >= 768px) {
+  .vignette-restaurant{
+    width: 70vw;
+    margin: 1rem auto;
+  }
+}
+
+/* Images et photos */
+.mySlides{
+  width: 100%;
+  height: 30vh;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgb(97, 97, 97);
+  object-fit: cover;
+  animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  from {opacity: 0.6;}
+  to {opacity: 1;}
+}
+
+.image-restaurant {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+}
+
+/* Contenu et descriptions */
+.information-restaurant{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+.restaurant-name {
+  font-family: var(--subtitle-font);
+  color: #0c3eff;
+  padding: 0.5rem;
+  justify-content: center;
+}
+
+.restaurant-description {
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+  background-color: var(--third-color);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  width: 90vw;
+  height: auto;
+  box-shadow: 5px 5px 10px rgb(76, 67, 3);
+}
+
+/* Fin de la partie sur l'overflow */
+.restaurant-note {
+  color: black;
+}
+
+.restaurant-price {
+  color: black;
+}
+
+.restaurant-link {
+  color: black;
+}
+/* Bas de page */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.3rem;
+  color: var(--main-color);
+  font-size: small;
+  background-color: var(--fourth-color);
+  background-attachment: fixed;
+  padding: 2rem;
+  border-radius: 40px 40px 0 0;
+}
 
 /* Barres des réseaux sociaux */
 .wrapper {
