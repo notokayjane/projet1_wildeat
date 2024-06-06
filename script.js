@@ -353,3 +353,16 @@ const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clearAllFilters);
 clearButton.addEventListener('click', updateFilteredRestaurants);
 
+/* filtres */
+const filtres = document.getElementById("filtres");
+openBtn.onclick = openBtn("openBtn");
+closeBtn.onclick = closeBtn("closeBtn");
+
+function openNav() {
+  filtres.classList.add("active");
+}
+
+function closeNav() {
+  filtres.classList.remove("active");
+}
+

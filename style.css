@@ -183,14 +183,17 @@ input:hover {
 /* Menu Burger*/
 /* Sidenav menu */
 .sidenav {
-  width: 10rem;
+  height: 100%;
+  width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
-  right: -250px;
-  background-color: #e8e8e8;
+  right: -10000px;
+  background-color: var(--secondary-color);
   padding-top: 60px;
   transition: right 0.5s ease;
+  text-align: center;
+  opacity: 0.9;
 }
 
 /* Sidenav menu links */
@@ -198,7 +201,7 @@ input:hover {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: var(--third-color);
   display: block;
   transition: 0.3s;
 }
