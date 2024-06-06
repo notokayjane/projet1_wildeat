@@ -180,7 +180,7 @@ function filterRestaurants(restaurants, filtres) {
     const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
     const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
     const matchNote = !filtres.note || filtres.note.includes(restaurant.restaurantRating);
-    const matchPrice = !filtres.Price || filtres.Price.includes(restaurant.restaurantPrice);
+    const matchPrice = !filtres.price || filtres.price.includes(restaurant.restaurantPrice);
     return matchVille && matchTypeCuisine && matchNote && matchPrice;
   });
 }

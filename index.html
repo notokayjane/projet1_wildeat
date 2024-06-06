@@ -43,7 +43,6 @@
         <button type="button" id="clearButton">Clear</button>
       </div>
       <section class="filtres" id="filtres">
-        <h2>Filtres</h2>
         <div>
           <h3>Ville</h3>
           <div id="ville">
@@ -74,11 +73,10 @@
             <label><input type="checkbox" name="price" value="€€€€"> €€€€</label>
           </div>
         </div>
-
       </section>
     </div>
     <div class="group">
-      <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+      <svg class="icone" aria-hidden="true" viewBox="0 0 24 24">
         <g>
           <path
             d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
@@ -87,42 +85,11 @@
       </svg>
       <input placeholder="Search" type="search" class="input" id="site-search">
     </div>
-    </div>
   </header>
   <main>
     <div class="map-container"><div id="map" ></div></div>
     <script src="./lib/ol/dist/ol.js"></script>
-        <div id="restaurant-container"></div>
-    <article class="demo">
-      <ul class="vignettes">
-        <li class="vignette-restaurant">
-          <div class="information-restaurant">
-            <h2 class="restaurant-name">Nom restaurant</h2>
-            <p class="restaurant-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Eum aliquid perferendis quaerat architecto suscipit incidunt reprehenderit aut.
-              Cupiditate nobis nesciunt maxime, hic ab commodi, praesentium, a voluptas dignissimos magni voluptatibus!
-            </p>
-            <input type="checkbox" class="expand-button">
-            <div class="restaurant-note">rating</div> 
-            <div class="restaurant-price">prix:</div>
-            <div class="restaurant-link">lien site</div>
-          </div>
-          <div class="image-restaurant">
-            <img src="images/chalet-savoyard/plats-3.jpg" class="mySlides" alt="photo restaurant">
-            <img src="images/chalet-savoyard/plats-2.jpg" class="mySlides" alt="photo plat 1">
-            <img src="images/chalet-savoyard/plats-3.jpg" class="mySlides" alt="photo plat 2">
-            <img src="images/chalet-savoyard/visu-accueil-5.jpg" class="mySlides" alt="photo plat 3">
-            <div class="slide-buttons">
-              <div class="left-arrow"></div>
-              <span class="select-button" onclick="currentDiv(1)"></span>
-              <span class="select-button" onclick="currentDiv(2)"></span>
-              <span class="select-button" onclick="currentDiv(3)"></span>
-              <div class="right-arrow"></div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </article>
+    <div id="restaurant-container"></div>
     <ul class="wrapper">
       <ul class="icon facebook">
         <span class="tooltip">
@@ -132,7 +99,6 @@
             </path>
           </svg>
       </ul></span>
-
       <ul class="icon twitter">
         <span class="tooltip">
           <svg height="1.8em" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"

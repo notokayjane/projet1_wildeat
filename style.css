@@ -71,7 +71,7 @@ input:hover {
   box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
 }
 
-.icon {
+.icone {
   position: absolute;
   left: 1rem;
   fill: #9e9ea7;
@@ -91,7 +91,12 @@ input:hover {
   margin: 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+}
+
+@media screen and (width >= 1024px) {
+  .search {
+    margin-top: 1rem;
+  }
 }
 
 .search-buttons{
@@ -117,7 +122,6 @@ input:hover {
 /* Filtres */
 #filtres {
   display: none;
-
 }
 #filtres .active {
   display: block;
@@ -144,24 +148,21 @@ body {
   padding: 1rem 1rem;
   margin: 0 auto;
   width: 100vw;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .map-container{
     width: 70vw;
   }
 }
 
 /* Vignette du restaurant et son contenu */
-/* Vignette de démonstration vide */
-.demo{
-  display: none;
-}
 
 .vignette-restaurant{
   background-color: var(--secondary-color);
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
   margin: 1rem 0.5rem;
@@ -172,9 +173,9 @@ body {
   flex-direction: column-reverse;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .vignette-restaurant{
-    width: 70vw;
+    width: clamp(25vw, 40vw, 500px);
     margin: 1rem auto;
   }
 }
@@ -194,13 +195,6 @@ body {
   to {opacity: 1;}
 }
 
-.image-restaurant {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 1rem;
-}
-
 /* Contenu et descriptions */
 .information-restaurant{
   display: flex;
@@ -208,6 +202,15 @@ body {
   align-items: center;
   height: auto;
 }
+
+@media screen and (width >= 1024px) {
+  #restaurant-container{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(30vw, 1fr));
+    padding: 0 4rem;
+  }
+}
+
 .restaurant-name {
   font-family: var(--subtitle-font);
   color: #0c3eff;
@@ -221,14 +224,20 @@ body {
   font-weight: 500;
   font-size: 1rem;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--max-lines);
   background-color: var(--third-color);
   border-radius: 8px;
   margin-top: 0.5rem;
+  max-width: 55ch;
   padding: 1rem;
   width: 90vw;
   height: auto;
   box-shadow: 5px 5px 10px rgb(76, 67, 3);
+}
+
+@media screen and (width >= 1024px) {
+  .restaurant-description {
+    width: fit-content;
+  }
 }
 
 /* Fin de la partie sur l'overflow */
@@ -267,7 +276,7 @@ footer {
   list-style: none;
   height: 120px;
   width: 100%;
-  padding-top: 40px;
+  padding: 40px 0;
   font-family: "Poppins", sans-serif;
 }
 
@@ -276,8 +285,8 @@ footer {
   background: #fff;
   border-radius: 50%;
   margin: 10px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   font-size: 18px;
   display: flex;
   justify-content: center;
@@ -293,11 +302,10 @@ footer {
   top: 0;
   font-size: 14px;
   background: #fff;
-  color: #fff;
+  color: #7b7b7b;
   padding: 5px 8px;
   border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  opacity: 0;
+  opacity: 0.8;
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
