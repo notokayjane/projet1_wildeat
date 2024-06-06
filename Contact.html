@@ -21,8 +21,8 @@
 <body>
     <header>
         <nav>
-            <img class="logo" src="Spice_Odyssey_3.png" alt="Logo de Spice Odyssey">
-            <h1> Spice Odyssey</h1>
+            <img class="logo" src="spiceodyssey_logo.png" alt="Logo de Spice Odyssey">
+            
             <div id="mySidenav" class="sidenav">
                 <a id="closeBtn" href="#" class="close">x</a>
                 <ul>
@@ -39,7 +39,14 @@
             </a>
         </nav>
         <div class="intro">
+            <main> <div class="important">
             <h2>Formulaire de contact</h2>
+            <p id="important">Vous souhaitez entrer en contact avec nous ?
+                Pour nous donner vos impressions sur le site, sur les restaurants sités ou pour les noter,
+             n'hésitez pas à nous écrire, nous vous répondrons sous les meilleurs délais.
+                <br></br>
+                Votre participation nous aidera à améliorer notre site et le rendre plus complet.
+            </p></div></main>
         </div>
     </header>
 
@@ -52,63 +59,43 @@
                 <br>Votre participation nous aidera à améliorer notre site et le rendre plus complet.
             </p>
 
-            <form>
-
-                <label>Quel est votre prénom ? <br><input type="text" required></label>
-
-                <br>
-
-                <label>Quel est votre nom ?<br> <input type="text" required></label>
-
-                <br>
-
-                <label>Quel est votre email ?<br> <input type="email" required></label>
-
-                <br>
-
-                <label>Quelle est votre date de naissance ?<br> <input type="date" required></label>
-
-                <br>
-
-                <label for="contact-reason">Quelle est la raison de votre contact ? </label>
-
-
-                <select class="reason" name="reason" id="contact-reason" required>
-
-                    <option value="">--Choisissez une option--</option>
-
-                    <option value="informations-site">Donner mes impressions sur le site</option>
-
-                    <option value="information-restaurant">Je souhaite plus d'informations sur les restaurants</option>
-
-                    <option value="note">Noter les restaurants</option>
-
-                </select>
-
-                <br>
-
-                <label>Ecrivez votre message:
-
-                    <br>
-
-                    <textarea id="message" name="message" rows="5" cols="33" maxlength="500">
-
-
-
-                </textarea>
-
+            <form class="form">
+    
+                <div class="flex">
+                    <label>
+                        <input required="" placeholder="" type="text" class="input">
+                        <span>Nom</span>
+                    </label>
+            
+                    <label>
+                        <input required="" placeholder="" type="text" class="input">
+                        <span>Prénom</span>
+                    </label>
+                </div>  
+                        
+                <label>
+                    <input required="" placeholder="" type="email" class="input">
+                    <span>Email</span>
+                </label> 
+                    
+                <label>
+                    <input required="" type="tel" placeholder="" class="input">
+                    <span>Numéro de téléphone</span>
                 </label>
-
-                <br>
-
-
-                <input type="submit" id="submitButton" value="Envoyer le formulaire">
-           
-
-
+                <label>
+                    <textarea required="" rows="3" placeholder="" class="input01"></textarea>
+                    <span>Message</span>
+                </label>
+                
+                <button type="submit" class="fancy" >
+                  <span class="top-key"></span>
+                  <span class="text">Envoyer</span>
+                  <span class="bottom-key-1"></span>
+                  <span class="bottom-key-2"></span>
+                </button>
             </form>
         </div>
- 
+
     </main>
     <footer>
         <p>© 2024 Wild Code School</p>

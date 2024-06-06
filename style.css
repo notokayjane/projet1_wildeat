@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
-:root{
-  --main-color:#ffffff;
-  --secondary-color:#ffd332;
-  --third-color:#009c53;
-  --fourth-color:#f15622;
+:root {
+  --main-color: #ffffff;
+  --secondary-color: #ffd332;
+  --third-color: #009c53;
+  --fourth-color: #f15622;
   --title-font: 'Poetsen One', sans-serif;
   --subtitle-font: 'subjectivity', sans-serif;
   --main-font: 'space mono', sans-serif;
@@ -77,65 +77,6 @@ input:hover {
   width: 1rem;
   height: 1rem;
 }
-
-/* Menu Burger*/
-/* Sidenav menu */
-.sidenav {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: -10000px;
-  background-color: var(--secondary-color);
-  padding-top: 60px;
-  transition: right 0.5s ease;
-  text-align: center;
-  opacity: 0.9;
-}
-
-/* Sidenav menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: var(--third-color);
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #111;
-}
-
-.sidenav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Active class */
-.sidenav.active {
-  right: 0;
-}
-
-/* Close btn */
-.sidenav .close {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
-
-/* Icône burger */
-.burger-icon span {
-  display: block;
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px 0;
-}
-/*Fin du menu burger*/
 
 /*début search button*/
 .group {
@@ -403,11 +344,73 @@ footer {
   color: #fff;
 }
 
+/* Menu Burger*/
+/* Sidenav menu */
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: -10000px;
+  background-color: var(--secondary-color);
+  padding-top: 60px;
+  transition: right 0.5s ease;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Sidenav menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--third-color);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #111;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Active class */
+.sidenav.active {
+  right: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+/* Icône burger */
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: var(--secondary-color);
+  margin: 6px 0;
+}
+
+/*Fin du menu burger*/
+
+
 /*Page A propos*/
 .intro {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
 }
 
 .infos {
@@ -416,6 +419,23 @@ footer {
   flex-direction: column;
   align-items: center;
   font-size: larger;
+
+}
+
+h2 {
+  margin-top: -10%;
+  font-family: var(--subtitle-font);
+  color: var(--secondary-color);
+}
+
+.team {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
+  align-items: center;
+  font-size: 13px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
 }
 
 h3 {
@@ -427,22 +447,36 @@ h3 {
 .wilders {
   background-color: var(--secondary-color);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0.5rem;
   margin: 1rem 0.5rem;
   border-radius: 16px;
   gap: 0.5rem;
   height: auto;
-  font-size: medium;
+  width: 50%;
+font-size: medium;
+  flex-direction: column-reverse;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .information-wilders {
+  background-color: white;
+  color: black;
+  width: 90vw;
+  max-height: 500px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  font-size: 16px;
+  padding: 1rem;
+}
+
+.card-img {
+  width: 400%;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: justify;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
 }
 
 .Nous {
@@ -452,30 +486,215 @@ h3 {
 /*Page Contact*/
 .contact {
   text-align: center;
+}
+.form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  margin: auto;
+}
+
+.message {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+  flex-direction: column;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 5px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: black;
+  font-size: 0.9em;
+  font-family: var(--subtitle-font);
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: var(--fourth-color);
+}
+.input01 {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 5px;
+}
+
+.important {
+  font-family: var(--main-font);
+  color: whitesmoke;
+  padding: 1rem;
   align-items: center;
-  font-size: larger;
+  font-size: 12px;
+  background-color: var(--fourth-color);
+  background-color: 50%;
 }
 
-#message {
-  font: var(--main-font);
+.form label .input01 + span {
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
 }
 
-.reason {
-  font-size: medium
+.form label .input01:placeholder-shown + span {
+  top: 40px;
+  font-size: 0.9em;
 }
 
-#submitButton {
-  font: var(--main-font);
-  margin: 1rem
-  }
+.form label .input01:focus + span,.form label .input01:valid + span {
+  top: 50px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
 
-  #submitButton:hover {
-  font: var(--main-font);
-  width: 500px;
-  transition: width 1s ease-in;
-  background-color: #99bd05;
+.form label .input01:valid + span {
+  color: var(--fourth-color);
+}
+
+.fancy {
+  background-color: transparent;
+  border: 2px solid #cacaca;
+  border-radius: 0px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 390;
+  letter-spacing: 2px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 8px 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: 13px;
+}
+
+.fancy::before {
+  content: " ";
+  width: 1.7rem;
+  height: 2px;
+  background: #cacaca;
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform: translateX(230%);
+  transform-origin: center;
+  transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  padding-left: 2em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: #818181;
+  transform: translateX(30%);
+}
+
+.fancy .top-key {
+  height: 2px;
+  width: 1.5625rem;
+  top: -2px;
+  left: 0.625rem;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+  height: 2px;
+  width: 1.5625rem;
+  right: 1.875rem;
+  bottom: -2px;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+  height: 2px;
+  width: 0.625rem;
+  right: 0.625rem;
+  bottom: -2px;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+  color: white;
+  background: #cacaca;
+}
+
+.fancy:hover::before {
+  width: 1.5rem;
+  background: white;
+}
+
+.fancy:hover .text {
+  color: white;
+  padding-left: 1.5em;
+}
+
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
 }
 
 @media screen and (min-width: 80rem) {
