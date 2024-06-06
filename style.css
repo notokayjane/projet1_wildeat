@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 :root{
   --main-color:#f2e8cc;
   --secondary-color:#99bd05;
@@ -98,25 +99,37 @@ nav {
   background-color: black;
   margin: 6px 0;
 }
-
-/*Sous menu burger (Les villes)*/
-
-
 /*Fin du menu burger*/
+
 body {
   font-family: var(--main-font);
   background-color: var(--main-color);
 }
 
-/* Carte interactive */
-body > main > MAP > iframe {
-  height: 250px;
+/* Carte */
+#map {
+  width: 100%;
+  height: 45vh;
+}
+.map-container{
+  padding: 1rem 1rem;
+  margin: 0 auto;
   width: 100vw;
-  margin: 0px;
-  border-radius: 16px;
+  transition: width 0.5s ease-in-out;
+}
+
+@media screen and (width >= 768px) {
+  .map-container{
+    width: 70vw;
+  }
 }
 
 /* Vignette du restaurant et son contenu */
+/* Vignette de démonstration vide */
+.demo{
+  display: none;
+}
+
 .vignette-restaurant{
     background-color: var(--secondary-color);
     display: flex;
@@ -128,11 +141,16 @@ body > main > MAP > iframe {
     gap: 0.5rem;
     height: auto;
 }
+
+@media screen and (width >= 768px) {
+  .vignette-restaurant{
+    width: 70vw;
+    margin: 1rem auto;
+  }
+}
+
 /* Images et photos */
 .mySlides{
-
-/*  display: ;*/
-
   width: 100%;
   height: max-content;
 }
@@ -140,17 +158,22 @@ body > main > MAP > iframe {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
- /* height: ;*/
-
 }
 /* Boutons pour slider */
-.slide-buttons{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-main
+.slide-buttons {
+  text-align: center; /* Centrer les boutons */
 }
+
+.prev, .next {
+  background-color: var(--fourth-color); /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: var(--main-color); /* Couleur du texte */
+  padding: 8px 16px; /* Espacement interne */
+  font-size: 1rem; /* Taille de la police */
+  cursor: pointer; /* Curseur en forme de main */
+  margin: 0 5px; /* Marge entre les boutons */
+}
+
 
 .select-button{
   height: 13px;
@@ -173,7 +196,6 @@ main
   color: var(--main-color);
 }
 .restaurant-description{
-
     color: black;
     font-weight: 500;
     max-width: 25ch;
@@ -291,5 +313,4 @@ h3 {
 }
 .reason {
   font-size: medium;
-
 }

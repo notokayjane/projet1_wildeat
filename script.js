@@ -1,23 +1,28 @@
+const locations = [
+  { id: "Paris", longitude: 2.3522, latitude: 48.8566 },
+  { id: "Lyon", longitude: 4.8357, latitude: 45.7640 },
+  { id: "Bordeaux", longitude: -0.5792, latitude: 44.8378 },
+  { id: "Montpellier", longitude: 3.8767, latitude: 43.6119 },
+]
+
 const restaurants = [
   {
     restaurantName: "Les Epicuriens",
     city: "Montpellier",
     restaurantType: "Français",
-
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.les-epicuriens-restaurant-juvignac.fr/",
     restaurantDesc: "Les Épicuriens à Juvignac est plus qu'un restaurant : c'est une destination gourmande. Brasserie, restaurant, et caviste, vous découvrirez une cuisine fusion unique. Centre Commercial Les Portes du Soleil, Entrée 2, 34990 Juvignac",
-    restaurantPic: "images/epicuriens/Group 1_20231002110116.png",
-    dishPic1: "images/epicuriens/Frame 18_20230912170422.png.webp",
-    dishPic2: "images/epicuriens/Frame 19_20230912170424.png.webp",
-    dishPic3: "images/epicuriens/Frame 24_20230912172505.png.webp",
+    restaurantPic: "images/epicuriens/Group1_20231002110116.webp",
+    dishPic1: "images/epicuriens/Frame18_20230912170422.webp",
+    dishPic2: "images/epicuriens/Frame19_20230912170424.webp",
+    dishPic3: "images/epicuriens/Frame24_20230912172505.webp",
   },
   {
     restaurantName: "MIMA",
     city: "Lyon",
     restaurantType: "Italien",
-
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.mima-lyon.fr/",
@@ -31,7 +36,6 @@ const restaurants = [
     restaurantName: "Le McQueen",
     city: "Paris",
     restaurantType: "Japonais",
-
     restaurantRating: "4.6 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://lemcqueen.fr/",
@@ -45,7 +49,6 @@ const restaurants = [
     restaurantName: "Le chalet Savoyard",
     city: "Paris",
     restaurantType: "Français",
-
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.chalet-savoyard.fr/",
@@ -59,7 +62,6 @@ const restaurants = [
     restaurantName: "Pidè Paris",
     city: "Paris",
     restaurantType: "Turc",
-
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€",
     restaurantSite: "https://pide.paris/",
@@ -73,7 +75,6 @@ const restaurants = [
     restaurantName: "BIBIBAP",
     city: "Bordeaux",
     restaurantType: "Coréen",
-
     restaurantRating: "4 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.bibibap.fr/",
@@ -87,7 +88,6 @@ const restaurants = [
     restaurantName: "Mochicas Café",
     city: "Lyon",
     restaurantType: "Péruvien",
-
     restaurantRating: "4.9 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://mochicascafe.com/",
@@ -101,7 +101,6 @@ const restaurants = [
     restaurantName: "Royal Orchid",
     city: "Montpellier",
     restaurantType: "Thaïlandais",
-
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
     restaurantSite: "https://www.facebook.com/p/Royal-Orchid-100027943136673/",
@@ -115,7 +114,6 @@ const restaurants = [
     restaurantName: "Le Quatrième Mur",
     city: "Bordeaux",
     restaurantType: "Français",
-
     restaurantRating: "4.4 étoiles",
     restaurantPrice: "€€€€",
     restaurantSite: "https://quatrieme-mur.com/",
@@ -126,6 +124,7 @@ const restaurants = [
     dishPic3: "images/quatrieme-mur/la-brasserie-le-quatrieme (4).jpg",
   },
 ]
+// Bouton du menu burger
 
 const sidenav = document.getElementById("mySidenav");
 const openBtn = document.getElementById("openBtn");
@@ -144,33 +143,40 @@ function closeNav() {
   sidenav.classList.remove("active");
 }
 
-// Slideshow et boutons associés
-var slideIndex = 1;
-showDivs(slideIndex);
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("select-button");
-  if (n > x.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = x.length }
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " w3-white";
-}
-// Fin du slideshow
 
-// Fonction pour la barre de recherce.
+// Slideshow et boutons associés
+document.addEventListener('DOMContentLoaded', function () {
+  const restaurantVignettes = document.querySelectorAll('.vignette-restaurant');
+
+  restaurantVignettes.forEach(vignette => {
+    const slides = vignette.querySelectorAll('.mySlides');
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Ajouter les boutons
+    vignette.innerHTML += `
+      <div class="slide-buttons">
+        <button class="prev" onclick="plusSlides(-1)">Prev</button>
+        <button class="next" onclick="plusSlides(1)">Next</button>
+      </div>
+    `;
+
+    // Fonctions pour les boutons
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  });
+});
+
 
 // Fonction pour filtrer les restaurants
 function filterRestaurants(restaurants, filtres) {
@@ -180,12 +186,11 @@ function filterRestaurants(restaurants, filtres) {
     // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
     const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
     const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
-    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
+    const matchNote = !filtres.note || filtres.note.includes(restaurant.restaurantRating);
     const matchPrice = !filtres.Price || filtres.Price.includes(restaurant.restaurantPrice);
     return matchVille && matchTypeCuisine && matchNote && matchPrice;
   });
 }
-
 
 // On sélectionne toutes les checkbox
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -207,9 +212,7 @@ function afficherRestaurants(restaurants) {
                               <p class="restaurant-description">${restaurant.restaurantDesc}</p>
                               <input type="checkbox" class="expand-button">
                               <div class="restaurant-note">Note: ${restaurant.restaurantRating}</div>
-
                               <div class="restaurant-price">Prix: ${restaurant.restaurantPrice}</div>
-
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
                           </div>
                           <div class="image-restaurant">
@@ -217,29 +220,9 @@ function afficherRestaurants(restaurants) {
                               <img src="${restaurant.dishPic1}" class="mySlides" alt="photo plat 1">
                               <img src="${restaurant.dishPic2}" class="mySlides" alt="photo plat 2">
                               <img src="${restaurant.dishPic3}" class="mySlides" alt="photo plat 3">
-                              <div class="slide-buttons">
-                                <div class="left-arrow"></div>
-                                <span class="select-button" onclick="currentDiv(1)"></span>
-                                <span class="select-button" onclick="currentDiv(2)"></span>
-                                <span class="select-button" onclick="currentDiv(3)"></span>
-                                <div class="right-arrow"></div>
-                              </div>
                           </div>`;
     container.appendChild(card);
   }
-}
-
-// Fonction pour filtrer les restaurants
-function filterRestaurants(restaurants, filtres) {
-  return restaurants.filter(restaurant => {
-    // On fait une const pour chaque type de filtre
-    // On regarde si un filtre est coché ou pas (!filtre.XXX permet de vérifier si c'est vide/faux ou pas)
-    // et si c'est bien vide alors on regarde ce qui est dans le restaurant.xxx après
-    const matchVille = !filtres.ville || filtres.ville.includes(restaurant.city);
-    const matchTypeCuisine = !filtres.typeCuisine || filtres.typeCuisine.includes(restaurant.restaurantType);
-    const matchNote = !filtres.note || (filtres.note.includes("x étoiles")) || filtres.note.includes(restaurant.restaurantRating);
-    return matchVille && matchTypeCuisine && matchNote;
-  });
 }
 
 // Mise à jour des résultats
@@ -259,7 +242,6 @@ function updateFilteredRestaurants() {
         // sinon, on créé une nouvelle donnée avec la value lue sur la checkbox associée, c'est dans le cas où le tableau filtre est vide
       } else {
         filtre[name] = [checkbox.value];
-
       }
     }
   });
@@ -270,9 +252,32 @@ function updateFilteredRestaurants() {
     restaurantsFiltres = restaurantsFiltres.filter((restaurant) => {
       return restaurant.restaurantName.toLowerCase().includes(research) || restaurant.restaurantType.toLowerCase().includes(research) || restaurant.city.toLowerCase().includes(research);
     });
-    console.log(restaurantsFiltres)
   }
   afficherRestaurants(restaurantsFiltres);
+
+  // On filtre les coordonnées des villes sélectionnées
+  const villesFiltrees = [...new Set(restaurantsFiltres.map(id => id.city))];
+  const locationsFiltrees = locations.filter(location =>
+    villesFiltrees.includes(location.id));
+  // On calcule la latitude et la longitude moyennes
+  function latitudeMoyenne(locationsFiltrees) {
+    return locationsFiltrees.latitude;
+  }
+  function longitudeMoyenne(locationsFiltrees) {
+    return locationsFiltrees.longitude;
+  }
+  function sum(prev, next) {
+    return (prev + next) / 2;
+  }
+  // On les somme
+  let latmoy = locationsFiltrees.map(latitudeMoyenne).reduce(sum);
+  let longmoy = locationsFiltrees.map(longitudeMoyenne).reduce(sum);
+  if (locationsFiltrees.length > 1) {
+    z = 6.5;
+  } else {
+    z = 12;
+  }
+  updateMapView([longmoy, latmoy], z);
 }
 
 // Update sur case cochée
@@ -282,21 +287,133 @@ checkboxes.forEach(checkbox => {
 
 // barre de recherche
 const searchInput = document.querySelector("#site-search");
-searchInput.addEventListener("input", updateFilteredRestaurants)
+searchInput.addEventListener("input", updateFilteredRestaurants);
 
 afficherRestaurants(restaurants);
 
-// Bouton clear (décoche les filtres)
-function clearAllFilters() {
-  for (const checkbox of checkboxes) {
-    checkbox.checked = false;
+// Initialisation de la carte
+let map = new ol.Map({
+  target: 'map',
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],
+  view: new ol.View({
+    center: ol.proj.fromLonLat([2.2137, 46.2276]), // Coordonnées de la France
+    zoom: 5,
+  })
+});
+
+// Fonction pour créer un style de marqueur
+function createMarkerStyle(text) {
+  return new ol.style.Style({
+    image: new ol.style.Icon({
+      anchor: [0.5, 1],
+      src: 'https://openlayers.org/en/latest/examples/data/icon.png' // URL de l'icône du marqueur
+    }),
+    text: new ol.style.Text({
+      text: text,
+      offsetY: -25,
+      font: '12px Calibri,sans-serif',
+      fill: new ol.style.Fill({
+        color: '#000'
+      }),
+      stroke: new ol.style.Stroke({
+        color: '#fff',
+        width: 3
+      })
+    })
+  });
+}
+
+// Objets pour stocker les couches et les sources des villes et des restaurants
+const citySource = new ol.source.Vector();
+const restaurantSources = new Map();
+
+const cityLayer = new ol.layer.Vector({
+  source: citySource
+});
+
+const restaurantLayers = new Map();
+
+// Ajouter la couche des villes à la carte
+map.addLayer(cityLayer);
+
+// Fonction pour ajouter une ville
+function addCity(name, coords) {
+  const cityMarker = new ol.Feature({
+    geometry: new ol.geom.Point(ol.proj.fromLonLat(coords)),
+    name: name
+  });
+  cityMarker.setStyle(createMarkerStyle(name));
+  citySource.addFeature(cityMarker);
+
+  const restaurantSource = new ol.source.Vector();
+  restaurantSources.set(name, restaurantSource);
+
+  const restaurantLayer = new ol.layer.Vector({
+    source: restaurantSource,
+    visible: false // Masqué par défaut
+  });
+  restaurantLayers.set(name, restaurantLayer);
+  map.addLayer(restaurantLayer);
+}
+
+// Fonction pour ajouter un restaurant à une ville
+function addRestaurant(cityName, restaurantName, coords) {
+  const restaurantSource = restaurantSources.get(cityName);
+  if (restaurantSource) {
+    const restaurantMarker = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat(coords)),
+      name: restaurantName
+    });
+    restaurantMarker.setStyle(createMarkerStyle(restaurantName));
+    restaurantSource.addFeature(restaurantMarker);
   }
-}  
+}
 
-const clearButton = document.getElementById('clearButton');
-clearButton.addEventListener('click', clearAllFilters);
-clearButton.addEventListener('click', updateFilteredRestaurants);
+// Fonction pour mettre à jour les couches en fonction du zoom
+function updateLayers() {
+  const zoom = map.getView().getZoom();
+  citySource.getFeatures().forEach(cityMarker => {
+    const cityName = cityMarker.get('name');
+    const restaurantLayer = restaurantLayers.get(cityName);
+    if (zoom >= 10) {
+      cityLayer.setVisible(false);
+      restaurantLayer.setVisible(true);
+    } else {
+      cityLayer.setVisible(true);
+      restaurantLayer.setVisible(false);
+    }
+  });
+}
+// Fonction pour la mise à jour de la carte en fonction d'un lieu
+function updateMapView(newLocation, zoomLevel) {
+  const newCenter = ol.proj.fromLonLat(newLocation);
+  map.getView().setCenter(newCenter);
+  map.getView().setZoom(zoomLevel);
+}
+// Ajouter un écouteur pour les changements de résolution (zoom)
+map.getView().on('change:resolution', updateLayers);
 
+// Appel initial pour définir les couches en fonction du zoom initial
+updateLayers();
 
+// Exemple d'ajout de villes et de restaurants
+addCity('Paris', [2.3522, 48.8566]);
+addRestaurant('Paris', 'Le McQueen', [2.3397, 48.8670]);
+addRestaurant('Paris', 'Le Chalet Savoyard', [2.3825, 48.8515]);
+addRestaurant('Paris', 'Pidè Paris', [2.3508, 48.8506]);
 
+addCity('Lyon', [4.8357, 45.7640]);
+addRestaurant('Lyon', 'Mima', [4.8312, 45.7634]);
+addRestaurant('Lyon', 'Mochicas Café', [4.8285, 45.7613]);
 
+addCity('Bordeaux', [-0.5792, 44.8378]);
+addRestaurant('Bordeaux', 'BIBIBAP', [-0.5792, 44.8378]);
+addRestaurant('Bordeaux', 'Le Quatrième Mur', [-0.5749, 44.8413]);
+
+addCity('Montpellier', [3.8767, 43.6119]);
+addRestaurant('Montpellier', 'Les Epicuriens', [3.8278, 43.6138]);
+addRestaurant('Montpellier', 'Royal Orchid', [3.8781, 43.6079]);
