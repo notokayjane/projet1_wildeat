@@ -32,6 +32,12 @@ nav {
   background-attachment: fixed;
   background-size: cover;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 nav>search {
@@ -318,6 +324,7 @@ input:hover {
 body {
   font-family: var(--main-font);
   background-color: var(--main-color);
+  padding-top: 72px;
 }
 
 /* Carte */

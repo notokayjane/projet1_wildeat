@@ -146,8 +146,13 @@ function closeNav() {
 
 /* filtres */
 // const filtres = document.getElementById("filtres");
+
+// openBtn.onclick = openBtn("openBtn");
+// closeBtn.onclick = closeBtn("closeBtn");
+
 // // openBtn.onclick = openBtn("openBtn");
 // // closeBtn.onclick = closeBtn("closeBtn");
+
 
 // function openNav() {
 //   filtres.classList.add("active");
