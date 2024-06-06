@@ -194,6 +194,7 @@ body {
 #map {
   width: 100%;
   height: 45vh;
+  border-radius: 1rem;
 }
 .map-container{
   padding: 1rem 1rem;
@@ -215,7 +216,6 @@ body {
 }
 
 .vignette-restaurant{
-
   background-color: var(--secondary-color);
   display: flex;
   align-items: center;
@@ -238,60 +238,58 @@ body {
 /* Images et photos */
 .mySlides{
   width: 100%;
-  height: max-content;
+  height: 30vh;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgb(129, 115, 8);
 }
 
 .image-restaurant {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 1rem;
 }
 
 /* Contenu et descriptions */
+.information-restaurant{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
 .restaurant-name {
   font-family: var(--subtitle-font);
   color: #0c3eff;
-  padding: 1.5rem;
+  padding: 0.5rem;
   justify-content: center;
 }
 
 .restaurant-description {
   color: var(--secondary-color);
   font-weight: 500;
-  font-size: small;
-  /* Limitation des cases de description et overflow */
-  --max-lines: 4;
-  display: -webkit-box;
-  overflow: hidden;
+  font-size: 1rem;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--max-lines);
   background-color: var(--third-color);
   border-radius: 8px;
-  padding: 2rem 2rem 2rem 2rem;
-  width: 90%;
-  height: 200px;  
+  margin-top: 0.5rem;
+  padding: 1rem;
+  width: 90vw;
+  height: auto;
+  box-shadow: 5px 5px 10px rgb(76, 67, 3);
 }
 
 /* Fin de la partie sur l'overflow */
 .restaurant-note {
   color: black;
- float: left;
- display: flex;
- justify-content: space-between;
 }
 
 .restaurant-price {
   color: black;
-  float: left;
-  display: flex;
-  justify-content: space-between;
 }
 
 .restaurant-link {
   color: black;
-  float: left;
-  display: flex;
-  justify-content: space-between;
 }
 /* Bas de page */
 

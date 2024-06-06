@@ -198,11 +198,11 @@ function afficherRestaurants(restaurants) {
     card.classList.add('vignette-restaurant');
     card.innerHTML = `<div class="information-restaurant">
                               <h2 class="restaurant-name">${restaurant.restaurantName}</h2>
-                              <p class="restaurant-description">${restaurant.restaurantDesc}</p>
                               <div class="restaurant-note">Note: ${restaurant.restaurantRating}</div>
                               <div class="restaurant-price">Prix: ${restaurant.restaurantPrice}</div>
                               <div class="restaurant-link"><a href="${restaurant.restaurantSite}" target="_blank">Site web</a></div>
-                          </div>
+                              <p class="restaurant-description">${restaurant.restaurantDesc}</p>
+                              </div>
                           <div class="image-restaurant">
                               <img src="${restaurant.restaurantPic}" class="mySlides ${index}" alt="photo restaurant">
                               <img src="${restaurant.dishPic1}" class="mySlides ${index}" alt="photo d'un plat">
