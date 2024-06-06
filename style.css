@@ -122,6 +122,8 @@ input:hover {
 /* Filtres */
 #filtres {
   display: none;
+  font-family: var(--main-font);
+  font-size: 17px;
 }
 #filtres .active {
   display: block;
@@ -212,8 +214,8 @@ body {
 }
 
 .restaurant-name {
-  font-family: var(--subtitle-font);
-  color: #0c3eff;
+  font-family: var(--title-font);
+  color: var(--fourth-color);
   padding: 0.5rem;
   margin-top: 0.5rem;
   justify-content: center;
@@ -288,6 +290,7 @@ footer {
   width: 60px;
   height: 60px;
   font-size: 18px;
+  margin-top: -15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -421,7 +424,6 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .infos {
@@ -430,6 +432,7 @@ footer {
   flex-direction: column;
   align-items: center;
   font-size: larger;
+  
 
 }
 
@@ -451,8 +454,8 @@ h2 {
 
 h3 {
   font-family: var(--subtitle-font);
-  color: var(--main-color);
-  padding: 0.4rem 0 0.2rem 0;
+  color: var(--fourth-color);
+  font-size: 25px;
 }
 
 .wilders {
@@ -463,8 +466,7 @@ h3 {
   border-radius: 16px;
   gap: 0.5rem;
   height: auto;
-  width: 50%;
-font-size: medium;
+  width: 50% font-size: medium;
   flex-direction: column-reverse;
   align-items: center;
   flex-wrap: nowrap;
@@ -483,11 +485,7 @@ font-size: medium;
 }
 
 .card-img {
-  width: 400%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: absolute;
+  border-radius: 50% 50% 50% 50%;
 }
 
 .Nous {
