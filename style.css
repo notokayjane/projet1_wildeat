@@ -6,9 +6,10 @@
 
 :root {
   --main-color: #ffffff;
-  --secondary-color: #ffd332;
+  --secondary-color: #ffd332e3;
   --third-color: #009c53;
-  --fourth-color: #f15622;
+  --fourth-color: #d93e0a;
+  --burger-color:#008c4b;
   --title-font: 'Poetsen One', sans-serif;
   --subtitle-font: 'subjectivity', sans-serif;
   --main-font: 'space mono', sans-serif;
@@ -393,7 +394,7 @@ footer {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: var(--third-color);
+  color: var(--burger-color);
   display: block;
   transition: 0.3s;
 }
@@ -455,7 +456,7 @@ h2 {
 
 .team {
   font-family: var(--main-font);
-  color: whitesmoke;
+  color: #fff;
   padding: 1rem 1rem;
   max-width: 120ch;
   align-items: center;
@@ -598,7 +599,7 @@ h3 {
 
 .important {
   font-family: var(--main-font);
-  color: whitesmoke;
+  color: #fff;
   padding: 0 3rem;
   max-width: 120ch;
   font-size: 12px;
@@ -677,7 +678,7 @@ h3 {
   transition: all 0.3s ease-in-out;
   text-transform: lowercase;
   text-decoration: none;
-  color: #818181;
+  color: #767676;
   transform: translateX(30%);
 }
 
