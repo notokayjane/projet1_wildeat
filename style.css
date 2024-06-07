@@ -82,6 +82,7 @@ input:hover {
 .main-title {
   display: none;
   font-family: var(--title-font);
+  color: var(--secondary-color);
   font-weight: 700;
   font-size: 3rem;
 }
