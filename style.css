@@ -123,14 +123,15 @@ input:hover {
 #filtres {
   display: none;
   font-family: var(--main-font);
-  font-size: 17px;
+  font-size: 1rem;
 }
 #filtres .active {
   display: block;
 }
 
-.filtres > h2 {
+.filtres > div > h3 {
   color: white;
+  padding-top: 0.3rem;
 }
 /* Fin de la partie sur les filtres*/
 
@@ -209,7 +210,7 @@ body {
   #restaurant-container{
     display: grid;
     grid-template-columns: repeat(2, minmax(30vw, 1fr));
-    padding: 0 4rem;
+    padding: 0 6rem;
   }
 }
 
@@ -462,20 +463,26 @@ h3 {
   background-color: var(--secondary-color);
   display: flex;
   padding: 0.5rem;
-  margin: 1rem 0.5rem;
+  margin: 1rem auto;
   border-radius: 16px;
   gap: 0.5rem;
   height: auto;
-  width: 50% font-size: medium;
+  width: 80vw;
+  font-size: medium;
   flex-direction: column-reverse;
   align-items: center;
   flex-wrap: nowrap;
 }
 
+/* .wilders-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+} */
+
 .information-wilders {
   background-color: white;
   color: black;
-  width: 90vw;
+  width: fit-content;
   max-height: 500px;
   border-radius: 8px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
