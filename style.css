@@ -32,7 +32,7 @@ header {
 nav {
   display: flex;
   align-items: center;
-  background-color: #f15622;
+  background-color: var(--fourth-color);
   background-attachment: fixed;
   background-size: cover;
   justify-content: space-between;
@@ -53,7 +53,7 @@ nav {
   border: 2px solid transparent;
   border-radius: 8px;
   outline: none;
-  background-color: #f3f3f4;
+  background-color: var(--main-color);
   color: #0d0c22;
   transition: .3s ease;
   
@@ -78,6 +78,19 @@ input:hover {
   height: 1rem;
 }
 
+.main-title {
+  display: none;
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+@media screen and (width >= 768px) {
+.main-title {
+  padding-right: 3rem;
+  display: block;
+}
+}
 /*début search button*/
 .group {
   display: flex;
@@ -486,7 +499,7 @@ h3 {
 }
 
 .information-wilders {
-  background-color: white;
+  background-color: var(--main-color);
   color: black;
   width: fit-content;
   max-height: 500px;
