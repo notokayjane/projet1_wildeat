@@ -1,15 +1,15 @@
 const locations = [
-  {id: "Paris", longitude:2.3522, latitude:48.8566},
-  {id: "Lyon", longitude:4.8357, latitude:45.7640},
-  {id: "Bordeaux", longitude:-0.5792, latitude:44.8378},
-  {id: "Montpellier", longitude:3.8767, latitude:43.6119},
+  { id: "Paris", longitude: 2.3522, latitude: 48.8566 },
+  { id: "Lyon", longitude: 4.8357, latitude: 45.7640 },
+  { id: "Bordeaux", longitude: -0.5792, latitude: 44.8378 },
+  { id: "Montpellier", longitude: 3.8767, latitude: 43.6119 },
 ]
 
 const restaurants = [
   {
     restaurantName: "Les Epicuriens",
     city: "Montpellier",
-    coords : [3.8278, 43.6138],
+    coords: [3.8278, 43.6138],
     restaurantType: "Français",
     restaurantRating: "4.7 étoiles",
     restaurantPrice: "€€€",
@@ -51,7 +51,7 @@ const restaurants = [
   {
     restaurantName: "Le chalet Savoyard",
     city: "Paris",
-    coords:[2.3825, 48.8515],
+    coords: [2.3825, 48.8515],
     restaurantType: "Français",
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
@@ -79,7 +79,7 @@ const restaurants = [
   {
     restaurantName: "BIBIBAP",
     city: "Bordeaux",
-    coords:[-0.5792, 44.8378],
+    coords: [-0.5792, 44.8378],
     restaurantType: "Coréen",
     restaurantRating: "4 étoiles",
     restaurantPrice: "€€€",
@@ -93,7 +93,7 @@ const restaurants = [
   {
     restaurantName: "Mochicas Café",
     city: "Lyon",
-    coords:[4.8285, 45.7613],
+    coords: [4.8285, 45.7613],
     restaurantType: "Péruvien",
     restaurantRating: "4.9 étoiles",
     restaurantPrice: "€€€",
@@ -107,7 +107,7 @@ const restaurants = [
   {
     restaurantName: "Royal Orchid",
     city: "Montpellier",
-    coords:[3.8781, 43.6079],
+    coords: [3.8781, 43.6079],
     restaurantType: "Thaïlandais",
     restaurantRating: "4.3 étoiles",
     restaurantPrice: "€€€",
@@ -134,30 +134,30 @@ const restaurants = [
   },
 ]
 
-  // Bouton du menu burger
-  const sidenav = document.getElementById("mySidenav");
-  const openNavBtn = document.getElementById("openBtn");
-  const closeNavBtn = document.getElementById("closeBtn");
+// Bouton du menu burger
+const sidenav = document.getElementById("mySidenav");
+const openNavBtn = document.getElementById("openBtn");
+const closeNavBtn = document.getElementById("closeBtn");
 
-  if (openNavBtn && closeNavBtn && sidenav) {
-    openNavBtn.onclick = openNav;
-    closeNavBtn.onclick = closeNav;
+if (openNavBtn && closeNavBtn && sidenav) {
+  openNavBtn.onclick = openNav;
+  closeNavBtn.onclick = closeNav;
 
-    function openNav() {
-      sidenav.classList.add("active");
-    }
-
-    function closeNav() {
-      sidenav.classList.remove("active");
-    }
+  function openNav() {
+    sidenav.classList.add("active");
   }
 
-  // Filtres
-document.addEventListener('DOMContentLoaded', function() {
+  function closeNav() {
+    sidenav.classList.remove("active");
+  }
+}
+
+// Filtres
+document.addEventListener('DOMContentLoaded', function () {
   const filterButton = document.getElementById('filter-button');
   const filtersSection = document.getElementById('filtres');
 
-  filterButton.addEventListener('click', function() {
+  filterButton.addEventListener('click', function () {
     if (filtersSection.style.display === 'none' || filtersSection.style.display === '') {
       filtersSection.style.display = 'block';
     } else {
@@ -167,16 +167,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // // Slideshow
-function createCarousel(j){
+function createCarousel(j) {
   let slideIndex = 0
   const slides = document.getElementsByClassName(`mySlides ${j}`)
-  function carousel(){
+  function carousel() {
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
     }
     slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
     setTimeout(carousel, 2000); // = 2sec
   }
   carousel();
@@ -275,10 +275,10 @@ function updateFilteredRestaurants() {
   } else {
     z = 12;
   }
-  if (locationsFiltrees.length === 4){
+  if (locationsFiltrees.length === 4) {
     updateMapView([2.2137, 46.2276], 5.5);
-  } else { 
-  updateMapView([longmoy, latmoy], z);
+  } else {
+    updateMapView([longmoy, latmoy], z);
   };
 }
 
@@ -375,14 +375,14 @@ function addRestaurant(cityName, restaurantName, coords) {
     restaurantSource.addFeature(restaurantMarker);
   }
 }
-function hideRestaurant (cityName, restaurantName) {
+function hideRestaurant(cityName, restaurantName) {
   const restaurantSource = restaurantSources.get(cityName);
   if (restaurantSource) {
     const restaurantMarker = restaurantSource.getFeatureById(restaurantName)
     restaurantMarker.setStyle(null)
   }
 }
-function showRestaurant (cityName, restaurantName) {
+function showRestaurant(cityName, restaurantName) {
   const restaurantSource = restaurantSources.get(cityName);
   if (restaurantSource) {
     const restaurantMarker = restaurantSource.getFeatureById(restaurantName)
@@ -420,13 +420,13 @@ for (const location of locations) {
 }
 
 for (const restaurant of restaurants) {
-  const {city,restaurantName, coords } = restaurant;
-  addRestaurant(city,restaurantName,coords);
+  const { city, restaurantName, coords } = restaurant;
+  addRestaurant(city, restaurantName, coords);
 }
 
 
 // Fonction pour la mise à jour de la carte en fonction d'un lieu
-function updateMapView(newLocation, zoomLevel){
+function updateMapView(newLocation, zoomLevel) {
   const newCenter = ol.proj.fromLonLat(newLocation);
   map.getView().setCenter(newCenter);
   map.getView().setZoom(zoomLevel);

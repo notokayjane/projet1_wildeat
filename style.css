@@ -423,6 +423,11 @@ footer {
   font-size: 36px;
 }
 
+.page-title{
+  font-weight: 700;
+  font-size: 3rem;
+}
+
 /* Icône burger */
 .burger-icon span {
   display: block;
