@@ -1,10 +1,9 @@
 # Front-end Style Guide
 
 ## Layout
-Le site a été créé avec les widths suivants:
+Le site a été créé avec un breakpoint:
 
-Mobile: px
-Desktop: px
+Desktop: 1024px
 
 ## Colors
 
